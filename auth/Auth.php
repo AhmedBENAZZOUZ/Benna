@@ -13,7 +13,7 @@
 <body>
 	<div class="container" id="container">
 		<div class="form-container sign-up-container">
-			<form action="auth.php" method="post">
+			<form action="signup.php" method="post">
 				<h1>Create Account</h1>
 				<input type="text" placeholder="Full Name" name="name" />
 				<input type="date" placeholder="Date of birth" name="dob"/>
@@ -24,12 +24,12 @@
 			</form>
 		</div>
 		<div class="form-container sign-in-container">
-			<form action="auth.php" method="get">
+			<form action="signin.php" method="get">
 				<h1>Sign in</h1>
 				<input type="email" placeholder="Email" />
 				<input type="password" placeholder="Password" />
 				<a href="forgetPassword.html">Forgot your password?</a>
-				<button>Sign In</button>
+				<button type="submit" value="submit" name="submit">Sign In</button>
 			</form>
 		</div>
 		<div class="overlay-container">
