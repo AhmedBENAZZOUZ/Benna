@@ -15,11 +15,11 @@
 		<div class="form-container sign-up-container">
 			<form action="signup.php" method="post">
 				<h1>Create Account</h1>
+				<input type="text" placeholder="Username" name="username" />
 				<input type="text" placeholder="Full Name" name="name" />
-				<input type="date" placeholder="Date of birth" name="dob"/>
 				<input type="email" placeholder="Email" name="email" />
-				<input type="text" placeholder="Phone number" name="phone"/>
 				<input type="password" placeholder="Password" name="password" />
+				<input type="password" placeholder="Confirm password" name="repeatPassword" />
 				<button type="submit" value="submit" name="submit">Sign Up</button>
 			</form>
 		</div>
