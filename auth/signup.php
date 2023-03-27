@@ -24,5 +24,8 @@ if (isset($_POST["submit"])) {
 }
 
 header('Location: ../index.php');
-
+// This div is for error message : 
+// <div class="alert alert-danger" role="alert">
+//   This is a danger alert—check it out!
+// </div>
 ?>
