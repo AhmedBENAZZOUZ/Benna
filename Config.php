@@ -4,7 +4,7 @@ class config
 {
     private static $pdo = null;
 
-    public static function getConnexion()
+    protected static function getConnexion()
     {
         if (!isset(self::$pdo)) {
             try {
@@ -18,11 +18,9 @@ class config
                     ]
                 );
             } catch (Exception $e) {
-                die('Erreur: ' . $e->getMessage());
+                die('Erreur : ' . $e->getMessage());
             }
         }
         return self::$pdo;
     }
 }
-
-?>

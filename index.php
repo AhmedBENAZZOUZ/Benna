@@ -46,8 +46,22 @@
           <li><a href="#chefs">Chefs</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="./auth/Auth.php">Login</a></li>
+          <?php
+          if (isset($_SESSION['id'])) {
+            ?>
+            <li><a href="#">
+                <?php echo $_SESSION["username"]; ?>
+              </a></li>
+            <li><a href="./includes/signout.php">Sign out</a></li>
+            <?php
+          } else {
+            ?>
+            <li><a href="./auth/Auth.php">Login</a></li>
+            <?php
+          }
+          ?>
         </ul>
+
       </nav>
       <!-- .navbar -->
       <a class="btn-book-a-table" href="#book-a-table">Composer votre recette</a>
