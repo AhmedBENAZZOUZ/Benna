@@ -1,5 +1,6 @@
 <?php
 include '../Config.php';
+
 if (isset($_POST["submit"])) {
     $username = $_POST['username'];
     $name = $_POST['name'];
@@ -24,6 +25,7 @@ if (isset($_POST["submit"])) {
 }
 
 header('Location: ../index.php');
+
 // This div is for error message : 
 // <div class="alert alert-danger" role="alert">
 //   This is a danger alert—check it out!
