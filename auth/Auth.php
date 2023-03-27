@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./auth.css" class="css">
 	<link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
-	<title>Sign in-Benna</title>
+	<title>Sign in | Benna</title>
 </head>
 
 <body>
@@ -26,9 +26,9 @@
 		<div class="form-container sign-in-container">
 			<form action="signin.php" method="get">
 				<h1>Sign in</h1>
-				<input type="email" placeholder="Email" />
+				<input type="text" placeholder="Email OR Username" />
 				<input type="password" placeholder="Password" />
-				<a href="forgetPassword.html">Forgot your password?</a>
+				<a href="forgetPassword.php">Forgot your password?</a>
 				<button type="submit" value="submit" name="submit">Sign In</button>
 			</form>
 		</div>
@@ -41,7 +41,7 @@
 				</div>
 				<div class="overlay-panel overlay-right">
 					<h1>Hello, Friend!</h1>
-					<p>become one of ours!</p>
+					<p>You don't have an account ? <br> become one of ours!</p>
 					<button class="ghost" id="signUp">Sign Up</button>
 				</div>
 			</div>
