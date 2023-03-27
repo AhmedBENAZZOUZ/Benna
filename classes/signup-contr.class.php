@@ -2,7 +2,6 @@
 
 class SignupController extends Signup
 {
-   private int $id;
    private string $username;
    private string $name;
    private string $email;
@@ -22,23 +21,23 @@ class SignupController extends Signup
    public function signupUser()
    {
       if($this->emptyInput() == false){
-         header("Location : ../index.php?error=emptyinput");
+         header("location: ../index.php?error=emptyinput");
          exit();
       }
       if($this->invalidUsername() == false){
-         header("Location : ../index.php?error=username");
+         header("location: ../index.php?error=invalidusername");
          exit();
       }
       if ($this->invalidEmail() == false) {
-         header("Location : ../index.php?error=email");
+         header("location: ../index.php?error=invalidemail");
          exit();
       }
       if ($this->passwordMatch() == false) {
-         header("Location : ../index.php?error=passwordmatch");
+         header("location: ../index.php?error=passwordmatch");
          exit();
       }
       if ($this->usernameTaken() == false) {
-         header("Location : ../index.php?error=usernameoremailtaken");
+         header("location: ../index.php?error=usernameoremailtaken");
          exit();
       }
 

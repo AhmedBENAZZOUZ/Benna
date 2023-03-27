@@ -10,7 +10,7 @@ class Signup extends config
 
         if (!$stmt->execute(array($username, $name, $email, $password_encrypted))) {
             $stmt = null;
-            header('Location : ../index.php?error=stmtFailed');
+            header("location: ../index.php?error=stmtfailed");
             exit();
         }
 
@@ -27,7 +27,7 @@ class Signup extends config
 
         if (!$stmt->execute(array($username, $email))) {
             $stmt = null;
-            header('Location : ../index.php?error=stmtFailed');
+            header("location: ../index.php?error=stmtfailed");
             exit();
         }
 

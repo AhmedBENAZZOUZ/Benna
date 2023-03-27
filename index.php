@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +56,7 @@
             <li><a href="#">
                 <?php echo $_SESSION["username"]; ?>
               </a></li>
-            <li><a href="./includes/signout.php">Sign out</a></li>
+            <li><a href="./auth/signout.php">Sign out</a></li>
             <?php
           } else {
             ?>

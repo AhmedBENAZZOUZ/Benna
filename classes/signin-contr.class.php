@@ -2,7 +2,6 @@
 
 class SigninController extends Signin
 {
-    private int $id;
     private string $username;
     private string $password;
 
@@ -16,7 +15,7 @@ class SigninController extends Signin
     public function signinUser()
     {
         if ($this->emptyInput() == false) {
-            header("Location : ../index.php?error=emptyinput");
+            header("location: ../index.php?error=emptyinput");
             exit();
         }
 

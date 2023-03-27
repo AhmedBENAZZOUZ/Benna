@@ -13,7 +13,7 @@
 <body>
 	<div class="container" id="container">
 		<div class="form-container sign-up-container">
-			<form action="../includes/signup.php" method="post">
+			<form action="./signup.php" method="post">
 				<h1>Create Account</h1>
 				<input type="text" placeholder="Username" name="username" />
 				<input type="text" placeholder="Full Name" name="name" />
@@ -24,7 +24,7 @@
 			</form>
 		</div>
 		<div class="form-container sign-in-container">
-			<form action="../includes/signin.php" method="post">
+			<form action="./signin.php" method="post">
 				<h1>Sign in</h1>
 				<input type="text" placeholder="Email OR Username" name="username"/>
 				<input type="password" placeholder="Password" name="password"/>

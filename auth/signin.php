@@ -11,5 +11,5 @@ if (isset($_POST["submit"])) {
 
     $signin->signinUser();
 
-    header('Location: ../index.html');
+    header('Location: ../index.php?error=none');
 }
