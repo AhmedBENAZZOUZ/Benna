@@ -20,11 +20,11 @@ class SignupController extends Signup
 
    public function signupUser()
    {
-      if($this->emptyInput() == false){
+      if ($this->emptyInput() == false) {
          header("location: ../index.php?error=emptyinput");
          exit();
       }
-      if($this->invalidUsername() == false){
+      if ($this->invalidUsername() == false) {
          header("location: ../index.php?error=invalidusername");
          exit();
       }
@@ -41,7 +41,7 @@ class SignupController extends Signup
          exit();
       }
 
-      $this->setUser($this->username,$this->name,$this->email,$this->password);
+      $this->setUser($this->username, $this->name, $this->email, $this->password);
    }
    private function emptyInput()
    {

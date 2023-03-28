@@ -14,12 +14,7 @@ class Signup extends config
             exit();
         }
 
-        if ($stmt->rowCount() > 0) {
-            $resultCheck = false;
-        } else {
-            $resultCheck = true;
-        }
-        return $resultCheck;
+        $stmt = null;
     }
     protected function checkUser($username, $email)
     {
