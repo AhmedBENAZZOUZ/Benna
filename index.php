@@ -1,5 +1,11 @@
-<?php
+<?php 
 session_start();
+
+include("./Config.php");
+include("./functions.php");
+
+	$user_data = check_login($con);
+
 ?>
 
 <!DOCTYPE html>
@@ -53,14 +59,14 @@ session_start();
           <?php
           if (isset($_SESSION['id'])) {
             ?>
-            <li><a href="#">
+            <li><a href="profile.php">
                 <?php echo $_SESSION["username"]; ?>
               </a></li>
             <li><a href="./auth/signout.php">Sign out</a></li>
             <?php
           } else {
             ?>
-            <li><a href="./auth/Auth.php">Login</a></li>
+            <li><a href="./auth/Auth.php">Sign in</a></li>
             <?php
           }
           ?>

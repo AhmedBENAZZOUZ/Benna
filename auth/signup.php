@@ -1,45 +1,28 @@
 <?php
-include '../Config.php';
-include '../classes/signup.class.php';
-include '../classes/signup-contr.class.php';
+session_start();
 
-if (isset($_POST["submit"])) {
-    $username = $_POST['username'];
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $passwordRepeat = $_POST["repeatPassword"];
+include("../Config.php");
 
-    $signup = new SignupController($username,$name,$email,$password,$passwordRepeat);
 
-    $signup->signupUser();
+if (isset($_POST['submit'])) {
+   //something was posted
+   $username = $_POST['username'];
+   $name = $_POST['name'];
+   $email = $_POST['email'];
+   $password = $_POST['password'];
+   $passwordRepeat = $_POST["repeatPassword"];
 
-    header('Location: ../index.php');
+   if (!empty($username) && !empty($name) && !empty($email) && !empty($password) && !empty($passwordRepeat) && ($password == $passwordRepeat)) {
+
+      //save to database
+      // $password_encrypted = password_hash($password, PASSWORD_DEFAULT);
+      $query = "insert into users values (NULL,'$username','$name','$email','$password')";
+
+      mysqli_query($con, $query);
+
+      header("Location: ./Auth.php");
+      die;
+   } else {
+      echo "Please enter some valid information!";
+   }
 }
-
-// try {
-//     $db = config::getConnexion();
-
-//     $query = $db->prepare('INSERT INTO users VALUES(NULL,:username,:name,:email,:password)');
-
-//     $query->bindValue(':username', $client->setusername($username), PDO::PARAM_STR);
-//     $query->bindValue(':name', $name, PDO::PARAM_STR);
-//     $query->bindValue(':email', $email, PDO::PARAM_STR);
-//     $query->bindValue(':password', $password_encrypted, PDO::PARAM_STR);
-
-//     $query->execute();
-// } catch (PDOException $e) {
-//     $e->getMessage();
-// }
-
-
-// This div is for error message : 
-
-// $_SERVER['SCRIPT_NAME'];
-
-// <div class="alert alert-warning alert-dismissible fade show" role="alert">
-//   <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-//   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-//     <span aria-hidden="true">&times;</span>
-//   </button>
-// </div

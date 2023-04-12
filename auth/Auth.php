@@ -26,8 +26,8 @@
 		<div class="form-container sign-in-container">
 			<form action="./signin.php" method="post">
 				<h1>Sign in</h1>
-				<input type="text" placeholder="Email OR Username" name="username"/>
-				<input type="password" placeholder="Password" name="password"/>
+				<input type="text" placeholder="Email OR Username" name="username" />
+				<input type="password" placeholder="Password" name="password" />
 				<a href="forgetPassword.php">Forgot your password?</a>
 				<button type="submit" value="submit" name="submit">Sign In</button>
 			</form>

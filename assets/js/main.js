@@ -260,7 +260,7 @@ const menu = [
       category : "Breakfast",
       price: "4 DT ", 
       img : "https://assets.afcdn.com/recipe/20131024/24713_w1024h1024c1cx2747cy1872.jpg", 
-      ingredients : blalalal , 
+      ingredients : "blalalal" , 
      
   },
   {

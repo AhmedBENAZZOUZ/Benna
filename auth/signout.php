@@ -1,6 +1,12 @@
-<?php 
-session_start();
-session_unset();
-session_destroy();
+<?php
 
-header('Location : ../index.php?error=none');
+session_start();
+
+if(isset($_SESSION['id']))
+{
+	unset($_SESSION['id']);
+
+}
+
+header("Location: ../index.php");
+die;

@@ -1,15 +1,39 @@
 <?php
-include '../Config.php';
-include '../classes/signin.class.php';
-include '../classes/signin-contr.class.php';
 
-if (isset($_POST["submit"])) {
+session_start();
+
+include("../Config.php");
+
+
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    //something was posted
     $username = $_POST['username'];
     $password = $_POST['password'];
-     
-    $signin = new SigninController($username,$password);
 
-    $signin->signinUser();
+    if (!empty($username) && !empty($password) && !is_numeric($username)) {
 
-    header('Location: ../index.php?error=none');
+        //read from database
+        $query = "select * from users where username = '$username' limit 1";
+        $result = mysqli_query($con, $query);
+
+        if ($result) {
+            if ($result && mysqli_num_rows($result) > 0) {
+
+                $user_data = mysqli_fetch_assoc($result);
+
+                if ($user_data['password'] === $password) {
+
+                    $_SESSION['id'] = $user_data['id'];
+                    $_SESSION['username'] = $user_data['username'];
+                    header("Location: ../index.php");
+                    die;
+                }
+            }
+        }
+
+        echo "wrong username or password!";
+    } else {
+        echo "Must fill all  field!!";
+    }
 }

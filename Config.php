@@ -1,26 +1,11 @@
 <?php
 
-class config
-{
-    private static $pdo = null;
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "benna";
 
-    protected static function getConnexion()
-    {
-        if (!isset(self::$pdo)) {
-            try {
-                self::$pdo = new PDO(
-                    'mysql:host=localhost;dbname=benna',
-                    'root',
-                    ''
-                    // [
-                    //     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                    //     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-                    // ]
-                );
-            } catch (Exception $e) {
-                die('Erreur : ' . $e->getMessage());
-            }
-        }
-        return self::$pdo;
-    }
+if(!$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
+{
+	die("failed to connect!");
 }
