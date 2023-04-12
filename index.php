@@ -1,4 +1,3 @@
-<<<<<<< HEAD:index.php
 <?php 
 session_start();
 
@@ -9,8 +8,6 @@ include("./functions.php");
 
 ?>
 
-=======
->>>>>>> 11b184ada3d828db1dbf7d71737690d6e70869c8:index.html
 <!DOCTYPE html>
 <html lang="en">
 
