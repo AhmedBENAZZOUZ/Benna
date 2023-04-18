@@ -14,15 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!empty($username) && !empty($password) && !is_numeric($username)) {
 
         //read from database
-        $query = "select * from users where username = '$username' limit 1";
+        $query = "select * from users where username = '$username' OR email = '$username' limit 1";
         $result = mysqli_query($con, $query);
 
         if ($result) {
             if ($result && mysqli_num_rows($result) > 0) {
-
                 $user_data = mysqli_fetch_assoc($result);
-                // $password_encrypted = password_hash($password, PASSWORD_DEFAULT);
-                if ($user_data['password'] === $password) {
+                $password_encrypted = md5($password);
+                if ($user_data['password'] == $password_encrypted) {
 
                     $_SESSION['id'] = $user_data['id'];
                     $_SESSION['username'] = $user_data['username'];

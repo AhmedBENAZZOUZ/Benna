@@ -40,56 +40,7 @@ $user_data = check_login($con);
 
 <body>
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/icon.png" alt="">
-        <h1>Benna<span>.</span></h1>
-      </a>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#events">Recettes</a></li>
-          <li><a href="#chefs">Chefs</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <?php
-          if (isset($_SESSION['id'])) {
-            ?>
-            <li><a href="profile.php">
-                <?php echo $_SESSION["id"]; ?>
-                <?php echo $_SESSION["username"]; ?>
-              </a></li>
-            <li><a href="./auth/signout.php">Sign out</a></li>
-            <?php
-          } else {
-            ?>
-            <li><a href="./auth/Auth.php">Sign in</a></li>
-            <?php
-          }
-          ?>
-        </ul>
-
-      </nav>
-      <!-- .navbar -->
-      <?php
-      if (isset($_SESSION['id'])) {
-        ?>
-        <a class="btn-book-a-table" href="#book-a-table">Ajouter une recette</a>
-        <?php
-      } else {
-        ?>
-        <a class="btn-book-a-table" href="auth/Auth.php">Ajouter une recette</a>
-        <?php
-      }
-      ?>
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-    </div>
-  </header>
+  <?php include 'header.php' ?>
   <!-- End Header -->
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center section-bg">
@@ -525,19 +476,25 @@ $user_data = check_login($con);
                             <input type="range" class="w-100" value="0" id="pricefilter">
                         </div> -->
                     </div>
-                    <div class="form-group">
-                      <label for="instructions" id="in">Les Instructions : </label><br/>
-                      <button type="button" onclick="add()"><i class="bi bi-plus-circle-fill"></i></button>
+                    <div class="row gy-4">
+                    <label for="instructions">Les Instructions : </label>
+                      <div class="form-group col-lg-8 col-md-6">
+                        <input type="text" class="form-control" id="in"/>
+                      </div>
+                      <div class="form-group col-lg-4 col-md-6">
+                      <button type="button" onclick="add()">add</button>
+                        <button type="button" onclick="add()"><i class="bi bi-plus-circle-fill"></i></button>
+                      </div>
                     </div>
                     <div class="row gy-4">
-                    <div class="form-group col-lg-6 col-md-6">
-                      <label class="my-auto">Upload a photo of your dish</label>
-                      <input id="file" type="file" class="form-control" />
-                    </div>
-                    <div class="form-group col-lg-6 col-md-6">
-                      <label class="my-auto">Upload a video of your dish</label>
-                      <input id="file" type="file" class="form-control" />
-                    </div>
+                      <div class="form-group col-lg-6 col-md-6">
+                        <label class="my-auto">Upload a photo of your dish</label>
+                        <input id="file" type="file" class="form-control" />
+                      </div>
+                      <div class="form-group col-lg-6 col-md-6">
+                        <label class="my-auto">Upload a video of your dish</label>
+                        <input id="file" type="file" class="form-control" />
+                      </div>
                     </div>
                   </div>
                 </div>

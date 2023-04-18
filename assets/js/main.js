@@ -346,13 +346,13 @@ function displayMenuBtns() {
 };
 
 function add() {
-  var ul = document.createElement("ul");
+  var ol = document.createElement("ol");
   var li = document.createElement("li");
   var instruction = document.getElementById("in");
-  instruction.appendChild(ul);
+  instruction.appendChild(ol);
   li.addEventListener('keydown', function(event) {
     this.textContent = event.target.textContent;
   });
-  ul.appendChild(li);
+  ol.appendChild(li);
 
 }

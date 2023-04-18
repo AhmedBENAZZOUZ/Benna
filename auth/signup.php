@@ -15,8 +15,8 @@ if (isset($_POST['submit'])) {
    if (!empty($username) && !empty($name) && !empty($email) && !empty($password) && !empty($passwordRepeat) && ($password == $passwordRepeat)) {
 
       //save to database
-      // $password_encrypted = password_hash($password, PASSWORD_DEFAULT);
-      $query = "insert into users values (NULL,'$username','$name','$email','$password',NULL)";
+      $password_encrypted = md5($password);
+      $query = "insert into users values (NULL,'$username','$name','$email','$password_encrypted',NULL)";
 
       mysqli_query($con, $query);
 
