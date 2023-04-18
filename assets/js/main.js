@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNavHide = document.querySelector('.mobile-nav-hide');
 
   document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
-    el.addEventListener('click', function(event) {
+    el.addEventListener('click', function (event) {
       event.preventDefault();
       mobileNavToogle();
     })
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
 
   navDropdowns.forEach(el => {
-    el.addEventListener('click', function(event) {
+    el.addEventListener('click', function (event) {
       if (document.querySelector('.mobile-nav-active')) {
         event.preventDefault();
         this.classList.toggle('active');
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const scrollTop = document.querySelector('.scroll-top');
   if (scrollTop) {
-    const togglescrollTop = function() {
+    const togglescrollTop = function () {
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
     window.addEventListener('load', togglescrollTop);
@@ -233,68 +233,68 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
-/* MENU FILTER JS */ 
+/* MENU FILTER JS */
 const menu = [
   {
-      id: 1 , 
-      title: "Oejja mergeuz" , 
-      category : "lunch",
-      price: "15 DT" , 
-      img : "https://www.tounsia.net/media/cache/singlepost/uploads/2019/02/ojja-merguez.jpg", 
-      ingredients : "ahahhahahha " , 
- 
-  
+    id: 1,
+    title: "Oejja mergeuz",
+    category: "lunch",
+    price: "15 DT",
+    img: "https://www.tounsia.net/media/cache/singlepost/uploads/2019/02/ojja-merguez.jpg",
+    ingredients: "ahahhahahha ",
+
+
   },
   {
-      id: 2 , 
-      title: "Spaghetti" , 
-      category : "lunch",
-      price: "30 DT" , 
-      img : "https://assets.afcdn.com/recipe/20180326/78158_w1024h576c1cx2736cy1824.webp", 
-      ingredients : "ahahhahhaah " , 
-  
+    id: 2,
+    title: "Spaghetti",
+    category: "lunch",
+    price: "30 DT",
+    img: "https://assets.afcdn.com/recipe/20180326/78158_w1024h576c1cx2736cy1824.webp",
+    ingredients: "ahahhahhaah ",
+
   },
   {
-      id: 3 , 
-      title: "Croissant" , 
-      category : "Breakfast",
-      price: "4 DT ", 
-      img : "https://assets.afcdn.com/recipe/20131024/24713_w1024h1024c1cx2747cy1872.jpg", 
-      ingredients : "blalalal" , 
-     
+    id: 3,
+    title: "Croissant",
+    category: "Breakfast",
+    price: "4 DT ",
+    img: "https://assets.afcdn.com/recipe/20131024/24713_w1024h1024c1cx2747cy1872.jpg",
+    ingredients: "blalalal",
+
   },
   {
-      id: 4 , 
-      title: "Coscous" , 
-      category : "dinner",
-      price: "45 DT" , 
-      img : "https://www.diari.tn/sites/default/files/image/recette/couscous-viande_0.jpg",  
-      ingredients : "besbes " , 
-  
+    id: 4,
+    title: "Coscous",
+    category: "dinner",
+    price: "45 DT",
+    img: "https://www.diari.tn/sites/default/files/image/recette/couscous-viande_0.jpg",
+    ingredients: "besbes ",
+
   },
 
-];  
-const sectionCenter = document.querySelector(".section-center"); 
+];
+const sectionCenter = document.querySelector(".section-center");
 const btnContainer = document.querySelector(".btn-container");
 //console.log(filterBtns);
 // load items 
-window.addEventListener("DOMContentLoaded",function(){ 
-displayMenuItems(menu); 
-displayMenuBtns(); 
-}); 
-   // console.log(displayMenu); 
-   function displayMenuItems(menuItems){
-       let displayMenu = menuItems.map((item) => {
-// return `<article class="menu-item">
-// <img src=${item.img} class="photo" alt=${item.title}> 
-// <div class="item-info">
-//  <header> <h4>${item.title}</h4> 
-//   <h4 class="price">${item.price}</h4> </header> 
-//   <p>${item.desc}</p>
-// </div> 
-// </article>`
-return ` <div class="col-lg-4 menu-item">
-<a href=${item.img } class="glightbox"><img src=${item.img} class="menu-img img-fluid" alt=""></a>
+window.addEventListener("DOMContentLoaded", function () {
+  displayMenuItems(menu);
+  displayMenuBtns();
+});
+// console.log(displayMenu); 
+function displayMenuItems(menuItems) {
+  let displayMenu = menuItems.map((item) => {
+    // return `<article class="menu-item">
+    // <img src=${item.img} class="photo" alt=${item.title}> 
+    // <div class="item-info">
+    //  <header> <h4>${item.title}</h4> 
+    //   <h4 class="price">${item.price}</h4> </header> 
+    //   <p>${item.desc}</p>
+    // </div> 
+    // </article>`
+    return ` <div class="col-lg-4 menu-item">
+<a href=${item.img} class="glightbox"><img src=${item.img} class="menu-img img-fluid" alt=""></a>
 <h4>${item.title}</h4>
 <p class="ingredients"> 
   ${item.ingredients} 
@@ -302,62 +302,57 @@ return ` <div class="col-lg-4 menu-item">
 <p class="price">
   ${item.price}
 </p>
-</div>` 
-;
-       }); 
-       displayMenu = displayMenu.join("");
-       sectionCenter.innerHTML = displayMenu ; 
-   } 
-  
-   function displayMenuBtns(){
-      const categories = menu.reduce((values , item )=> { 
-          if (!values.includes(item.category)){
-              values.push(item.category); 
-          } 
-      return values ; 
-      },["all"]);  
-      
-      const categoryBtns = categories.map((category)=>{
-          return `  <button class="filter-btn" type="button" data-id=${category}>${category}</button>`; 
-      }).join(""); 
-      btnContainer.innerHTML = categoryBtns ; 
-      const filterBtns = btnContainer.querySelectorAll(".filter-btn");
-      console.log(categoryBtns); 
-            
-      // filter items 
-      filterBtns.forEach(function(btn){
-      btn.addEventListener("click",function(e){ 
-          // console.log(e); 
-          const category = e.currentTarget.dataset.id ; 
-          const menuCategory = menu.filter(function(menuItem){ 
-             //  console.log(menuItem.category); 
-             if (menuItem.category === category){
-                 return menuItem ; 
-             } 
-          }) ; 
-         //  console.log(menuCategory);  
-         if (category === "all"){
-             displayMenuItems(menu);
-         }else {
-             displayMenuItems(menuCategory);
-         }
+</div>`
+      ;
+  });
+  displayMenu = displayMenu.join("");
+  sectionCenter.innerHTML = displayMenu;
+}
+
+function displayMenuBtns() {
+  const categories = menu.reduce((values, item) => {
+    if (!values.includes(item.category)) {
+      values.push(item.category);
+    }
+    return values;
+  }, ["all"]);
+
+  const categoryBtns = categories.map((category) => {
+    return `  <button class="filter-btn" type="button" data-id=${category}>${category}</button>`;
+  }).join("");
+  btnContainer.innerHTML = categoryBtns;
+  const filterBtns = btnContainer.querySelectorAll(".filter-btn");
+  console.log(categoryBtns);
+
+  // filter items 
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      // console.log(e); 
+      const category = e.currentTarget.dataset.id;
+      const menuCategory = menu.filter(function (menuItem) {
+        //  console.log(menuItem.category); 
+        if (menuItem.category === category) {
+          return menuItem;
+        }
       });
-      });
-    }; 
+      //  console.log(menuCategory);  
+      if (category === "all") {
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(menuCategory);
+      }
+    });
+  });
+};
 
-    
+function add() {
+  var ul = document.createElement("ul");
+  var li = document.createElement("li");
+  var instruction = document.getElementById("in");
+  instruction.appendChild(ul);
+  li.addEventListener('keydown', function(event) {
+    this.textContent = event.target.textContent;
+  });
+  ul.appendChild(li);
 
-// var x = document.getElementById("demo");
-
-// function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.watchPosition(showPosition);
-//   } else { 
-//     x.innerHTML = "Geolocation is not supported by this browser.";
-//   }
-// }
-    
-// function showPosition(position) {
-//     x.innerHTML="Latitude: " + position.coords.latitude + 
-//     "<br>Longitude: " + position.coords.longitude;
-// }
+}

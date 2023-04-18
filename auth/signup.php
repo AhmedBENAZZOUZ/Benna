@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
 
       //save to database
       // $password_encrypted = password_hash($password, PASSWORD_DEFAULT);
-      $query = "insert into users values (NULL,'$username','$name','$email','$password')";
+      $query = "insert into users values (NULL,'$username','$name','$email','$password',NULL)";
 
       mysqli_query($con, $query);
 

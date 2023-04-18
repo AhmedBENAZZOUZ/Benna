@@ -1,10 +1,10 @@
-<?php 
+<?php
 session_start();
 
 include("./Config.php");
 include("./functions.php");
 
-	$user_data = check_login($con);
+$user_data = check_login($con);
 
 ?>
 
@@ -60,6 +60,7 @@ include("./functions.php");
           if (isset($_SESSION['id'])) {
             ?>
             <li><a href="profile.php">
+                <?php echo $_SESSION["id"]; ?>
                 <?php echo $_SESSION["username"]; ?>
               </a></li>
             <li><a href="./auth/signout.php">Sign out</a></li>
@@ -74,7 +75,17 @@ include("./functions.php");
 
       </nav>
       <!-- .navbar -->
-      <a class="btn-book-a-table" href="#book-a-table">Composer votre recette</a>
+      <?php
+      if (isset($_SESSION['id'])) {
+        ?>
+        <a class="btn-book-a-table" href="#book-a-table">Ajouter une recette</a>
+        <?php
+      } else {
+        ?>
+        <a class="btn-book-a-table" href="auth/Auth.php">Ajouter une recette</a>
+        <?php
+      }
+      ?>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     </div>
@@ -450,80 +461,101 @@ include("./functions.php");
 
     </section><!-- End Chefs Section -->
     <!-- ======= Book A Table Section ======= -->
-    <section id="book-a-table" class="book-a-table">
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Add Your recipe </h2>
-          <p>Here you can <span>contact the admin to </span> add a recipe </p>
-        </div>
-        <div class="row g-0">
-          <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);"
-            data-aos="zoom-out" data-aos-delay="200"></div>
-          <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-            <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
-              data-aos-delay="100">
-              <div class="row gy-4">
-                <div class="col-lg-4 col-md-6">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                    data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                    data-rule="email" data-msg="Please enter a valid email">
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4"
-                    data-msg="Please enter at least 4 chars">
-                  <div class="validate"></div>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <div class="validate"></div>
-              </div>
-              <div class=" row gy-4">
-                <div class="col-lg-4 col-md-5">
-                  <input type="text" class="form-control" name="dish" placeholder="name your dish">
-                </div>
-                <div class="col-lg-4 col-md-5">
-                  <input type="text" class="form-control" name="preparation time" placeholder="preparation time">
-                </div>
-
-
-              </div>
-              <div class="row justify-content-center">
-                <div class="my-3">
-                  <select class="form-control">
-                    <option value="type of dish">type of dish</option>
-                    <option value="chaud">plat chaud</option>
-                    <option value="dessert">plat froid</option>
-                    <option value="traditionnelle">plat traditionnelle</option>
-                  </select>
-                  <div>
-                    <label class="form-group">what are the ingredients ? </label>
-                    <textarea class="form-control" name="description"></textarea><br>
+    <?php
+    if (isset($_SESSION['id'])) {
+      ?>
+      <section id="book-a-table" class="book-a-table">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>Add Your recipe </h2>
+            <p>Here you can <span>contact the admin to </span> add a recipe </p>
+          </div>
+          <div class="row g-0">
+            <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);"
+              data-aos="zoom-out" data-aos-delay="200"></div>
+            <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+              <form action="recette/recette.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
+                data-aos-delay="100">
+                <div class="row gy-4">
+                  <div class="col-lg-6 col-md-6">
+                    <input type="text" name="Nom_recette" class="form-control" id="name" placeholder="Nom de la recette"
+                      data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    <div class="validate"></div>
                   </div>
-                  <div>
-                    <label class="form-group">how to make it ? </label>
-                    <textarea class="form-control" name="description"></textarea><br>
+                  <div class="col-lg-6 col-md-6">
+                    <input type="text" class="form-control" name="temps_preparation" placeholder="Temps de préparation"
+                      data-rule="email" data-msg="Please enter a time">
+                    <div class="validate"></div>
                   </div>
-                  <div class="form-group "><label class="my-auto">Upload a photo of your dish </label> <input id="file"
-                      type="file" class="form-control" /></div>
                 </div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your reciept request was sent. We will call back or send an Email to confirm .
-                  Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Add A recipe </button></div>
-            </form>
-          </div><!-- End Reservation Form -->
+                <div class="form-group mt-3">
+                  <div class="validate"></div>
+                </div>
+                <div class="row gy-4">
+                  <div class="col-lg-6 col-md-6">
+                    <input type="text" name="nbre_personne" class="form-control" id="date"
+                      placeholder="Nombre de personne" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    <div class="validate"></div>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                    <select class="form-select" name="difficulte">
+                      <option value="non_valide">Choisir la difficulté</option>
+                      <option value="tres facile">Très Facile</option>
+                      <option value="facile">Facile</option>
+                      <option value="moyenne">Moyenne</option>
+                      <option value="facile">Facile</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="my-3">
+                    <select class="form-select" name="type_plat">
+                      <option value="type of dish">Type de plat</option>
+                      <option value="chaud">Plat chaud</option>
+                      <option value="froid">Plat froid</option>
+                      <option value="traditionnelle">Plat traditionnelle</option>
+                    </select>
+                    <div class="form-group  mb-3">
+                      <div class="form-group">
+                        <label>les Ingredients : </label>
+                        <input type="text" class="form-control icon_search" id="keywords" placeholder="recherche de ...">
+                      </div>
+                      <!-- <div class="form-group">
+                            <label> <span id="minprice">0</span>$ - <span id="maxprice"></span>$ </label>
+                            <input type="range" class="w-100" value="0" id="pricefilter">
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                      <label for="instructions" id="in">Les Instructions : </label><br/>
+                      <button type="button" onclick="add()"><i class="bi bi-plus-circle-fill"></i></button>
+                    </div>
+                    <div class="row gy-4">
+                    <div class="form-group col-lg-6 col-md-6">
+                      <label class="my-auto">Upload a photo of your dish</label>
+                      <input id="file" type="file" class="form-control" />
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6">
+                      <label class="my-auto">Upload a video of your dish</label>
+                      <input id="file" type="file" class="form-control" />
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your recipe request was sent. We will call back or send an email to confirm.
+                    Thank you!</div>
+                </div>
+                <div class="text-center">
+                  <button type="submit">Add A recipe </button>
+                </div>
+              </form>
+            </div><!-- End Reservation Form -->
+          </div>
         </div>
-      </div>
-    </section><!-- End Book A Table Section -->
+      </section><!-- End Book A Table Section -->
+    <?php } ?>
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="gallery section-bg">
       <div class="container" data-aos="fade-up">
@@ -569,42 +601,42 @@ include("./functions.php");
           <h2>Contact</h2>
           <p>Need Help? <span>Contact Us</span></p>
         </div>
-        <div class="mb-3">
-          <!-- <button onclick="getLocation()" class="btn btn-secondary">Try It</button>
-          <p id="demo"></p> -->
-          <!-- <iframe style="border:0; width: 100%; height: 350px;"
+        <!-- <div class="mb-3">
+           <button onclick="getLocation()" class="btn btn-secondary">Try It</button>
+          <p id="demo"></p> 
+           <iframe style="border:0; width: 100%; height: 350px;"
             src="https://www.google.com/maps/place/Polytech-Intl/@36.8364622,10.230462,16.95z/data=!4m6!3m5!1s0x12fd353c2a9bdafb:0xf40a3b2820de190d!8m2!3d36.8367566!4d10.231694!16s%2Fg%2F1ptwg6hg_"
-            frameborder="0" allowfullscreen></iframe> -->
-        </div><!-- End Google Maps -->
-        <div class="row gy-4">
+            frameborder="0" allowfullscreen></iframe> 
+        </div>--> <!-- End Google Maps -->
+        <!-- <div class="row gy-4">
           <div class="col-md-6">
             <div class="info-item  d-flex align-items-center">
               <i class="icon bi bi-map flex-shrink-0"></i>
               <div>
-                <h3></h3>
+                <h3>Adresse</h3>
                 <p></p>
               </div>
             </div>
-          </div><!-- End Info Item -->
-          <div class="col-md-6">
+          </div> --> <!-- End Info Item -->
+        <!-- <div class="col-md-6">
             <div class="info-item d-flex align-items-center">
               <i class="icon bi bi-envelope flex-shrink-0"></i>
               <div>
-                <h3></h3>
-                <p></p>
+                <h3>Email</h3>
+                <p>Contact@benna.com</p>
               </div>
             </div>
-          </div><!-- End Info Item -->
-          <div class="col-md-6">
+          </div> --> <!-- End Info Item -->
+        <!-- <div class="col-md-6">
             <div class="info-item  d-flex align-items-center">
               <i class="icon bi bi-telephone flex-shrink-0"></i>
               <div>
-                <h3></h3>
-                <p></p>
+                <h3>Télephone</h3>
+                <p>+216 70 70 70 70</p>
               </div>
             </div>
-          </div><!-- End Info Item -->
-          <!-- <div class="col-md-6">
+          </div> --> <!-- End Info Item -->
+        <!-- <div class="col-md-6">
             <div class="info-item  d-flex align-items-center">
               <i class="icon bi bi-share flex-shrink-0"></i>
               <div>
@@ -614,30 +646,30 @@ include("./functions.php");
                 </div>
               </div>
             </div>
-          </div>End Info Item -->
+          </div> --> <!-- End Info Item  -->
+      </div>
+      <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
+        <div class="row">
+          <div class="col-xl-6 form-group">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+          </div>
+          <div class="col-xl-6 form-group">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+          </div>
         </div>
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
-          <div class="row">
-            <div class="col-xl-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-            </div>
-            <div class="col-xl-6 form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-          </div>
-          <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
-        </form><!--End Contact Form -->
+        <div class="form-group">
+          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+        </div>
+        <div class="my-3">
+          <div class="loading">Loading</div>
+          <div class="error-message"></div>
+          <div class="sent-message">Your message has been sent. Thank you!</div>
+        </div>
+        <div class="text-center"><button type="submit">Send Message</button></div>
+      </form><!--End Contact Form -->
       </div>
     </section><!-- End Contact Section -->
   </main><!-- End #main -->
@@ -648,7 +680,7 @@ include("./functions.php");
         <div class="col-lg-3 col-md-6 d-flex">
           <i class="bi bi-geo-alt icon"></i>
           <div>
-            <h4></h4>
+            <h4>Polytech</h4>
             <p>
               <br>
               <br>
@@ -658,7 +690,7 @@ include("./functions.php");
         <div class="col-lg-3 col-md-6 footer-links d-flex">
           <i class="bi bi-telephone icon"></i>
           <div>
-            <h4></h4>
+            <h4>+216 70 70 70 70</h4>
             <p>
               <strong></strong><br>
               <strong></strong><br>
@@ -666,9 +698,9 @@ include("./functions.php");
           </div>
         </div>
         <div class="col-lg-3 col-md-6 footer-links d-flex">
-          <i class="bi bi-clock icon"></i>
+          <i class="bi bi-envelope icon"></i>
           <div>
-            <h4></h4>
+            <h4>contact@benna.com</h4>
             <p>
               <strong></strong><br>
             </p>
