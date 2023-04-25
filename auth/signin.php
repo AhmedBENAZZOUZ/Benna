@@ -10,15 +10,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     //something was posted
     $username = $_POST['username'];
     $password = $_POST['password'];
+    
 
-
-    if (emptyInput($username, $password)) {
-        header("location: ./Auth.php?error=Your email is invalid");
+    if (emptyInput($username, $password)==false) {
+        header("location: ./Auth.php?error=Must fill all fields");
         exit();
     }
     //read from database
     $query = "select * from users where username = '$username' OR email = '$username' limit 1";
     $result = mysqli_query($con, $query);
+    
 
     if ($result) {
         if ($result && mysqli_num_rows($result) > 0) {
@@ -38,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     } else {
 
-        echo "wrong username or password!";
+        echo "user not found";
     }
 }
 

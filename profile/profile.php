@@ -126,7 +126,7 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
                       <h6 class="mb-0">Mobile</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (320) 380-4539
+                    <?= $fetch_profile['phone']; ?>
                     </div>
                   </div>
                   <hr>
@@ -135,7 +135,7 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
                       <h6 class="mb-0">Address</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
+                    <?= $fetch_profile['adress']; ?>
                     </div>
                   </div>
                   <hr>
