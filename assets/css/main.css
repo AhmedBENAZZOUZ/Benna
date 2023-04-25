@@ -6,7 +6,7 @@
 }
 
 /* Colors */
-:root { 
+:root {
   --color-default: #212529;
   --color-primary: #ce1212;
   --color-secondary: #37373f;
@@ -288,6 +288,29 @@ section {
 section {
   scroll-margin-top: 90px;
 }
+
+.user-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 100px;
+}
+
+.default-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.rr {
+  border-radius: 50px;
+}
+
+/* .input-group input[type="search"]::placeholder {
+  color: red;
+} */
 
 /*--------------------------------------------------------------
 # Desktop Navigation
@@ -737,7 +760,7 @@ section {
   transition: 0.3s;
 }
 
-.why-us .icon-box i { 
+.why-us .icon-box i {
   color: var(--color-primary);
   margin-bottom: 30px;
   font-size: 32px;
@@ -1287,7 +1310,7 @@ section {
   }
 }
 
-.icon_search{
+.icon_search {
   width: 260px;
   border: 1px solid #555;
   display: block;
@@ -1652,6 +1675,7 @@ section {
 .footer .credits a {
   color: #fff;
 }
+
 /* ------------------------------------------------------------------------------- */
 
 

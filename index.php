@@ -2,9 +2,18 @@
 session_start();
 
 include("./Config.php");
-include("./functions.php");
 
-$user_data = check_login($con);
+if (isset($_SESSION['id'])) {
+
+  $id = $_SESSION['id'];
+  $query = "select * from users where id = '$id' limit 1";
+
+  $result = mysqli_query($con, $query);
+  if ($result && mysqli_num_rows($result) > 0) {
+
+    $user_data = mysqli_fetch_assoc($result);
+  }
+}
 
 ?>
 
@@ -40,7 +49,7 @@ $user_data = check_login($con);
 
 <body>
   <!-- ======= Header ======= -->
-  <?php include 'header.php' ?>
+  <?php include 'header.php'; ?>
   <!-- End Header -->
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center section-bg">
@@ -419,7 +428,7 @@ $user_data = check_login($con);
         <div class="container" data-aos="fade-up">
           <div class="section-header">
             <h2>Add Your recipe </h2>
-            <p>Here you can <span>contact the admin to </span> add a recipe </p>
+            <!-- <p>Here you can <span>contact the admin to </span> add a recipe </p> -->
           </div>
           <div class="row g-0">
             <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);"
@@ -454,7 +463,7 @@ $user_data = check_login($con);
                       <option value="tres facile">Très Facile</option>
                       <option value="facile">Facile</option>
                       <option value="moyenne">Moyenne</option>
-                      <option value="facile">Facile</option>
+                      <option value="facile">Difficile</option>
                     </select>
                   </div>
                 </div>
@@ -462,14 +471,15 @@ $user_data = check_login($con);
                   <div class="my-3">
                     <select class="form-select" name="type_plat">
                       <option value="type of dish">Type de plat</option>
-                      <option value="chaud">Plat chaud</option>
-                      <option value="froid">Plat froid</option>
+                      <option value="chaud">Plat sucré</option>
+                      <option value="froid">Plat salé </option>
                       <option value="traditionnelle">Plat traditionnelle</option>
                     </select>
-                    <div class="form-group  mb-3">
-                      <div class="form-group">
-                        <label>les Ingredients : </label>
-                        <input type="text" class="form-control icon_search" id="keywords" placeholder="recherche de ...">
+                    <br />
+                    <div class="row gy-4">
+                      <div class="form-group col-lg-12 col-md-6">
+                      <label>les Ingredients : </label>
+                        <input type="text" class="form-control icon_search" id="keywords" placeholder="recherche de ..."> <br/>
                       </div>
                       <!-- <div class="form-group">
                             <label> <span id="minprice">0</span>$ - <span id="maxprice"></span>$ </label>
@@ -477,19 +487,23 @@ $user_data = check_login($con);
                         </div> -->
                     </div>
                     <div class="row gy-4">
-                    <label for="instructions">Les Instructions : </label>
+                      
                       <div class="form-group col-lg-8 col-md-6">
-                        <input type="text" class="form-control" id="in"/>
+                      <label for="instructions">Les Instructions : </label>
+                        <input type="text" class="form-control" id="in" />
                       </div>
                       <div class="form-group col-lg-4 col-md-6">
-                      <button type="button" onclick="add()">add</button>
-                        <button type="button" onclick="add()"><i class="bi bi-plus-circle-fill"></i></button>
+                        <br/>
+                        <button type="button" class="form-group" onclick="add()">add</button>
+                        <button type="button" class="form-group" onclick="add()" id="lk"><i
+                            class="bi bi-plus-circle-fill"></i></button>
                       </div>
                     </div>
+                    <br />
                     <div class="row gy-4">
                       <div class="form-group col-lg-6 col-md-6">
                         <label class="my-auto">Upload a photo of your dish</label>
-                        <input id="file" type="file" class="form-control" />
+                        <input id="file" type="file" class="form-control" multiple />
                       </div>
                       <div class="form-group col-lg-6 col-md-6">
                         <label class="my-auto">Upload a video of your dish</label>
@@ -631,58 +645,7 @@ $user_data = check_login($con);
     </section><!-- End Contact Section -->
   </main><!-- End #main -->
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-    <div class="container">
-      <div class="row gy-3">
-        <div class="col-lg-3 col-md-6 d-flex">
-          <i class="bi bi-geo-alt icon"></i>
-          <div>
-            <h4>Polytech</h4>
-            <p>
-              <br>
-              <br>
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 footer-links d-flex">
-          <i class="bi bi-telephone icon"></i>
-          <div>
-            <h4>+216 70 70 70 70</h4>
-            <p>
-              <strong></strong><br>
-              <strong></strong><br>
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 footer-links d-flex">
-          <i class="bi bi-envelope icon"></i>
-          <div>
-            <h4>contact@benna.com</h4>
-            <p>
-              <strong></strong><br>
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Follow Us</h4>
-          <div class="social-links d-flex">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Benna</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+  <?php include 'footer.php'; ?>
   <!-- End Footer -->
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>

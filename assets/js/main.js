@@ -349,10 +349,8 @@ function add() {
   var ol = document.createElement("ol");
   var li = document.createElement("li");
   var instruction = document.getElementById("in");
-  instruction.appendChild(ol);
-  li.addEventListener('keydown', function(event) {
-    this.textContent = event.target.textContent;
-  });
+  var lk = document.getElementById("lk");
+  lk.appendChild(ol);
+  li.textContent = instruction.textContent;
   ol.appendChild(li);
-
 }
