@@ -56,6 +56,7 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
         <div class="col-md-4 mb-3">
           <div class="card">
             <div class="card-body">
+<<<<<<< HEAD
               <div class="d-flex flex-column align-items-center text-center">
                 <img src="../assets/img/profile/<?= $fetch_profile['image']; ?>" alt="user profile photo"
                   class="rounded-circle" width="150">
@@ -67,11 +68,25 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
                       <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
                 </div>
               </div>
+=======
+                <div class="d-flex flex-column align-items-center text-center ">
+                  <img src="../assets/img/profile/<?= $fetch_profile['image']; ?>" alt="user profile photo"
+                    class="rounded-circle" width="150">
+                  <div class="mt-3">
+                    <h4>
+                      <?= $fetch_profile['name']; ?>
+                    </h4>
+                    <!-- <p class="text-secondary mb-1">Full Stack Developer</p>
+                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
+                  </div>
+                </div>
+>>>>>>> 90aaf5c84aa89a5fedabf71c22c8cbac304495f0
             </div>
           </div>
           <div class="card mt-3">
             <ul class="list-group list-group-flush">
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+<<<<<<< HEAD
                 <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-globe mr-2 icon-inline">
@@ -92,6 +107,21 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
                     </path>
                   </svg>Github</h6>
                 <span class="text-secondary">bootdey</span>
+=======
+                <div class="row">
+                  <div class="col-sm-12">
+                    <i class="bi bi-gear"></i>
+                    <a class="edit-btn mb-0" href="profile-update.php">Edit profile</a>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <i class="bi bi-shield-lock"></i>
+                    <a class="edit-btn mb-0" href="password-update.php">Password</a>
+                  </div>
+>>>>>>> 90aaf5c84aa89a5fedabf71c22c8cbac304495f0
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -114,12 +144,21 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
                 <span class="text-secondary">bootdey</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+<<<<<<< HEAD
                 <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-facebook mr-2 icon-inline text-primary">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>Facebook</h6>
                 <span class="text-secondary">bootdey</span>
+=======
+                <div class="row">
+                  <div class="col-sm-12">
+                    <i class="bi bi-trash3"></i>
+                    <a class="  edit-btn " style="color:#ce1212;" href="#">Delete account</a>
+                  </div>
+
+>>>>>>> 90aaf5c84aa89a5fedabf71c22c8cbac304495f0
               </li>
             </ul>
           </div>
@@ -156,7 +195,11 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
               <hr>
               <div class="row">
                 <div class="col-sm-3">
+<<<<<<< HEAD
                   <h6 class="mb-0">Mobile</h6>
+=======
+                  <h6 class="mb-0">Phone</h6>
+>>>>>>> 90aaf5c84aa89a5fedabf71c22c8cbac304495f0
                 </div>
                 <div class="col-sm-9 text-secondary">
                   <?= $fetch_profile['phone']; ?>
@@ -169,6 +212,7 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
                 </div>
                 <div class="col-sm-9 text-secondary">
                   <?= $fetch_profile['adress']; ?>
+<<<<<<< HEAD
                 </div>
               </div>
               <hr>
@@ -177,10 +221,20 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
                   <a class="btn btn-info " href="profile-update.php">Edit</a>
                 </div>
               </div>
+=======
+                </div>
+              </div>
+
+
+>>>>>>> 90aaf5c84aa89a5fedabf71c22c8cbac304495f0
             </div>
           </div>
 
           <div class="row gutters-sm">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 90aaf5c84aa89a5fedabf71c22c8cbac304495f0
             <div class="col-sm mb-3">
               <div class="card h-100">
                 <div class="card-body">
