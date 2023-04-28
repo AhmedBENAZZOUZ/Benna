@@ -43,24 +43,37 @@ if (isset($_POST['save_changes'])) {
 
 
 
-    $file = $_FILES['new_image']['name'];
-    $file_loc = $_FILES['new_image']['tmp_name'];
-    $folder = "../assets/img/profile/";
-    $new_file_name = strtolower($file);
-    $final_file = str_replace(' ', '-', $new_file_name) ;
+    // $file = $_FILES['new_image']['name'];
+    // $file_loc = $_FILES['new_image']['tmp_name'];
+    // $folder = "../assets/img/profile/";
+    // $new_file_name = strtolower($file);
+    // $final_file = str_replace(' ', '-', $new_file_name) ;
 
+    if (isset($_FILES['new_image']['name']) && !empty($_FILES['new_image']['name'])) {
+        $image = $_FILES['new_image']['name'];
+        $image_tmp_name = $_FILES['new_image']['tmp_name'];
+        $image_size = $_FILES['new_image']['size'];
+        $image_folder = '../assets/img/profile/' . $image;
 
-    $image = $_POST['new_image'];
+        $query = "UPDATE users set image ='$image' where id ='$user_id';";
 
-    if (move_uploaded_file($file_loc, $folder . $final_file)) {
-        $image = $final_file;
+        if (mysqli_query($con, $query)) {
+            move_uploaded_file($image_tmp_name, $image_folder);
+           
+        }
+
     }
+    // $image = $_POST['new_image'];
+
+    // if (move_uploaded_file($file_loc, $folder . $final_file)) {
+    //     $image = $final_file;
+    // }
 
     // Update the image in the database
-    $query = "UPDATE `users` SET image = ? WHERE id = ?";
-    $stmt = mysqli_prepare($con, $query);
-    mysqli_stmt_bind_param($stmt, 'si', $image, $user_id);
-    mysqli_stmt_execute($stmt);
+    // $query = "UPDATE `users` SET image = ? WHERE id = ?";
+    // $stmt = mysqli_prepare($con, $query);
+    // mysqli_stmt_bind_param($stmt, 'si', $image, $user_id);
+    // mysqli_stmt_execute($stmt);
 
 
 
@@ -97,7 +110,7 @@ if (isset($_POST['save_changes'])) {
     // }
 
 
-    header('Location: profile.php');
+     header('Location: profile.php');
 
 }
 
@@ -135,6 +148,7 @@ if (isset($_POST['save_changes'])) {
 </head>
 
 <body>
+    
     <div class="container">
         <div class="main-body">
             <div class="row">
@@ -147,11 +161,12 @@ if (isset($_POST['save_changes'])) {
                                         class="rounded-circle  " width="150">
                                     <div class="file btn btn-lg btn-primary fit ">
                                         Change Photo
-                                        <input type="file" name="new_image" class="box"accept="image/jpg, image/jpeg, image/png">
-                                        <input type="hidden" name="new_image" value="<?= $fetch_profile['image']; ?>">      
+                                        <input type="file" name="new_image" class="box"
+                                            accept="image/jpg, image/jpeg, image/png">
+                                        <input type="hidden" name="new_image" value="<?= $fetch_profile['image']; ?>">
                                     </div>
                                 </div>
-                            </form>
+                            
                             <div class="mt-3" style="text-align:center;">
                                 <h4>
                                     <?= $fetch_profile['name']; ?>
@@ -207,7 +222,7 @@ if (isset($_POST['save_changes'])) {
                 <div class="col-lg-8">
                     <div class="card">
 
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <!-- <form action="" method="post" enctype="multipart/form-data"> -->
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-sm-3">

@@ -14,6 +14,10 @@ $query = "SELECT * FROM `users` WHERE id = '$user_id';";
 $select_profile = mysqli_query($con, $query);
 $fetch_profile = mysqli_fetch_assoc($select_profile);
 
+if (isset($_POST['delete'])) {
+  header('location:..index/.php');
+}
+
 ?>
 
 
@@ -56,17 +60,17 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
         <div class="col-md-4 mb-3">
           <div class="card">
             <div class="card-body">
-              <div class="d-flex flex-column align-items-center text-center ">
-                <img src="../assets/img/profile/<?= $fetch_profile['image']; ?>" alt="user profile photo"
-                  class="rounded-circle" width="150">
-                <div class="mt-3">
-                  <h4>
-                    <?= $fetch_profile['name']; ?>
-                  </h4>
-                  <!-- <p class="text-secondary mb-1">Full Stack Developer</p>
+                <div class="d-flex flex-column align-items-center text-center ">
+                  <img src="../assets/img/profile/<?= $fetch_profile['image']; ?>" alt="user profile photo"
+                    class="rounded-circle" width="150">
+                  <div class="mt-3">
+                    <h4>
+                      <?= $fetch_profile['name']; ?>
+                    </h4>
+                    <!-- <p class="text-secondary mb-1">Full Stack Developer</p>
                       <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
+                  </div>
                 </div>
-              </div>
             </div>
           </div>
           <div class="card mt-3">
@@ -110,7 +114,8 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
                 <div class="row">
                   <div class="col-sm-12">
                     <i class="bi bi-trash3"></i>
-                    <a class="  edit-btn " style="color:#ce1212;" href="#">Delete account</a>
+                    <a class="  edit-btn "name ="delete" style="color:#ce1212;" href="warning.php">Delete account</a>
+
                   </div>
 
               </li>
