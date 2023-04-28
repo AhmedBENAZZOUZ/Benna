@@ -345,12 +345,24 @@ function displayMenuBtns() {
   });
 };
 
+
 function add() {
-  var ol = document.createElement("ol");
-  var li = document.createElement("li");
+
   var instruction = document.getElementById("in");
-  var lk = document.getElementById("lk");
-  lk.appendChild(ol);
-  li.textContent = instruction.textContent;
-  ol.appendChild(li);
+  var li = document.createElement("li");
+  li.textContent = instruction.value;
+
+  if (!document.getElementById("list")) {
+    var oll = document.createElement("ol");
+    var divv = document.createElement("div");
+    var lk = document.getElementById("lk");
+    oll.id = "list";
+    oll.setAttribute("name", "list");
+    lk.appendChild(divv);
+    divv.appendChild(oll);
+  }
+
+  var oli = document.getElementById("list");
+  oli.appendChild(li);
+  instruction.value = '';
 }

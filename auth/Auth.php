@@ -38,7 +38,7 @@
 				<input type="text" placeholder="Adress" name="adress" />
 				<input type="password" placeholder="Password" name="password" />
 				<input type="password" placeholder="Confirm password" name="repeatPassword" />
-				<!-- <input type="file" name="image" accept=".jpg, .jpeg, .png, .gif" /> -->
+				<input type="file" name="image" accept=".jpg, .jpeg, .png, .gif" />
 				<button type="submit" value="submit" name="submit">Sign Up</button>
 			</form>
 		</div>

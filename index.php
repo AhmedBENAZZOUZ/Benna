@@ -435,7 +435,7 @@ if (isset($_SESSION['id'])) {
               data-aos="zoom-out" data-aos-delay="200"></div>
             <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
               <form action="recette/recette.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
-                data-aos-delay="100">
+                data-aos-delay="100" enctype="multipart/form-data">
                 <div class="row gy-4">
                   <div class="col-lg-6 col-md-6">
                     <input type="text" name="Nom_recette" class="form-control" id="name" placeholder="Nom de la recette"
@@ -474,52 +474,64 @@ if (isset($_SESSION['id'])) {
                       <option value="chaud">Plat sucré</option>
                       <option value="froid">Plat salé </option>
                       <option value="traditionnelle">Plat traditionnelle</option>
+                      <option value="diabetique">Plat pour les diabetiques</option>
+                      <option value="vegetarien">Plat pour les vegetariens</option>
                     </select>
                     <br />
                     <div class="row gy-4">
                       <div class="form-group col-lg-12 col-md-6">
-                      <label>les Ingredients : </label>
-                        <input type="text" class="form-control icon_search" id="keywords" placeholder="recherche de ..."> <br/>
+                        <label>les Ingredients : </label>
+                        <input type="text" class="form-control icon_search" id="keywords" name="ing"
+                          placeholder="recherche de ...">
+                        <br />
                       </div>
                       <!-- <div class="form-group">
                             <label> <span id="minprice">0</span>$ - <span id="maxprice"></span>$ </label>
                             <input type="range" class="w-100" value="0" id="pricefilter">
                         </div> -->
                     </div>
-                    <div class="row gy-4">
-                      
+                    <div class="row gy-4" id="lk">
+
                       <div class="form-group col-lg-8 col-md-6">
-                      <label for="instructions">Les Instructions : </label>
+                        <label for="instructions">Les Instructions : </label>
                         <input type="text" class="form-control" id="in" />
                       </div>
                       <div class="form-group col-lg-4 col-md-6">
-                        <br/>
-                        <button type="button" class="form-group" onclick="add()">add</button>
-                        <button type="button" class="form-group" onclick="add()" id="lk"><i
-                            class="bi bi-plus-circle-fill"></i></button>
+                        <br />
+                        <input type="button" value="Add" onclick="add()">
                       </div>
                     </div>
                     <br />
                     <div class="row gy-4">
                       <div class="form-group col-lg-6 col-md-6">
                         <label class="my-auto">Upload a photo of your dish</label>
-                        <input id="file" type="file" class="form-control" multiple />
+                        <input id="file" type="file" class="form-control" name="image" multiple />
                       </div>
                       <div class="form-group col-lg-6 col-md-6">
                         <label class="my-auto">Upload a video of your dish</label>
-                        <input id="file" type="file" class="form-control" />
+                        <input id="file" type="file" class="form-control" name="video" />
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="mb-3">
                   <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your recipe request was sent. We will call back or send an email to confirm.
-                    Thank you!</div>
+                  <div class="error-message">
+                    <?php if ($_GET['error'] == "No instructions") { ?>
+                      <div class="alert alert-danger" role="alert">
+                        <?php echo "You can't add recipe without instructions"; ?>
+                      </div>
+                    <?php } ?>
+                    <?php if ($_GET['error'] == "File upload failed") { ?>
+                      <div class="alert alert-danger" role="alert">
+                        <?php echo "The upload of the video failed"; ?>
+                      </div>
+                    <?php } ?>
+                  </div>
+                  <div class="sent-message"></div>
                 </div>
                 <div class="text-center">
-                  <button type="submit">Add A recipe </button>
+                  <button type="submit" name="submit-recette">Add A recipe </button>
                 </div>
               </form>
             </div><!-- End Reservation Form -->
@@ -656,7 +668,7 @@ if (isset($_SESSION['id'])) {
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

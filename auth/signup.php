@@ -8,10 +8,10 @@ if (isset($_POST['submit'])) {
    $username = $_POST['username'];
    $name = $_POST['name'];
    $email = $_POST['email'];
-   $password = $_POST['password'];
-   $passwordRepeat = $_POST["repeatPassword"];
    $phone = $_POST['phone'];
    $adress = $_POST['adress'];
+   $password = $_POST['password'];
+   $passwordRepeat = $_POST["repeatPassword"];
    //Hashing the password
    $password_encrypted = md5($password);
    // empty input control
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
       header("location: ./Auth.php?error=Your email is invalid");
       exit();
    }
-   //
+   // input control : invalid phone
    if (invalidPhone($phone) == false) {
       header("location: ./Auth.php?error=This number phone is invalid");
       exit();
@@ -50,26 +50,33 @@ if (isset($_POST['submit'])) {
       exit();
    }
 
-   // if (isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
-   //    $image = $_FILES['image']['name'];
-   //    $image_tmp_name = $_FILES['image']['tmp_name'];
-   //    $image_size = $_FILES['image']['size'];
-   //    $image_folder = '../assets/img/profile/' . $image;
+   if (isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
+      $image = $_FILES['image']['name'];
+      $image_tmp_name = $_FILES['image']['tmp_name'];
+      $image_size = $_FILES['image']['size'];
+      $image_folder = '../assets/img/profile/' . $image;
 
-   //    $query = "insert into users values (NULL,'$username','$name','$email','$password_encrypted','$image')";
+      if($image_size > 2000000){
+         header("Location: ./Auth.php?error=Image size too large");
+         die;
+      }
 
-   //    mysqli_query($con, $query);
-   //    move_uploaded_file($image_tmp_name, $image_folder);
-   //    header("Location: ./Auth.php?success=Account created successfully");
-   //    die;
-   // } else {
-   $query = mysqli_prepare($con, "insert into users (username,name,email,phone,adress,password) values (?,?,?,?,?,?)");
-   mysqli_stmt_bind_param($query, "ssssss", $username, $name, $email, $phone, $adress, $password_encrypted);
+      $query = "insert into users values (NULL,'$username','$name','$email','$phone','$adress','$password_encrypted','$image')";
 
-   if (mysqli_stmt_execute($query)) {
-      header("Location: ./Auth.php?success=Account created successfully");
+      if (mysqli_query($con, $query)) {
+         move_uploaded_file($image_tmp_name, $image_folder);
+         header("Location: ./Auth.php?success=Account created successfully");
+         die;
+      }
+   } else {
+      $default_img = 'default.png';
+      $query = "insert into users values (NULL,'$username','$name','$email','$phone','$adress','$password_encrypted','$default_img')";
+
+      if (mysqli_query($con, $query)) {
+         header("Location: ./Auth.php?success=Account created successfully");
+         die;
+      }
    }
-
 }
 
 function emptyInput($username, $name, $email, $phone, $adress, $password, $passwordRepeat)
