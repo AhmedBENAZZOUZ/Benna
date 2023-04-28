@@ -59,8 +59,7 @@ if (isset($_POST['save_changes'])) {
 
         if (mysqli_query($con, $query)) {
             move_uploaded_file($image_tmp_name, $image_folder);
-            header("Location: profile.php?success=Account updated successfully");
-            die;
+           
         }
 
     }
@@ -111,7 +110,7 @@ if (isset($_POST['save_changes'])) {
     // }
 
 
-    // header('Location: profile.php');
+     header('Location: profile.php');
 
 }
 
@@ -149,6 +148,7 @@ if (isset($_POST['save_changes'])) {
 </head>
 
 <body>
+    
     <div class="container">
         <div class="main-body">
             <div class="row">
