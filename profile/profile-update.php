@@ -59,7 +59,7 @@ if (isset($_POST['save_changes'])) {
 
         if (mysqli_query($con, $query)) {
             move_uploaded_file($image_tmp_name, $image_folder);
-           
+
         }
 
     }
@@ -110,7 +110,7 @@ if (isset($_POST['save_changes'])) {
     // }
 
 
-     header('Location: profile.php');
+    header('Location: profile.php');
 
 }
 
@@ -148,7 +148,7 @@ if (isset($_POST['save_changes'])) {
 </head>
 
 <body>
-    
+
     <div class="container">
         <div class="main-body">
             <div class="row">
@@ -158,25 +158,23 @@ if (isset($_POST['save_changes'])) {
                             <form action="" method="post" enctype="multipart/form-data">
                                 <div class="d-flex flex-column align-items-center text-center profile-img">
                                     <img src="../assets/img/profile/<?= $fetch_profile['image']; ?>" alt="Admin"
-                                        class="rounded-circle  " width="150">
+                                        class="rounded-circle " width="150">
                                     <div class="file btn btn-lg btn-primary fit ">
-                                        Change Photo
+                                        <span class="">Change Photo</span>
                                         <input type="file" name="new_image" class="box"
                                             accept="image/jpg, image/jpeg, image/png">
                                         <input type="hidden" name="new_image" value="<?= $fetch_profile['image']; ?>">
                                     </div>
                                 </div>
-                            
-                            <div class="mt-3" style="text-align:center;">
-                                <h4>
-                                    <?= $fetch_profile['name']; ?>
-                                </h4>
-                                <p class="text-secondary mb-1">Full Stack Developer</p>
-                                <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                            </div>
+
+                                <div class="mt-3" style="text-align:center;">
+                                    <h4>
+                                        <?= $fetch_profile['name']; ?>
+                                    </h4>
+                                </div>
                         </div>
                         <hr class="my-4">
-                        <ul class="list-group list-group-flush">
+                        <ul class="card list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <div class="col-sm-12">
                                     <i class="bi bi-gear"></i>
@@ -190,7 +188,7 @@ if (isset($_POST['save_changes'])) {
                                         <a class="edit-btn mb-0" href="password-update.php">Password</a>
                                     </div>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <!-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
@@ -211,7 +209,7 @@ if (isset($_POST['save_changes'])) {
                                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                                     </svg>Instagram</h6>
                                 <span class="text-secondary">bootdey</span>
-                            </li>
+                            </li> -->
 
                         </ul>
                     </div>
@@ -223,53 +221,53 @@ if (isset($_POST['save_changes'])) {
                     <div class="card">
 
                         <!-- <form action="" method="post" enctype="multipart/form-data"> -->
-                            <div class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0"> Name</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="name" class="form-control"
-                                            value="<?= $fetch_profile['name']; ?>">
-                                    </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0"> Name</h6>
                                 </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Email</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="email" class="form-control"
-                                            value=<?= $fetch_profile['email']; ?>>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Phone</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" name='phone' class="form-control"
-                                            value=<?= $fetch_profile['phone']; ?>>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Address</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" name='adress' class="form-control"
-                                            value=<?= $fetch_profile['adress']; ?>>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="submit" name="save_changes" class="btn btn-danger px-4"
-                                            value="Save Changes">
-
-                                    </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" name="name" class="form-control"
+                                        value="<?= $fetch_profile['name']; ?>">
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" name="email" class="form-control"
+                                        value=<?= $fetch_profile['email']; ?>>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Phone</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" name='phone' class="form-control"
+                                        value=<?= $fetch_profile['phone']; ?>>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Address</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" name='adress' class="form-control"
+                                        value=<?= $fetch_profile['adress']; ?>>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="submit" name="save_changes" class="btn btn-danger px-4"
+                                        value="Save Changes">
+
+                                </div>
+                            </div>
+                        </div>
                         </form>
                     </div>
                     <br>

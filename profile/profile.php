@@ -90,7 +90,7 @@ if (isset($_POST['delete'])) {
                     <a class="edit-btn mb-0" href="password-update.php">Password</a>
                   </div>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <!-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-twitter mr-2 icon-inline text-info">
@@ -109,7 +109,7 @@ if (isset($_POST['delete'])) {
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>Instagram</h6>
                 <span class="text-secondary">bootdey</span>
-              </li>
+              </li> -->
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <div class="row">
                   <div class="col-sm-12">

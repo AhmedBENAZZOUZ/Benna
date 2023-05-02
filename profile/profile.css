@@ -87,7 +87,7 @@ body {
     position: relative;
     overflow: hidden;
     margin-top: -35%;
-    height:18vh;
+    height:10vh;
     width: 33%;
     border: none;
     font-size: 15px;
@@ -101,4 +101,32 @@ body {
     opacity: 0;
     right: 0;
     top: 0;
+    width: 100%;
  }
+
+ /* .profile-img {
+    position: relative;
+  }
+  
+  .change-photo-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .change-photo-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .change-photo {
+    display: none;
+  }
+  
+  .profile-img:hover .change-photo-btn {
+    display: block;
+  } */

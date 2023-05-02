@@ -345,12 +345,16 @@ function displayMenuBtns() {
   });
 };
 
+let listItems = [];
 
 function add() {
 
   var instruction = document.getElementById("in");
   var li = document.createElement("li");
-  li.textContent = instruction.value;
+  texte = instruction.value.trim();
+  li.textContent = texte;
+
+  listItems.push(texte);
 
   if (!document.getElementById("list")) {
     var oll = document.createElement("ol");
@@ -366,3 +370,29 @@ function add() {
   oli.appendChild(li);
   instruction.value = '';
 }
+
+// $(document).ready(function() {
+//   $('#ingredient-search').on('input', function() {
+//     var searchTerm = $(this).val();
+//     if (searchTerm.length >= 3) {
+//       $.getJSON('ingredients.php', {term: searchTerm}, function(results) {
+//         var listItems = '';
+//         $.each(results, function(index, value) {
+//           listItems += '<div class="ingredient-item">' + value + '</div>';
+//         });
+//         $('#ingredient-list').html(listItems);
+//       });
+//     } else {
+//       $('#ingredient-list').empty();
+//     }
+//   });
+
+//   $(document).on('click', '.ingredient-item', function() {
+//     var ingredientName = $(this).text();
+//     var ingredientId = $(this).data('id');
+//     $('#ingredient-search').val(ingredientName);
+//     $('#ingredient-list').empty();
+//     // Ajoutez l'ID de l'ingrédient à un tableau caché pour l'utiliser plus tard dans le formulaire
+//     $('#selected-ingredients').append('<input type="hidden" name="ingredients[]" value="' + ingredientId + '">');
+//   });
+// });

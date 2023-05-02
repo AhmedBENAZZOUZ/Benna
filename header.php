@@ -18,7 +18,7 @@
           <!-- <div class="input-container"><i class="bi bi-search icon"></i> <input type="text" class="form-control rr input-field" >
           </div> -->
           <div class="input-group form-outline">
-            <input type="search" class="form-control rr" placeholder="Search" />
+            <input type="search" class="form-control" placeholder="Search for recipe" style="border-radius: 50px;" />
             <button type="button" class="btn">
               <i class="fas fa-search"></i>
             </button>
@@ -31,11 +31,10 @@
           $select_profile = mysqli_query($con, $query);
           $fetch_profile = mysqli_fetch_assoc($select_profile);
           ?>
-          <li><a class="btn-book-a-table" href="#book-a-table">Ajouter une recette</a></li>
-          <div class="dropdown">
-            <img src="assets/img/profile/<?= $fetch_profile['image']; ?>" data-bs-toggle="dropdown" aria-expanded="false"
-              class="user-pic" alt="user profile photo">
-            <ul class="dropdown-menu">
+          <li> <a class="btn-book-a-table" href="#book-a-table">Ajouter une recette</a></li>
+          <li class="dropdown"><img src="assets/img/profile/<?= $fetch_profile['image']; ?>" data-bs-toggle="dropdown"
+              aria-expanded="false" class="user-pic" alt="user profile photo">
+            <ul>
               <li><img src="assets/img/profile/<?= $fetch_profile['image']; ?>" class="default-pic" />
                 <b>
                   <?= $fetch_profile['name']; ?>
@@ -47,7 +46,7 @@
               <li><a href="./auth/signout.php"><img src="assets/img/logout-icon.png" class="default-pic" /> Sign
                   out</a></li>
             </ul>
-          </div>
+          </li>
           <?php
         } else {
           ?>

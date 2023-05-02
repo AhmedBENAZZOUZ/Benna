@@ -10,7 +10,6 @@ if (isset($_SESSION['id'])) {
 
   $result = mysqli_query($con, $query);
   if ($result && mysqli_num_rows($result) > 0) {
-
     $user_data = mysqli_fetch_assoc($result);
   }
 }
@@ -42,6 +41,7 @@ if (isset($_SESSION['id'])) {
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
@@ -333,6 +333,29 @@ if (isset($_SESSION['id'])) {
               <div class="price align-self-start">70Dt</div>
               <p class="description"></p>
             </div><!-- End Event item -->
+            <!-- Test -->
+            <div class="card swiper-slide event-item d-flex flex-column justify-content-end rounded"
+              style="width: 18rem; height: 130px;">
+              <!-- background-image: url(assets/img/about-2.jpg) -->
+              <img src="assets/img/about-2.jpg" alt="" class="card-img-top">
+              <div class="card-body ">
+                <h2 class="card-title">
+                  <?php echo $user_data['username']; ?>
+                </h2>
+                <div style="display: flex; align-items: center;">
+                  <img src="assets/img/profile/<?php echo $user_data['image']; ?>" alt="Card image cap"
+                    class="rounded-circle">
+                  <div style="margin-left: 10px;">
+                    <h4 class="card-text">
+                      <?php echo $user_data['name']; ?>
+                    </h4>
+                    <p class="card-text">
+                      <?php echo $user_data['created_at']; ?>
+                    </p>
+                  </div>
+                </div>
+              </div><!-- Test -->
+            </div>
             <div class="swiper-slide event-item d-flex flex-column justify-content-end"
               style="background-image: url(assets/img/spaghetti.jpg)">
               <h3>Pasta Carbonara</h3>
@@ -354,6 +377,10 @@ if (isset($_SESSION['id'])) {
         </div>
       </div>
     </section><!-- End Events Section -->
+    <!-- <div style="height:600px; width:400px">
+      <iframe src="https://ora.sh/embed/48b31b4b-4efb-4278-b7df-240acc087d14" width="100%" height="60%"
+        style="border:0; border-radius: 4px" />
+    </div> -->
     <!-- ======= Chefs Section ======= -->
     <section id="chefs" class="chefs section-bg">
       <div class="container" data-aos="fade-up">
@@ -481,17 +508,63 @@ if (isset($_SESSION['id'])) {
                     <div class="row gy-4">
                       <div class="form-group col-lg-12 col-md-6">
                         <label>les Ingredients : </label>
-                        <input type="text" class="form-control icon_search" id="keywords" name="ing"
-                          placeholder="recherche de ...">
+                        <input type="text" class="form-control icon_search" id="ingredient-search"
+                          name="ingredient-search" placeholder="recherche de ...">
                         <br />
+                        <!-- <table id="myTable" style="display:none;">
+                          <tbody>
+                            <?php
+                            // $query_ing = "SELECT * FROM `ingredient`;";
+                            // $select_ingredients = mysqli_query($con, $query_ing);
+                            // $fetch_ingredients = mysqli_fetch_assoc($select_ingredients);
+                            // // Convertir le tableau $fetch en HTML
+                            // while ($fetch_ingredients) {
+                            //   echo "<tr>";
+                            //   // echo "<td><img src='" . $row['image'] . "' alt='" . $row['name'] . "'></td>";
+                            //   echo "<td>" . $fetch_ingredients['name'] . "</td>";
+                            //   echo "</tr>";
+                            // }
+                            ?>
+                          </tbody>
+                        </table> -->
                       </div>
-                      <!-- <div class="form-group">
-                            <label> <span id="minprice">0</span>$ - <span id="maxprice"></span>$ </label>
-                            <input type="range" class="w-100" value="0" id="pricefilter">
-                        </div> -->
+                      <script>
+                        // Récupération de la barre de recherche et du tableau
+                        var input = document.getElementById("ingredient-search");
+                        var table = document.getElementById("myTable");
+
+                        // Ajout d'un événement d'écoute de saisie pour la barre de recherche
+                        input.addEventListener("input", function () {
+                          var filter = input.value.toUpperCase(); // Conversion de la valeur de la barre de recherche en majuscules
+                          var rows = table.getElementsByTagName("tr"); // Récupération de toutes les lignes du tableau
+
+                          // Parcours de toutes les lignes et filtrage des résultats
+                          for (var i = 0; i < rows.length; i++) {
+                            var cells = rows[i].getElementsByTagName("td"); // Récupération de toutes les cellules de la ligne
+                            var visible = false;
+
+                            // Parcours de toutes les cellules de la ligne et comparaison avec la valeur de recherche
+                            for (var j = 0; j < cells.length; j++) {
+                              var cell = cells[j];
+                              if (cell) {
+                                if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) { // Comparaison avec la valeur de recherche
+                                  visible = true;
+                                  break;
+                                }
+                              }
+                            }
+
+                            // Affichage ou masquage de la ligne en fonction des résultats de la recherche
+                            if (visible) {
+                              rows[i].style.display = "";
+                            } else {
+                              rows[i].style.display = "none";
+                            }
+                          }
+                        });
+                      </script>
                     </div>
                     <div class="row gy-4" id="lk">
-
                       <div class="form-group col-lg-8 col-md-6">
                         <label for="instructions">Les Instructions : </label>
                         <input type="text" class="form-control" id="in" />
@@ -582,7 +655,8 @@ if (isset($_SESSION['id'])) {
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h2>Contact</h2>
-          <p>Need Help? <span>Contact Us</span></p>
+          <p>Have Suggestion ? Need Help? <span>Contact Us</span></p> <br>
+          <p>Don't Hesitate</p>
         </div>
         <!-- <div class="mb-3">
            <button onclick="getLocation()" class="btn btn-secondary">Try It</button>
@@ -668,6 +742,8 @@ if (isset($_SESSION['id'])) {
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="//code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
   <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <!-- Template Main JS File -->

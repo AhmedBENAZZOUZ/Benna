@@ -304,9 +304,6 @@ section {
   margin-right: 15px;
 }
 
-.rr {
-  border-radius: 50px;
-}
 
 /* .input-group input[type="search"]::placeholder {
   color: red;
@@ -441,6 +438,13 @@ section {
     left: 100%;
     visibility: visible;
   }
+  .navbar .dropdown hr {
+    border: 0;
+    height: 1px;
+    width: 80%;
+    margin: 15px 0 10px;
+  }
+
 }
 
 @media (min-width: 1280px) and (max-width: 1366px) {
@@ -1036,12 +1040,12 @@ section {
   }
 }
 
-.events .event-item:before {
+/* .events .event-item:before {
   content: "";
-  background: rgba(0, 0, 0, 0.6);
+   background: rgba(0, 0, 0, 0.6);
   position: absolute;
   inset: 0;
-}
+} */
 
 .events .event-item h3 {
   font-size: 24px;
