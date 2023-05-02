@@ -509,24 +509,25 @@ if (isset($_SESSION['id'])) {
                       <div class="form-group col-lg-12 col-md-6">
                         <label>les Ingredients : </label>
                         <input type="text" class="form-control icon_search" id="ingredient-search"
-                          name="ingredient-search" placeholder="recherche de ...">
+                          name="ingredient-search" placeholder="recherche de ..." value="**">
                         <br />
-                        <!-- <table id="myTable" style="display:none;">
+                        <table id="myTable" style="display:none;">
                           <tbody>
                             <?php
-                            // $query_ing = "SELECT * FROM `ingredient`;";
-                            // $select_ingredients = mysqli_query($con, $query_ing);
-                            // $fetch_ingredients = mysqli_fetch_assoc($select_ingredients);
-                            // // Convertir le tableau $fetch en HTML
-                            // while ($fetch_ingredients) {
-                            //   echo "<tr>";
-                            //   // echo "<td><img src='" . $row['image'] . "' alt='" . $row['name'] . "'></td>";
-                            //   echo "<td>" . $fetch_ingredients['name'] . "</td>";
-                            //   echo "</tr>";
-                            // }
+                            $query_ing = "SELECT * FROM `ingredient`;";
+                            $select_ingredients = mysqli_query($con, $query_ing);
+                            $row= mysqli_num_rows($select_ingredients);
+                            $fetch_ingredients = mysqli_fetch_assoc($select_ingredients);
+                            // Convertir le tableau $fetch en HTML
+                            for ($i=0;$i<$row;$i++) {
+                              echo "<tr>";
+                              // echo "<td><img src='" . $row['image'] . "' alt='" . $row['name'] . "'></td>";
+                              echo "<td>" . $fetch_ingredients['name'] . "</td>";
+                              echo "</tr>";
+                            }
                             ?>
                           </tbody>
-                        </table> -->
+                        </table>
                       </div>
                       <script>
                         // Récupération de la barre de recherche et du tableau
@@ -534,34 +535,34 @@ if (isset($_SESSION['id'])) {
                         var table = document.getElementById("myTable");
 
                         // Ajout d'un événement d'écoute de saisie pour la barre de recherche
-                        input.addEventListener("input", function () {
+                        input.addEventListener("change", test());
+                        function test() {
                           var filter = input.value.toUpperCase(); // Conversion de la valeur de la barre de recherche en majuscules
                           var rows = table.getElementsByTagName("tr"); // Récupération de toutes les lignes du tableau
-
+                          alert('onchange');
                           // Parcours de toutes les lignes et filtrage des résultats
-                          for (var i = 0; i < rows.length; i++) {
-                            var cells = rows[i].getElementsByTagName("td"); // Récupération de toutes les cellules de la ligne
-                            var visible = false;
+                          // for (var i = 0; i < rows.length; i++) {
+                          //   var cells = rows[i].getElementsByTagName("td"); // Récupération de toutes les cellules de la ligne
+                          //   var visible = false;
 
-                            // Parcours de toutes les cellules de la ligne et comparaison avec la valeur de recherche
-                            for (var j = 0; j < cells.length; j++) {
-                              var cell = cells[j];
-                              if (cell) {
-                                if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) { // Comparaison avec la valeur de recherche
-                                  visible = true;
-                                  break;
-                                }
-                              }
-                            }
+                          //   // Parcours de toutes les cellules de la ligne et comparaison avec la valeur de recherche
+                          //   for (var j = 0; j < cells.length; j++) {
+                          //     var cell = cells[j];
+                          //     if (cell) {
+                          //       if (cell.textContent.toUpperCase().indexOf(filter) > -1) { // Comparaison avec la valeur de recherche
+                          //         visible = true;
+                          //         break;
+                          //       }
+                          //     }
+                          //   }
 
                             // Affichage ou masquage de la ligne en fonction des résultats de la recherche
-                            if (visible) {
-                              rows[i].style.display = "";
-                            } else {
-                              rows[i].style.display = "none";
-                            }
+                            // if (visible) {
+                            //   rows[i].style.display = "";
+                            // } else {
+                            //   rows[i].style.display = "none";
+                            // }
                           }
-                        });
                       </script>
                     </div>
                     <div class="row gy-4" id="lk">
