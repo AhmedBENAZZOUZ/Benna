@@ -40,6 +40,8 @@ if (isset($_POST['delete'])) {
   <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="stylesheet" href="profile.css">
+   <!-- <link rel="stylesheet" href="..\assets\css\main.css"> -->
+
 </head>
 
 <body>
@@ -50,27 +52,29 @@ if (isset($_POST['delete'])) {
       <!-- Breadcrumb -->
       <nav aria-label="breadcrumb" class="main-breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+          <div class=" d-flex align-items-center justify-content-between">
+            <a href="../index.php" class="logo d-flex align-items-center me-auto me-lg-0"  style="text-decoration: none; color:black;">
+              <img src="../assets/img/icon.png" alt=""style="max-width: 25px;">
+              <h5>Benna<span style="color: #ce1212;">.</span></h5>
+            </a>
+          </div>
         </ol>
       </nav>
       <!-- /Breadcrumb -->
-
       <div class="row gutters-sm">
         <div class="col-md-4 mb-3">
           <div class="card">
             <div class="card-body">
-                <div class="d-flex flex-column align-items-center text-center ">
-                  <img src="../assets/img/profile/<?= $fetch_profile['image']; ?>" alt="user profile photo"
-                    class="rounded-circle" width="150">
-                  <div class="mt-3">
-                    <h4>
-                      <?= $fetch_profile['name']; ?>
-                    </h4>
-                    <!-- <p class="text-secondary mb-1">Full Stack Developer</p>
-                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
-                  </div>
+              <div class="d-flex flex-column align-items-center text-center ">
+                <img src="../assets/img/profile/<?= $fetch_profile['image']; ?>" alt="user profile photo"
+                  class="rounded-circle" width="150">
+                <div class="mt-3">
+                  <h4>
+                    <?= $fetch_profile['name']; ?>
+                  </h4>
+
                 </div>
+              </div>
             </div>
           </div>
           <div class="card mt-3">
@@ -90,7 +94,7 @@ if (isset($_POST['delete'])) {
                     <a class="edit-btn mb-0" href="password-update.php">Password</a>
                   </div>
               </li>
-              <!-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-twitter mr-2 icon-inline text-info">
@@ -109,12 +113,12 @@ if (isset($_POST['delete'])) {
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>Instagram</h6>
                 <span class="text-secondary">bootdey</span>
-              </li> -->
+              </li>
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <div class="row">
                   <div class="col-sm-12">
                     <i class="bi bi-trash3"></i>
-                    <a class="  edit-btn "name ="delete" style="color:#ce1212;" href="warning.php">Delete account</a>
+                    <a class="  edit-btn " name="delete" style="color:#ce1212;" href="delete.php">Delete account</a>
 
                   </div>
 

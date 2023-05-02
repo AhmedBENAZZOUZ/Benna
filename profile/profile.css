@@ -15,6 +15,7 @@ body {
 
 .card {
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+    
 }
 
 .card {
@@ -27,6 +28,7 @@ body {
     background-clip: border-box;
     border: 0 solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
+    
 }
 
 .card-body {
@@ -86,13 +88,13 @@ body {
 .profile-img .file {
     position: relative;
     overflow: hidden;
-    margin-top: -35%;
-    height:10vh;
-    width: 33%;
+    margin-top: -39%;
+    height: 22vh;
+    width: 40%;
     border: none;
     font-size: 15px;
     background: #212529b8;
-    border-radius: 50%;
+    border-radius: 60%;
     text-align: center;
 }
 
@@ -101,32 +103,25 @@ body {
     opacity: 0;
     right: 0;
     top: 0;
-    width: 100%;
- }
+   
+}
+.profile-img .btn-circle {
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+}
 
- /* .profile-img {
-    position: relative;
-  }
-  
-  .change-photo-btn {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+.profile-img .btn-circle i {
+    font-size: 1rem;
+}
+
+.profile-img .btn-circle.text-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.profile-img .btn-circle.text-danger i {
     color: #fff;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .change-photo-btn:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-  
-  .change-photo {
-    display: none;
-  }
-  
-  .profile-img:hover .change-photo-btn {
-    display: block;
-  } */
+}
+
+
