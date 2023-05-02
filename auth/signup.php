@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
          die;
       }
 
-      $query = "insert into users values (NULL,'$username','$name','$email','$phone','$adress','$password_encrypted','$image')";
+      $query = "insert into users (id,username,name,email,phone,adress,password,image) values (NULL,'$username','$name','$email','$phone','$adress','$password_encrypted','$image')";
 
       if (mysqli_query($con, $query)) {
          move_uploaded_file($image_tmp_name, $image_folder);
@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
       }
    } else {
       $default_img = 'default.png';
-      $query = "insert into users values (NULL,'$username','$name','$email','$phone','$adress','$password_encrypted','$default_img')";
+      $query = "insert into users (id,username,name,email,phone,adress,password,image) values (NULL,'$username','$name','$email','$phone','$adress','$password_encrypted','$default_img')";
 
       if (mysqli_query($con, $query)) {
          header("Location: ./Auth.php?success=Account created successfully");
