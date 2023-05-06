@@ -57,7 +57,7 @@ if (isset($_SESSION['id'])) {
       <div class="row justify-content-between gy-5">
         <div
           class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-          <h2 data-aos="fade-up">Compose Your  <br>Favorite Dish </h2>
+          <h2 data-aos="fade-up">Compose Your <br>Favorite Dish </h2>
           <p data-aos="fade-up" data-aos-delay="100"></p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
             <a href="#book-a-table" class="btn-book-a-table">Search recipe </a>
@@ -87,7 +87,19 @@ if (isset($_SESSION['id'])) {
           <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
-Welcome to Benna, your go-to destination for delicious and easy-to-follow recipes! Our website is dedicated to providing you with a vast selection of recipes that are both tasty and approachable, perfect for both beginners and experienced cooks alike. At Benna, we believe that cooking should be enjoyable, not stressful. That's why we've designed our recipes to be simple to follow and use easy-to-find ingredients. Whether you're in the mood for a quick weeknight dinner, a tasty snack, or a special dessert for a celebration, we've got you covered. Our team of recipe developers is passionate about creating dishes that are both flavorful and nutritious. We are committed to using fresh, wholesome ingredients and avoiding highly processed foods. We believe that healthy eating can be delicious, and we strive to make our recipes as healthy and balanced as possible. At Benna, we also understand the importance of sharing meals with loved ones. Cooking and eating together can bring people closer and create cherished memories. That's why we encourage you to invite your family and friends to join you in the kitchen and enjoy the delicious meals you create together. Thank you for choosing Benna as your recipe source. We hope you enjoy our recipes and find inspiration for your next culinary adventure!
+                Welcome to Benna, your go-to destination for delicious and easy-to-follow recipes! Our website is
+                dedicated to providing you with a vast selection of recipes that are both tasty and approachable,
+                perfect for both beginners and experienced cooks alike. At Benna, we believe that cooking should be
+                enjoyable, not stressful. That's why we've designed our recipes to be simple to follow and use
+                easy-to-find ingredients. Whether you're in the mood for a quick weeknight dinner, a tasty snack, or a
+                special dessert for a celebration, we've got you covered. Our team of recipe developers is passionate
+                about creating dishes that are both flavorful and nutritious. We are committed to using fresh, wholesome
+                ingredients and avoiding highly processed foods. We believe that healthy eating can be delicious, and we
+                strive to make our recipes as healthy and balanced as possible. At Benna, we also understand the
+                importance of sharing meals with loved ones. Cooking and eating together can bring people closer and
+                create cherished memories. That's why we encourage you to invite your family and friends to join you in
+                the kitchen and enjoy the delicious meals you create together. Thank you for choosing Benna as your
+                recipe source. We hope you enjoy our recipes and find inspiration for your next culinary adventure!
               </p>
 
               <div class="position-relative mt-4">
@@ -101,15 +113,18 @@ Welcome to Benna, your go-to destination for delicious and easy-to-follow recipe
     </section><!-- End About Section -->
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
-      <div claxx  ss="container" data-aos="fade-up">
+      <div claxx ss="container" data-aos="fade-up">
         <div class="row gy-4">
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="why-box">
               <h3>Why Choose Benna?</h3>
               <p>
-              At Benna, we offer high-quality, easy-to-follow recipes that are both delicious and nutritious. Our recipes are crafted to be approachable and use fresh, whole ingredients to ensure you're putting the best into your body. Whether you're an experienced cook or just starting out, we have something for you. Choose Benna for delicious, healthy meals that you'll actually want to make and enjoy!
+                At Benna, we offer high-quality, easy-to-follow recipes that are both delicious and nutritious. Our
+                recipes are crafted to be approachable and use fresh, whole ingredients to ensure you're putting the
+                best into your body. Whether you're an experienced cook or just starting out, we have something for you.
+                Choose Benna for delicious, healthy meals that you'll actually want to make and enjoy!
               </p>
-              <div class="text-center"> 
+              <div class="text-center">
               </div>
             </div>
           </div><!-- End Why Box -->
@@ -120,7 +135,10 @@ Welcome to Benna, your go-to destination for delicious and easy-to-follow recipe
                   style="background-color: #ce1212;">
                   <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
                   <h4>Traditional Dishes</h4>
-                  <p>The Tunisian traditional kitchen is a vibrant fusion of flavors and influences from the Mediterranean, Middle Eastern, and North African regions. Tunisian cuisine is characterized by its use of spices, such as harissa, cumin, coriander, and mint,which add a depth of flavor to its dishes. Staple ingredients in Tunisian cuisine include grains like couscous and bulgur</p>
+                  <p>The Tunisian traditional kitchen is a vibrant fusion of flavors and influences from the
+                    Mediterranean, Middle Eastern, and North African regions. Tunisian cuisine is characterized by its
+                    use of spices, such as harissa, cumin, coriander, and mint,which add a depth of flavor to its
+                    dishes. Staple ingredients in Tunisian cuisine include grains like couscous and bulgur</p>
                   <div class="why-box">
                     <a href="#" class="more-btn">discover </a>
                   </div>
@@ -130,8 +148,11 @@ Welcome to Benna, your go-to destination for delicious and easy-to-follow recipe
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center"
                   style="background-color: #ce1212;">
                   <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
-                  <h4>Salty Dishes  </h4>
-                  <p>This could include the use of salt, pepper, and herbs to enhance the flavors of dishes, as well as ingredients like cheese, cured meats, and olives to add a salty or savory element to meals. A "salty kitchen" may be a term used by chefs or food enthusiasts to describe a style of cooking that focuses on savory flavors and ingredients</p>
+                  <h4>Salty Dishes </h4>
+                  <p>This could include the use of salt, pepper, and herbs to enhance the flavors of dishes, as well as
+                    ingredients like cheese, cured meats, and olives to add a salty or savory element to meals. A "salty
+                    kitchen" may be a term used by chefs or food enthusiasts to describe a style of cooking that focuses
+                    on savory flavors and ingredients</p>
                   <div class="why-box">
                     <a href="#" class="more-btn">discover </a>
                   </div>
@@ -142,7 +163,10 @@ Welcome to Benna, your go-to destination for delicious and easy-to-follow recipe
                   style="background-color: #ce1212;">
                   <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
                   <h4>Sweet Dishes</h4>
-                  <p>Sweet dishes are a type of cuisine that is characterized by its sugary or dessert-like ingredients and flavors. These dishes can be enjoyed as a dessert or a treat, and typically use ingredients like sugar, honey, and fruits to create a sweet taste. Common sweet dishes include cakes, pies, cookies, and sweet breakfast items like waffles and pancakes.</p>
+                  <p>Sweet dishes are a type of cuisine that is characterized by its sugary or dessert-like ingredients
+                    and flavors. These dishes can be enjoyed as a dessert or a treat, and typically use ingredients like
+                    sugar, honey, and fruits to create a sweet taste. Common sweet dishes include cakes, pies, cookies,
+                    and sweet breakfast items like waffles and pancakes.</p>
                   <div class="why-box">
                     <a href="#" class="more-btn">discover </a>
                   </div>
@@ -304,7 +328,7 @@ Welcome to Benna, your go-to destination for delicious and easy-to-follow recipe
       <div class="container-fluid" data-aos="fade-up">
         <div class="section-header">
           <h2>Recieps</h2>
-          <p>Discover <span>The most Delicious Recieps </span> with us  </p>
+          <p>Discover <span>The most Delicious Recieps </span> with us </p>
         </div>
         <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
@@ -347,20 +371,15 @@ Welcome to Benna, your go-to destination for delicious and easy-to-follow recipe
                   </div>
                 </div>
                 <!-- End Event item -->
-
-              </p>
-            </div><!-- End Event item -->
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end"
-              style="background-image: url(assets/img/brika.jpg)">
-              <h3>Brike à l'oeuf</h3>
-              <div class="price align-self-start">5Dt</div>
-              <p class="description">
-
-              </p>
-            </div><!-- End Event item -->
-          </div>
-          <div class="swiper-pagination"></div>
+              <?php
+              }
+            }
+            ?>
+            </p>
+          </div><!-- End Event item -->
         </div>
+        <div class="swiper-pagination"></div>
+      </div>
       </div>
     </section><!-- End Events Section -->
     <!-- <div style="height:600px; width:400px">
@@ -490,7 +509,7 @@ Welcome to Benna, your go-to destination for delicious and easy-to-follow recipe
                     <select class="form-select" name="type_plat">
                       <option value="type of dish">Type of Dish </option>
                       <option value="chaud">Sweet Dish </option>
-                      <option value="froid">Salty Dish  </option>
+                      <option value="froid">Salty Dish </option>
                       <option value="traditionnelle">Plat traditionnelle</option>
                       <option value="diabetique">Dishes for Diabetics </option>
                       <option value="vegetarien">Dishes for Vegetariens</option>
@@ -615,12 +634,12 @@ Welcome to Benna, your go-to destination for delicious and easy-to-follow recipe
           <p>Have Suggestion ? Need Help? <span>Contact Us</span></p> <br>
           <p>Don't Hesitate</p>
         </div>
-         <div class="mb-3">
-           <button onclick="getLocation()" class="btn btn-secondary">Try It</button>
-          <p id="demo"></p> 
-           <iframe style="border:0; width: 100%; height: 350px;"
+        <div class="mb-3">
+          <button onclick="getLocation()" class="btn btn-secondary">Try It</button>
+          <p id="demo"></p>
+          <iframe style="border:0; width: 100%; height: 350px;"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2665.864891111179!2d10.22999566005915!3d36.836763133183894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd353c2a9bdafb%3A0xf40a3b2820de190d!2sPolytech-Intl!5e0!3m2!1sfr!2sfr!4v1547545953166"
-            frameborder="0" allowfullscreen></iframe>  
+            frameborder="0" allowfullscreen></iframe>
         </div> <!-- End Google Maps -->
       </div>
       <form action="forms/feedback.php" method="post" role="form" class="php-email-form p-3 p-md-4">
