@@ -4,7 +4,7 @@
         <div class="col-lg-3 col-md-6 d-flex">
           <i class="bi bi-geo-alt icon"></i>
           <div>
-            <h4>Polytech</h4>
+            <h4>Polytech Intl</h4>
             <p>
               <br>
               <br>
@@ -46,7 +46,7 @@
         &copy; Copyright <strong><span>Benna</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        Designed by
+        Designed by Ben Azzouz Ahmed , Ben Maaouia Aziz & Elbah Mohamed Amine. 
       </div>
     </div>
   </footer>

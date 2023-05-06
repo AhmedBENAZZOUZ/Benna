@@ -53,18 +53,17 @@ if (strlen($_SESSION['alogin']) == 0) {
 	<!doctype html>
 	<html lang="en" class="no-js">
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="theme-color" content="#3e454c">
-	
-	<title>Admin || Users</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="theme-color" content="#3e454c">
 
-		<title>Manage Users</title>
+		<title>Benna || Admin Manage recipe Suggestion</title>
 
+		<link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<!-- Sandstone Bootstrap CSS -->
@@ -114,11 +113,11 @@ if (strlen($_SESSION['alogin']) == 0) {
 					<div class="row">
 						<div class="col-md-12">
 
-							<h2 class="page-title">Manage Users</h2>
+							<h2 class="page-title">Manage recipe Suggestion</h2>
 
 							<!-- Zero Configuration Table -->
 							<div class="panel panel-default">
-								<div class="panel-heading">List Users</div>
+								<div class="panel-heading">List recipe suggested</div>
 								<div class="panel-body">
 									<?php if ($error) { ?>
 										<div class="errorWrap" id="msgshow">
@@ -135,58 +134,69 @@ if (strlen($_SESSION['alogin']) == 0) {
 											<tr>
 												<th>#</th>
 												<th>Image</th>
-												<th>username</th>
-												<th>name</th>
-												<th>email</th>
-												<th>Phone</th>
-												<th>adress</th>
-												<th>Account</th>
+												<th>Name</th>
+												<th>Preparation time</th>
+												<th>For number of people</th>
+												<th>difficulty</th>
+												<th>type</th>
+												<th>ingredients</th>
+												<th>instructions</th>
+												<th>User</th>
 												<th>Action</th>
 											</tr>
 										</thead>
 
 										<tbody>
 
-											<?php $sql = "SELECT * from  users ";
+											<?php $sql = "SELECT * from  recette_suggestions ";
 											$query = $dbh->prepare($sql);
 											$query->execute();
 											$results = $query->fetchAll(PDO::FETCH_OBJ);
-											$cnt = 1;
 											if ($query->rowCount() > 0) {
 												foreach ($results as $result) { ?>
 													<tr>
 														<td>
-															<?php echo htmlentities($cnt); ?>
+															<?php echo htmlentities($result->id); ?>
 														</td>
-														<td><img src="../assets/img/profile/<?php echo htmlentities($result->image); ?>"
-																style="width:50px; height:50px; border-radius:50%;" /></td>
-														<td>
-															<?php echo htmlentities($result->username); ?>
-														</td>
+														<td><img src="../assets/img/recette/<?php echo htmlentities($result->image); ?>"
+																style="width:30px; height: 30px; border-radius:50%;" /></td>
 														<td>
 															<?php echo htmlentities($result->name); ?>
 														</td>
 														<td>
-															<?php echo htmlentities($result->email); ?>
+															<?php echo htmlentities($result->prep_time); ?>
 														</td>
 														<td>
-															<?php echo htmlentities($result->phone); ?>
+															<?php echo htmlentities($result->nb_people); ?>
 														</td>
 														<td>
-															<?php echo htmlentities($result->adress); ?>
+															<?php echo htmlentities($result->difficulty); ?>
+														</td>
 														<td>
-
-															<?php if ($result->status == 1) { ?>
-																<a href="userlist.php?confirm=<?php echo htmlentities($result->id); ?>"
-																	onclick="return confirm('Do you really want to Un-Confirm the Account')">Confirmed
-																	<i class="fa fa-check-circle"></i></a>
-															<?php } else { ?>
-																<a href="userlist.php?unconfirm=<?php echo htmlentities($result->id); ?>"
-																	onclick="return confirm('Do you really want to Confirm the Account')">Un-Confirmed
-																	<i class="fa fa-times-circle"></i></a>
-															<?php } ?>
-														</td>
-														</td>
+															<?php echo htmlentities($result->type); ?>
+														<td>
+															<?php echo htmlentities($result->ingredient); ?>
+														<td>
+															<?php echo htmlentities($result->instructions); ?>
+														<td>
+															<?php $sql_user = "SELECT * from  users where id=$result->user_id";
+															$query_user = $dbh->prepare($sql_user);
+															$query_user->execute();
+															$result_user = $query_user->fetchAll(PDO::FETCH_OBJ);
+															if ($query_user->rowCount() > 0) {
+																foreach ($result_user as $result) {
+																	echo htmlentities($result->name);
+																}
+															} ?>
+															<!-- <td>
+											
+											<?php if ($result->status == 1) { ?>
+													<a href="userlist.php?confirm=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to Un-Confirm the Account')">Confirmed <i class="fa fa-check-circle"></i></a> 
+													<?php } else { ?>
+													<a href="userlist.php?unconfirm=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to Confirm the Account')">Un-Confirmed <i class="fa fa-times-circle"></i></a>
+													<?php } ?>
+</td>
+											</td> -->
 
 														<td>
 															<a href="edit-user.php?edit=<?php echo $result->id; ?>"

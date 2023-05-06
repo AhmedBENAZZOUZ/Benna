@@ -57,7 +57,7 @@ if (isset($_SESSION['id'])) {
       <div class="row justify-content-between gy-5">
         <div
           class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-          <h2 data-aos="fade-up">Composez votre <br>plat prefere </h2>
+          <h2 data-aos="fade-up">Compose Your  <br>Favorite Dish </h2>
           <p data-aos="fade-up" data-aos-delay="100"></p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
             <a href="#book-a-table" class="btn-book-a-table">Search recipe </a>
@@ -87,21 +87,7 @@ if (isset($_SESSION['id'])) {
           <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore
-                magna aliqua.
-              </p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                  pariatur.</li>
-              </ul>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+Welcome to Benna, your go-to destination for delicious and easy-to-follow recipes! Our website is dedicated to providing you with a vast selection of recipes that are both tasty and approachable, perfect for both beginners and experienced cooks alike. At Benna, we believe that cooking should be enjoyable, not stressful. That's why we've designed our recipes to be simple to follow and use easy-to-find ingredients. Whether you're in the mood for a quick weeknight dinner, a tasty snack, or a special dessert for a celebration, we've got you covered. Our team of recipe developers is passionate about creating dishes that are both flavorful and nutritious. We are committed to using fresh, wholesome ingredients and avoiding highly processed foods. We believe that healthy eating can be delicious, and we strive to make our recipes as healthy and balanced as possible. At Benna, we also understand the importance of sharing meals with loved ones. Cooking and eating together can bring people closer and create cherished memories. That's why we encourage you to invite your family and friends to join you in the kitchen and enjoy the delicious meals you create together. Thank you for choosing Benna as your recipe source. We hope you enjoy our recipes and find inspiration for your next culinary adventure!
               </p>
 
               <div class="position-relative mt-4">
@@ -115,19 +101,15 @@ if (isset($_SESSION['id'])) {
     </section><!-- End About Section -->
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
-      <div class="container" data-aos="fade-up">
+      <div claxx  ss="container" data-aos="fade-up">
         <div class="row gy-4">
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="why-box">
               <h3>Why Choose Benna?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad
-                corporis.
+              At Benna, we offer high-quality, easy-to-follow recipes that are both delicious and nutritious. Our recipes are crafted to be approachable and use fresh, whole ingredients to ensure you're putting the best into your body. Whether you're an experienced cook or just starting out, we have something for you. Choose Benna for delicious, healthy meals that you'll actually want to make and enjoy!
               </p>
-              <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+              <div class="text-center"> 
               </div>
             </div>
           </div><!-- End Why Box -->
@@ -137,8 +119,8 @@ if (isset($_SESSION['id'])) {
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center"
                   style="background-color: #ce1212;">
                   <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
-                  <h4>Cuisine traditionnelle</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                  <h4>Traditional Dishes</h4>
+                  <p>The Tunisian traditional kitchen is a vibrant fusion of flavors and influences from the Mediterranean, Middle Eastern, and North African regions. Tunisian cuisine is characterized by its use of spices, such as harissa, cumin, coriander, and mint,which add a depth of flavor to its dishes. Staple ingredients in Tunisian cuisine include grains like couscous and bulgur</p>
                   <div class="why-box">
                     <a href="#" class="more-btn">discover </a>
                   </div>
@@ -148,8 +130,8 @@ if (isset($_SESSION['id'])) {
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center"
                   style="background-color: #ce1212;">
                   <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
-                  <h4>Cuisine salée</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                  <h4>Salty Dishes  </h4>
+                  <p>This could include the use of salt, pepper, and herbs to enhance the flavors of dishes, as well as ingredients like cheese, cured meats, and olives to add a salty or savory element to meals. A "salty kitchen" may be a term used by chefs or food enthusiasts to describe a style of cooking that focuses on savory flavors and ingredients</p>
                   <div class="why-box">
                     <a href="#" class="more-btn">discover </a>
                   </div>
@@ -159,8 +141,8 @@ if (isset($_SESSION['id'])) {
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center"
                   style="background-color: #ce1212;">
                   <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
-                  <h4>Cuisine sucré</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                  <h4>Sweet Dishes</h4>
+                  <p>Sweet dishes are a type of cuisine that is characterized by its sugary or dessert-like ingredients and flavors. These dishes can be enjoyed as a dessert or a treat, and typically use ingredients like sugar, honey, and fruits to create a sweet taste. Common sweet dishes include cakes, pies, cookies, and sweet breakfast items like waffles and pancakes.</p>
                   <div class="why-box">
                     <a href="#" class="more-btn">discover </a>
                   </div>
@@ -179,7 +161,7 @@ if (isset($_SESSION['id'])) {
             <div class="stats-item text-center w-100 h-100">
               <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
                 class="purecounter"></span>
-              <p>commentaire</p>
+              <p>Comments</p>
             </div>
           </div><!-- End Stats Item -->
           <div class="col-lg-3 col-md-6">
@@ -226,9 +208,9 @@ if (isset($_SESSION['id'])) {
                         <i class="bi bi-quote quote-icon-left"></i>
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>Saul Goodman</h3>
-                      <h4>Ceo &amp; Founder</h4>
-                      <p>this is a good way to discover new recepies </p>
+                      <h3>Name</h3>
+                      <h4></h4>
+                      <p></p>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                           class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -250,8 +232,8 @@ if (isset($_SESSION['id'])) {
                         <i class="bi bi-quote quote-icon-left"></i>
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>Sara Wilsson</h3>
-                      <h4>Designer</h4>
+                      <h3>Name</h3>
+                      <h4>Job</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                           class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -274,8 +256,8 @@ if (isset($_SESSION['id'])) {
 
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>Jena Karlis</h3>
-                      <h4>Store Owner</h4>
+                      <h3>Name</h3>
+                      <h4>Job</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                           class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -298,8 +280,8 @@ if (isset($_SESSION['id'])) {
 
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>John Larson</h3>
-                      <h4>Entrepreneur</h4>
+                      <h3>Name</h3>
+                      <h4>Jon</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                           class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -321,46 +303,50 @@ if (isset($_SESSION['id'])) {
     <section id="events" class="events">
       <div class="container-fluid" data-aos="fade-up">
         <div class="section-header">
-          <h2>Recettes</h2>
-          <p>Découvrez <span>les plus délicieuses recettes</span> avec nous </p>
+          <h2>Recieps</h2>
+          <p>Discover <span>The most Delicious Recieps </span> with us  </p>
         </div>
         <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
 
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end"
-              style="background-image: url(assets/img/cake_chocolata.jpg)">
-              <h3>Peanut Butter Cup Cake</h3>
-              <div class="price align-self-start">70Dt</div>
-              <p class="description"></p>
-            </div><!-- End Event item -->
-            <!-- Test -->
-            <div class="card swiper-slide event-item d-flex flex-column justify-content-end rounded"
-              style="width: 18rem; height: 130px;">
-              <!-- background-image: url(assets/img/about-2.jpg) -->
-              <img src="assets/img/about-2.jpg" alt="" class="card-img-top">
-              <div class="card-body ">
-                <h2 class="card-title">
-                  <?php echo $user_data['username']; ?>
-                </h2>
-                <div style="display: flex; align-items: center;">
-                  <img src="assets/img/profile/<?php echo $user_data['image']; ?>" alt="Card image cap"
-                    class="rounded-circle" width="45px" height="45px">
-                  <div style="margin-left: 10px;">
-                    <h4 class="card-text">
-                      <?php echo $user_data['name']; ?>
-                    </h4>
-                    <p class="card-text">
-                      <?php echo $user_data['created_at']; ?>
-                    </p>
+            <?php
+            $query = "SELECT * FROM recette_suggestions ORDER BY created DESC LIMIT 4";
+            $result = mysqli_query($con, $query);
+            if ($result && mysqli_num_rows($result) > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                $user_id = $row['user_id'];
+                $sql = "select name,image from users where id = $user_id;";
+                $result_user = mysqli_query($con, $sql);
+                $row_user = mysqli_fetch_assoc($result_user);
+                ?>
+
+                <!-- Event item -->
+                <div class="card swiper-slide event-item d-flex flex-column justify-content-end rounded"
+                  style="width: 18rem; height: 130px;">
+                  <!-- background-image: url(assets/img/about-2.jpg) -->
+                  <img src="assets/img/recette/<?= $row['image']; ?>" alt="" class="card-img-top" height="420px">
+                  <div class="card-body ">
+                    <h2 class="card-title">
+                      <?php echo $row['name']; ?>
+                    </h2>
+                    <div style="display: flex; align-items: center;">
+                      <img src="assets/img/profile/<?php echo $row_user['image']; ?>" alt="Card image cap"
+                        class="rounded-circle" width="50px" height="50 px">
+                      <div style="margin-left: 10px;">
+                        <h4 class="card-text">
+                          <?php echo $row_user['name']; ?>
+                        </h4>
+                        <p class="card-text">
+                          <?php echo $row['created']; ?>
+                        </p>
+                      </div>
+                      <div class="d-flex flex-column align-items-end">
+                        <a href="#" class="btn btn-danger">View Comments</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div><!-- Test -->
-            </div>
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end"
-              style="background-image: url(assets/img/spaghetti.jpg)">
-              <h3>Pasta Carbonara</h3>
-              <div class="price align-self-start">42Dt</div>
-              <p class="description">
+                <!-- End Event item -->
 
               </p>
             </div><!-- End Event item -->
@@ -406,7 +392,7 @@ if (isset($_SESSION['id'])) {
                 </div>
               </div>
               <div class="member-info">
-                <h4>Walter White</h4>
+                <h4>Mounir Arem</h4>
                 <span>Master Chef</span>
                 <p></p>
               </div>
@@ -424,7 +410,7 @@ if (isset($_SESSION['id'])) {
                 </div>
               </div>
               <div class="member-info">
-                <h4>Sarah Jhonson</h4>
+                <h4>Maissa Boussaida</h4>
                 <span>Patissier</span>
                 <p></p>
               </div>
@@ -442,8 +428,8 @@ if (isset($_SESSION['id'])) {
                 </div>
               </div>
               <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>Cook</span>
+                <h4>Wafik Belaid</h4>
+                <span>Chef</span>
                 <p></p>
               </div>
             </div>
@@ -459,7 +445,7 @@ if (isset($_SESSION['id'])) {
       <section id="book-a-table" class="book-a-table">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
-            <h2>Add Your recipe </h2>
+            <h2>Suggest Your recipe </h2>
             <!-- <p>Here you can <span>contact the admin to </span> add a recipe </p> -->
           </div>
           <div class="row g-0">
@@ -470,12 +456,12 @@ if (isset($_SESSION['id'])) {
                 data-aos-delay="100" enctype="multipart/form-data">
                 <div class="row gy-4">
                   <div class="col-lg-6 col-md-6">
-                    <input type="text" name="Nom_recette" class="form-control" id="name" placeholder="Nom de la recette"
+                    <input type="text" name="Nom_recette" class="form-control" id="name" placeholder="Name of Recipe"
                       data-rule="minlen:4" data-msg="Please enter at least 4 chars">
                     <div class="validate"></div>
                   </div>
                   <div class="col-lg-6 col-md-6">
-                    <input type="text" class="form-control" name="temps_preparation" placeholder="Temps de préparation"
+                    <input type="text" class="form-control" name="temps_preparation" placeholder="Time of preparation"
                       data-rule="email" data-msg="Please enter a time">
                     <div class="validate"></div>
                   </div>
@@ -491,39 +477,40 @@ if (isset($_SESSION['id'])) {
                   </div>
                   <div class="col-lg-6 col-md-6">
                     <select class="form-select" name="difficulte">
-                      <option value="non_valide">Choisir la difficulté</option>
-                      <option value="tres facile">Très Facile</option>
-                      <option value="facile">Facile</option>
-                      <option value="moyenne">Moyenne</option>
-                      <option value="facile">Difficile</option>
+                      <option value="non_valide">Choose Difficulty</option>
+                      <option value="tres facile">Very Easy</option>
+                      <option value="facile">Easy</option>
+                      <option value="moyenne">Medium</option>
+                      <option value="facile">Difficult</option>
                     </select>
                   </div>
                 </div>
                 <div class="row justify-content-center">
                   <div class="my-3">
                     <select class="form-select" name="type_plat">
-                      <option value="type of dish">Type de plat</option>
-                      <option value="chaud">Plat sucré</option>
-                      <option value="froid">Plat salé </option>
+                      <option value="type of dish">Type of Dish </option>
+                      <option value="chaud">Sweet Dish </option>
+                      <option value="froid">Salty Dish  </option>
                       <option value="traditionnelle">Plat traditionnelle</option>
-                      <option value="diabetique">Plat pour les diabetiques</option>
-                      <option value="vegetarien">Plat pour les vegetariens</option>
+                      <option value="diabetique">Dishes for Diabetics </option>
+                      <option value="vegetarien">Dishes for Vegetariens</option>
                     </select>
                     <br />
                     <div class="row gy-4">
                       <div class="form-group col-lg-12 col-md-6">
-                        <label>les Ingredients : </label>
-                        <input type="text" class="form-control icon_search" id="ingredient-search"
-                          name="ingredient-search" placeholder="recherche de ...">
+                        <label for="exampleFormControlTextarea1">Ingredients and quantity : </label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                          name="ingredients"></textarea>
                         <br />
                         <!-- <table id="myTable" style="display:none;">
                           <tbody>
                             <?php
                             // $query_ing = "SELECT * FROM `ingredient`;";
                             // $select_ingredients = mysqli_query($con, $query_ing);
+                            // $row = mysqli_num_rows($select_ingredients);
                             // $fetch_ingredients = mysqli_fetch_assoc($select_ingredients);
                             // // Convertir le tableau $fetch en HTML
-                            // while ($fetch_ingredients) {
+                            // for ($i = 0; $i < $row; $i++) {
                             //   echo "<tr>";
                             //   // echo "<td><img src='" . $row['image'] . "' alt='" . $row['name'] . "'></td>";
                             //   echo "<td>" . $fetch_ingredients['name'] . "</td>";
@@ -533,57 +520,22 @@ if (isset($_SESSION['id'])) {
                           </tbody>
                         </table> -->
                       </div>
-                      <script>
-                        // Récupération de la barre de recherche et du tableau
-                        var input = document.getElementById("ingredient-search");
-                        var table = document.getElementById("myTable");
-
-                        // Ajout d'un événement d'écoute de saisie pour la barre de recherche
-                        input.addEventListener("input", function () {
-                          var filter = input.value.toUpperCase(); // Conversion de la valeur de la barre de recherche en majuscules
-                          var rows = table.getElementsByTagName("tr"); // Récupération de toutes les lignes du tableau
-
-                          // Parcours de toutes les lignes et filtrage des résultats
-                          for (var i = 0; i < rows.length; i++) {
-                            var cells = rows[i].getElementsByTagName("td"); // Récupération de toutes les cellules de la ligne
-                            var visible = false;
-
-                            // Parcours de toutes les cellules de la ligne et comparaison avec la valeur de recherche
-                            for (var j = 0; j < cells.length; j++) {
-                              var cell = cells[j];
-                              if (cell) {
-                                if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) { // Comparaison avec la valeur de recherche
-                                  visible = true;
-                                  break;
-                                }
-                              }
-                            }
-
-                            // Affichage ou masquage de la ligne en fonction des résultats de la recherche
-                            if (visible) {
-                              rows[i].style.display = "";
-                            } else {
-                              rows[i].style.display = "none";
-                            }
-                          }
-                        });
-                      </script>
                     </div>
                     <div class="row gy-4" id="lk">
                       <div class="form-group col-lg-8 col-md-6">
                         <label for="instructions">Les Instructions : </label>
                         <input type="text" class="form-control" id="in" />
                       </div>
-                      <div class="form-group col-lg-4 col-md-6">
+                      <!-- <div class="form-group col-lg-4 col-md-6">
                         <br />
                         <input type="button" value="Add" onclick="add()">
-                      </div>
+                      </div> -->
                     </div>
                     <br />
                     <div class="row gy-4">
                       <div class="form-group col-lg-6 col-md-6">
                         <label class="my-auto">Upload a photo of your dish</label>
-                        <input id="file" type="file" class="form-control" name="image" multiple />
+                        <input id="file" type="file" class="form-control" name="image" />
                       </div>
                       <div class="form-group col-lg-6 col-md-6">
                         <label class="my-auto">Upload a video of your dish</label>
@@ -618,7 +570,7 @@ if (isset($_SESSION['id'])) {
       </section><!-- End Book A Table Section -->
     <?php } ?>
     <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery section-bg">
+    <!-- <section id="gallery" class="gallery section-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h2>gallery</h2>
@@ -654,7 +606,7 @@ if (isset($_SESSION['id'])) {
           <div class="swiper-pagination"></div>
         </div>
       </div>
-    </section><!-- End Gallery Section -->
+    </section> --> <!--End Gallery Section -->
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
@@ -663,52 +615,13 @@ if (isset($_SESSION['id'])) {
           <p>Have Suggestion ? Need Help? <span>Contact Us</span></p> <br>
           <p>Don't Hesitate</p>
         </div>
-        <!-- <div class="mb-3">
+         <div class="mb-3">
            <button onclick="getLocation()" class="btn btn-secondary">Try It</button>
           <p id="demo"></p> 
            <iframe style="border:0; width: 100%; height: 350px;"
-            src="https://www.google.com/maps/place/Polytech-Intl/@36.8364622,10.230462,16.95z/data=!4m6!3m5!1s0x12fd353c2a9bdafb:0xf40a3b2820de190d!8m2!3d36.8367566!4d10.231694!16s%2Fg%2F1ptwg6hg_"
-            frameborder="0" allowfullscreen></iframe> 
-        </div>--> <!-- End Google Maps -->
-        <!-- <div class="row gy-4">
-          <div class="col-md-6">
-            <div class="info-item  d-flex align-items-center">
-              <i class="icon bi bi-map flex-shrink-0"></i>
-              <div>
-                <h3>Adresse</h3>
-                <p></p>
-              </div>
-            </div>
-          </div> --> <!-- End Info Item -->
-        <!-- <div class="col-md-6">
-            <div class="info-item d-flex align-items-center">
-              <i class="icon bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email</h3>
-                <p>Contact@benna.com</p>
-              </div>
-            </div>
-          </div> --> <!-- End Info Item -->
-        <!-- <div class="col-md-6">
-            <div class="info-item  d-flex align-items-center">
-              <i class="icon bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Télephone</h3>
-                <p>+216 70 70 70 70</p>
-              </div>
-            </div>
-          </div> --> <!-- End Info Item -->
-        <!-- <div class="col-md-6">
-            <div class="info-item  d-flex align-items-center">
-              <i class="icon bi bi-share flex-shrink-0"></i>
-              <div>
-                <h3>Opening Hours</h3>
-                <div><strong>Mon-Sat:</strong> 11AM - 23PM;
-                  <strong>Sunday:</strong> Closed
-                </div>
-              </div>
-            </div>
-          </div> --> <!-- End Info Item  -->
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2665.864891111179!2d10.22999566005915!3d36.836763133183894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd353c2a9bdafb%3A0xf40a3b2820de190d!2sPolytech-Intl!5e0!3m2!1sfr!2sfr!4v1547545953166"
+            frameborder="0" allowfullscreen></iframe>  
+        </div> <!-- End Google Maps -->
       </div>
       <form action="forms/feedback.php" method="post" role="form" class="php-email-form p-3 p-md-4">
         <div class="form-group">

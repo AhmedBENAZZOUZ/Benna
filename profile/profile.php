@@ -40,7 +40,7 @@ if (isset($_POST['delete'])) {
   <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="stylesheet" href="profile.css">
-   <!-- <link rel="stylesheet" href="..\assets\css\main.css"> -->
+  <!-- <link rel="stylesheet" href="..\assets\css\main.css"> -->
 
 </head>
 
@@ -53,8 +53,9 @@ if (isset($_POST['delete'])) {
       <nav aria-label="breadcrumb" class="main-breadcrumb">
         <ol class="breadcrumb">
           <div class=" d-flex align-items-center justify-content-between">
-            <a href="../index.php" class="logo d-flex align-items-center me-auto me-lg-0"  style="text-decoration: none; color:black;">
-              <img src="../assets/img/icon.png" alt=""style="max-width: 25px;">
+            <a href="../index.php" class="logo d-flex align-items-center me-auto me-lg-0"
+              style="text-decoration: none; color:black;">
+              <img src="../assets/img/icon.png" alt="" style="max-width: 25px;">
               <h5>Benna<span style="color: #ce1212;">.</span></h5>
             </a>
           </div>
@@ -183,32 +184,44 @@ if (isset($_POST['delete'])) {
             <div class="col-sm mb-3">
               <div class="card h-100">
                 <div class="card-body">
-                  <h6 class="d-flex align-items-center mb-3"><i
-                      class="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                  <small>Web Design</small>
-                  <div class="progress mb-3" style="height: 5px">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <small>Website Markup</small>
-                  <div class="progress mb-3" style="height: 5px">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <small>One Page</small>
-                  <div class="progress mb-3" style="height: 5px">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <small>Mobile Template</small>
-                  <div class="progress mb-3" style="height: 5px">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <small>Backend API</small>
-                  <div class="progress mb-3" style="height: 5px">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                  <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">My recipe</i></h6>
+                  <div class="d-flex flex-wrap">
+                    <div class="card mb-3" style="width: 24rem; margin-right: 15px;">
+                      <img class="card-img-top" src="../assets/img/recette/default.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                          the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+                    <div class="card mb-3" style="width: 24rem; margin-right: 15px;">
+                      <img class="card-img-top" src="../assets/img/recette/default.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                          the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+                    <div class="card mb-3" style="width: 24rem; margin-right: 15px;">
+                      <img class="card-img-top" src="../assets/img/recette/default.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                          the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                      <div class="card mb-3" style="width: 24rem; margin-right: 15px;">
+                      <img class="card-img-top" src="../assets/img/recette/default.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                          the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+                    </div>
                   </div>
                 </div>
               </div>
