@@ -138,7 +138,7 @@ if (isset($_POST['save_changes'])) {
                                 <div class="d-flex flex-column align-items-center text-center profile-img">
                                     <div class="position-relative">
                                         <img src="../assets/img/profile/<?= $fetch_profile['image']; ?>" alt="Admin"
-                                            class="rounded-circle" width="150">
+                                            class="rounded-circle" width="150px" height="150px">
                                         <div class="position-absolute top-0 end-0">
                                             <button type="button" class="btn btn-circle btn-outline-danger upload-btn">
                                                 <i class="bi bi-camera-fill"></i>

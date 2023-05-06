@@ -15,27 +15,23 @@ if (strlen($_SESSION['alogin']) == 0) {
 	if (isset($_POST['submit'])) {
 		$file = $_FILES['image']['name'];
 		$file_loc = $_FILES['image']['tmp_name'];
-		$folder = "..\assets\img\profile";
+		$folder = "../assets/img/";
 		$new_file_name = strtolower($file);
 		$final_file = str_replace(' ', '-', $new_file_name);
 
 		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$phone = $_POST['phone'];
-		$adress = $_POST['adress'];
-		$idedit = $_POST['idedit'];
+		$description = $_POST['description'];
 		$image = $_POST['image'];
+		$idedit = $_POST['idedit'];
 
 		if (move_uploaded_file($file_loc, $folder . $final_file)) {
 			$image = $final_file;
 		}
 
-		$sql = "UPDATE users SET name=(:name), email=(:email),  phone=(:phone),adress=(:adress)  , image=(:image) WHERE id=(:idedit)";
+		$sql = "UPDATE ingredient SET name=(:name), description=(:description),Image=(:image) WHERE id=(:idedit)";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':name', $name, PDO::PARAM_STR);
-		$query->bindParam(':email', $email, PDO::PARAM_STR);
-		$query->bindParam(':phone', $phone, PDO::PARAM_STR);
-		$query->bindParam(':adress', $adress, PDO::PARAM_STR);
+		$query->bindParam(':description', $description, PDO::PARAM_STR);
 		$query->bindParam(':image', $image, PDO::PARAM_STR);
 		$query->bindParam(':idedit', $idedit, PDO::PARAM_STR);
 		$query->execute();
@@ -54,7 +50,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 		<meta name="author" content="">
 		<meta name="theme-color" content="#3e454c">
 
-		<title>Edit User</title>
+		<title>Edit ingredient</title>
 
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -97,7 +93,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 	<body>
 		<?php
-		$sql = "SELECT * from users where id = :editid";
+		$sql = "SELECT * from ingredient where id = :editid";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':editid', $editid, PDO::PARAM_INT);
 		$query->execute();
@@ -111,7 +107,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-12">
-							<h3 class="page-title">Edit User :
+							<h3 class="page-title">Edit ingredient :
 								<?php echo htmlentities($result->name); ?>
 							</h3>
 							<div class="row">
@@ -132,45 +128,33 @@ if (strlen($_SESSION['alogin']) == 0) {
 											<form method="post" class="form-horizontal" enctype="multipart/form-data"
 												name="imgform">
 												<div class="form-group">
-													<label class="col-sm-2 control-label">Username<span
+													<label class="col-sm-2 control-label">name<span
 															style="color:red">*</span></label>
 													<div class="col-sm-4">
 														<input type="text" name="name" class="form-control" 
 															value="<?php echo htmlentities($result->name); ?>">
 													</div>
-													<label class="col-sm-2 control-label">Email<span
+													<label class="col-sm-2 control-label">description<span
 															style="color:red">*</span></label>
 													<div class="col-sm-4">
-														<input type="email" name="email" class="form-control"
-															value="<?php echo htmlentities($result->email); ?>">
+														<input type="text" name="description" class="form-control"
+															value="<?php echo htmlentities($result->description); ?>">
 													</div>
 												</div>
+
+												
+
+
 												<div class="form-group">
 													<label class="col-sm-2 control-label">Image<span
 															style="color:red">*</span></label>
 													<div class="col-sm-4">
 														<input type="file" name="image" class="form-control">
 													</div>
-
-													<label class="col-sm-2 control-label">Mobile No.<span
-															style="color:red">*</span></label>
-													<div class="col-sm-4">
-														<input type="number" name="phone" class="form-control" 
-															value="<?php echo htmlentities($result->phone); ?>">
-													</div>
 												</div>
-												<div class="form-group">
-													<label class="col-sm-2 control-label">Adress.<span
-															style="color:red">*</span></label>
-													<div class="col-sm-4">
-														<input type="text" name="adress" class="form-control" 
-															value="<?php echo htmlentities($result->adress); ?>">
-													</div>
-												</div>
-
 												<div class="form-group">
 													<div class="col-sm-8 col-sm-offset-2">
-														<img src="../assets/img/profile/<?php echo htmlentities($result->image); ?>"
+														<img src="../assets/img/<?php echo htmlentities($result->image); ?>"
 															width="150px" />
 														<input type="hidden" name="image"
 															value="<?php echo htmlentities($result->image); ?>">

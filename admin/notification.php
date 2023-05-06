@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
+include("../Config.php");
 if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:index.php');
@@ -91,16 +92,16 @@ if(isset($_POST['submit']))
 									   <div class="panel-body">
 <?php 
 $reciver = 'Admin';
-$sql = "SELECT * from  notification where notireciver = (:reciver) order by time DESC";
+$sql = "SELECT * from  notification where notireciver = (:notireciver) order by time DESC";
 $query = $dbh -> prepare($sql);
-$query-> bindParam(':reciver', $reciver, PDO::PARAM_STR);
+$query-> bindParam(':notireciver', $notireciver, PDO::PARAM_STR);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
 if($query->rowCount() > 0)
 {
 foreach($results as $result)
-{				?>	
+{?>	
         <h5 style="background:#ededed;padding:20px;"><i class="fa fa-bell text-primary"></i>&nbsp;&nbsp;<b class="text-primary"><?php echo htmlentities($result->time);?></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo htmlentities($result->notiuser);?> -----> <?php echo htmlentities($result->notitype);?></h5>
                        <?php $cnt=$cnt+1; }} ?>
                                         </div>

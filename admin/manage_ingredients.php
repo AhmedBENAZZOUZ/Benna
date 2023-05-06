@@ -1,37 +1,34 @@
 <?php
-
-error_reporting(0);
-include('includes/config.php');
-// if(strlen($_SESSION['alogin'])==0)
-// 	{	
-// header('location:index.php');
-// }
-// include '../Config.php';
-
 session_start();
-
-$user_id = $_SESSION['id'];
-$username = $_SESSION['username'];
-
-
-	if (isset($_GET['del'])) {
+error_reporting(0);
+include('.\includes\config.php');
+if (strlen($_SESSION['alogin']) == 0) {
+	header('location:index.php');
+} else {
+	if (isset($_GET['del']) && isset($_GET['name'])) {
 		$id = $_GET['del'];
-		$sql = "delete from users WHERE id=:id";
+		$name = $_GET['name'];
+        
+
+		$sql = "delete from ingredient WHERE id=:id";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':id', $id, PDO::PARAM_STR);
 		$query->execute();
+
+        $sql2 = "INSERT INTO deletedingredients (name, image,description ) VALUES (:name,:image, :description )";
+		$query2 = $dbh->prepare($sql2);
+		$query2->bindParam(':name', $name, PDO::PARAM_STR);
+		$query2->bindParam(':image', $image, PDO::PARAM_STR);
+		$query2->bindParam(':description', $description, PDO::PARAM_STR);
+		$query2->execute();
+
 		$msg = "Data Deleted successfully";
+        header('location:manage_ingredients.php');
 	}
 
 
-
-
-
-
-
-	?>
-
-	<!doctype html>
+?>
+<!doctype html>
 	<html lang="en" class="no-js">
 
 	<head>
@@ -42,7 +39,7 @@ $username = $_SESSION['username'];
 		<meta name="author" content="">
 		<meta name="theme-color" content="#3e454c">
 
-		<title>Manage Feedback</title>
+		<title>Manage Users</title>
 
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -93,11 +90,11 @@ $username = $_SESSION['username'];
 					<div class="row">
 						<div class="col-md-12">
 
-							<h2 class="page-title">Manage Feedback</h2>
+							<h2 class="page-title">Manage ingredients</h2>
 
 							<!-- Zero Configuration Table -->
 							<div class="panel panel-default">
-								<div class="panel-heading">List Users</div>
+								<div class="panel-heading">List ingredients</div>
 								<div class="panel-body">
 									<?php if ($error) { ?>
 										<div class="errorWrap" id="msgshow">
@@ -113,18 +110,16 @@ $username = $_SESSION['username'];
 										<thead>
 											<tr>
 												<th>#</th>
-												<th>User Email</th>
-												<th>Title</th>
-												<th>Feedback</th>
+												<th>Image</th>
+												<th>Name</th>
+												<th>description</th>
 												<th>Action</th>
 											</tr>
 										</thead>
 
 										<tbody>
 
-											<?php
-											$reciver = 'Admin';
-											$sql = "SELECT * from  feedback";
+											<?php $sql = "SELECT * from  ingredient ";
 											$query = $dbh->prepare($sql);
 											$query->execute();
 											$results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -133,23 +128,29 @@ $username = $_SESSION['username'];
 												foreach ($results as $result) { ?>
 													<tr>
 														<td>
-															<?php echo htmlentities($result->id); ?>
+															<?php echo htmlentities($cnt); ?>
+														</td>
+														<td><img src="..\assets\img/<?php echo htmlentities($result->image); ?>"
+																style="width:40px; height:40px; border-radius:50%;" /></td>
+														<td>
+															<?php echo htmlentities($result->name); ?>
 														</td>
 														<td>
-															<?php echo htmlentities($result->sender); ?>
+															<?php echo htmlentities($result->description); ?>
 														</td>
+														
 														<td>
-															<?php echo htmlentities($result->title); ?>
-														</td>
-														<td>
-															<?php echo htmlentities($result->feedbackdata); ?>
-														</td>
-														<td>
-															<a href="sendreply.php?reply=<?php echo $result->sender; ?>">&nbsp; <i
-																	class="fa fa-mail-reply"></i></a>&nbsp;&nbsp;
+															<a href="edit-ingredient.php?edit=<?php echo $result->id; ?>"
+																onclick="return confirm('Do you want to Edit');">&nbsp; <i
+																	class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+															<a href="manage_ingredients.php?del=<?php echo $result->id; ?>&name=<?php echo htmlentities($result->name); ?>"
+																onclick="return confirm('Do you want to Delete');"><i
+																	class="fa fa-trash" style="color:red"></i></a>&nbsp;&nbsp;
 														</td>
 													</tr>
-													<?php $cnt = $cnt + 1;}}?>
+													<?php $cnt = $cnt + 1;
+												}
+											} ?>
 
 										</tbody>
 									</table>
@@ -179,7 +180,8 @@ $username = $_SESSION['username'];
 				}, 3000);
 			});
 		</script>
+
 	</body>
 
 	</html>
-<?php  ?>
+    <?php } ?>

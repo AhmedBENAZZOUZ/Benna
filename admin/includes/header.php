@@ -1,8 +1,9 @@
 <div class="brand clearfix">
-	<a href="dashboard.php">
-		<h4 class="pull-left text-white" style="margin:20px 0px 0px 20px"><img src="../assets/img/icon.png" alt=""
-				width="25" height="25">
-			Benna<span>.</span></h4>
+	<a href="dashboard.php" style="display: block; text-align: center;">
+		<h4 class="pull-left text-white" style="margin:20px 0px 0px 20px;">
+			<img src="../assets/img/icon.png" alt="" width="25" height="25">
+			Benna<span>.</span>
+		</h4>
 	</a>
 	<span class="menu-btn"><i class="fa fa-bars"></i></span>
 	<ul class="ts-profile-nav">

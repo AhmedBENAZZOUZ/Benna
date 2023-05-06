@@ -15,7 +15,7 @@ $select_profile = mysqli_query($con, $query);
 $fetch_profile = mysqli_fetch_assoc($select_profile);
 
 if (isset($_POST['delete'])) {
-  header('location:..index/.php');
+  header('location:../index.php');
 }
 
 ?>
@@ -67,7 +67,7 @@ if (isset($_POST['delete'])) {
             <div class="card-body">
               <div class="d-flex flex-column align-items-center text-center ">
                 <img src="../assets/img/profile/<?= $fetch_profile['image']; ?>" alt="user profile photo"
-                  class="rounded-circle" width="150">
+                  class="rounded-circle" width="145px" height="145px">
                 <div class="mt-3">
                   <h4>
                     <?= $fetch_profile['name']; ?>
