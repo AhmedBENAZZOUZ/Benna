@@ -10,7 +10,7 @@
       <ul>
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#events">Recettes</a></li>
+        <li><a href="#events">Recieps</a></li>
         <li><a href="#chefs">Chefs</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -36,7 +36,7 @@
           $select_profile = mysqli_query($con, $query);
           $fetch_profile = mysqli_fetch_assoc($select_profile);
           ?>
-          <li> <a class="btn-book-a-table" href="#book-a-table">Ajouter une recette</a></li>
+          <li> <a class="btn-book-a-table" href="#book-a-table">Suggest Recipe </a></li>
           <li class="dropdown"><img src="assets/img/profile/<?= $fetch_profile['image']; ?>" data-bs-toggle="dropdown"
               aria-expanded="false" class="user-pic" alt="user profile photo">
             <ul>
@@ -55,7 +55,7 @@
           <?php
         } else {
           ?>
-          <li><a class="btn-book-a-table" href="auth/Auth.php">Ajouter une recette</a></li>
+          <li><a class="btn-book-a-table" href="auth/Auth.php">Suggest Recipe </a></li>
           <li><a href="./auth/Auth.php"><img src="assets/img/login-icon.png" width="40px" height="40px" /></a></li>
           <?php
         }
