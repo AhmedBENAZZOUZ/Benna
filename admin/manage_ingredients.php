@@ -1,45 +1,47 @@
 <?php
 session_start();
 error_reporting(0);
-include('.\includes\config.php');
+include('includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
 	header('location:index.php');
 } else {
 	if (isset($_GET['del']) && isset($_GET['name'])) {
 		$id = $_GET['del'];
 		$name = $_GET['name'];
-        
 
 		$sql = "delete from ingredient WHERE id=:id";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':id', $id, PDO::PARAM_STR);
 		$query->execute();
 
-        $sql2 = "INSERT INTO deletedingredients (name, image,description ) VALUES (:name,:image, :description )";
+		$sql2 = "insert into deletedingredients(name) values (:name)";
 		$query2 = $dbh->prepare($sql2);
 		$query2->bindParam(':name', $name, PDO::PARAM_STR);
-		$query2->bindParam(':image', $image, PDO::PARAM_STR);
-		$query2->bindParam(':description', $description, PDO::PARAM_STR);
 		$query2->execute();
 
+
 		$msg = "Data Deleted successfully";
-        header('location:manage_ingredients.php');
+		header('location:manage_ingredients.php');
 	}
 
+	?>
 
-?>
-<!doctype html>
+	<!doctype html>
 	<html lang="en" class="no-js">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<meta name="theme-color" content="#3e454c">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="theme-color" content="#3e454c">
+	</head>
+	
+	<title>Admin || ingredients</title>
 
-		<title>Manage Users</title>
+	<link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
+		<title>Manage ingredients</title>
 
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -90,11 +92,11 @@ if (strlen($_SESSION['alogin']) == 0) {
 					<div class="row">
 						<div class="col-md-12">
 
-							<h2 class="page-title">Manage ingredients</h2>
+							<h2 class="page-title">Manage Users</h2>
 
 							<!-- Zero Configuration Table -->
 							<div class="panel panel-default">
-								<div class="panel-heading">List ingredients</div>
+								<div class="panel-heading">List Users</div>
 								<div class="panel-body">
 									<?php if ($error) { ?>
 										<div class="errorWrap" id="msgshow">
@@ -110,10 +112,10 @@ if (strlen($_SESSION['alogin']) == 0) {
 										<thead>
 											<tr>
 												<th>#</th>
-												<th>Image</th>
-												<th>Name</th>
+												<th>image</th>
+												<th>name</th>
 												<th>description</th>
-												<th>Action</th>
+												<th>Account</th>
 											</tr>
 										</thead>
 
@@ -130,15 +132,14 @@ if (strlen($_SESSION['alogin']) == 0) {
 														<td>
 															<?php echo htmlentities($cnt); ?>
 														</td>
-														<td><img src="..\assets\img/<?php echo htmlentities($result->image); ?>"
-																style="width:40px; height:40px; border-radius:50%;" /></td>
+														<td><img src="../assets/img/<?php echo htmlentities($result->image); ?>"
+																style="width:50px; height:50px; border-radius:50%;" /></td>
 														<td>
 															<?php echo htmlentities($result->name); ?>
 														</td>
 														<td>
 															<?php echo htmlentities($result->description); ?>
 														</td>
-														
 														<td>
 															<a href="edit-ingredient.php?edit=<?php echo $result->id; ?>"
 																onclick="return confirm('Do you want to Edit');">&nbsp; <i
@@ -184,4 +185,4 @@ if (strlen($_SESSION['alogin']) == 0) {
 	</body>
 
 	</html>
-    <?php } ?>
+<?php } ?>

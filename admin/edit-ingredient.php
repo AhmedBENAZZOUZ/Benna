@@ -51,6 +51,8 @@ if (strlen($_SESSION['alogin']) == 0) {
 		<meta name="theme-color" content="#3e454c">
 
 		<title>Edit ingredient</title>
+		
+		<link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
 
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">

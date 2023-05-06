@@ -63,7 +63,9 @@ if (strlen($_SESSION['alogin']) == 0) {
 	
 	<title>Admin || Users</title>
 
+	<link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
 		<title>Manage Users</title>
+
 
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -141,7 +143,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 												<th>Phone</th>
 												<th>adress</th>
 												<th>Account</th>
-												<th>Action</th>
+
 											</tr>
 										</thead>
 
@@ -174,18 +176,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 														</td>
 														<td>
 															<?php echo htmlentities($result->adress); ?>
-														<td>
-
-															<?php if ($result->status == 1) { ?>
-																<a href="userlist.php?confirm=<?php echo htmlentities($result->id); ?>"
-																	onclick="return confirm('Do you really want to Un-Confirm the Account')">Confirmed
-																	<i class="fa fa-check-circle"></i></a>
-															<?php } else { ?>
-																<a href="userlist.php?unconfirm=<?php echo htmlentities($result->id); ?>"
-																	onclick="return confirm('Do you really want to Confirm the Account')">Un-Confirmed
-																	<i class="fa fa-times-circle"></i></a>
-															<?php } ?>
-														</td>
+													
 														</td>
 
 														<td>

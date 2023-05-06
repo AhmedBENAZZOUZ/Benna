@@ -19,6 +19,8 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 		<title>Admin | Benna</title>
 
+		<link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
+
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<!-- Sandstone Bootstrap CSS -->
@@ -85,7 +87,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 														$query1 = $dbh->prepare($sql1);
 														$query1->execute();
 														$results1 = $query1->fetchAll(PDO::FETCH_OBJ);
-														$regbd = $query1->rowCount();?>
+														$regbd = $query1->rowCount(); ?>
 														<div class="stat-panel-number h1 ">
 															<?php echo htmlentities($regbd); ?>
 														</div>
@@ -97,13 +99,13 @@ if (strlen($_SESSION['alogin']) == 0) {
 											</div>
 										</div>
 
-										<div class="col-md-3">
+										<!-- <div class="col-md-3">
 											<div class="panel panel-default">
 												<div class="panel-body bk-danger text-light">
 													<div class="stat-panel text-center">
 
 														<?php
-														$reciver = 'Admin';
+
 														$sql12 = "SELECT id from notification";
 														$query12 = $dbh->prepare($sql12);
 														$query12->execute();
@@ -120,7 +122,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 													class="block-anchor panel-footer text-center">Full Detail &nbsp; <i
 														class="fa fa-arrow-right"></i></a>
 											</div>
-										</div>
+										</div> -->
 										<div class="col-md-3">
 											<div class="panel panel-default">
 												<div class="panel-body bk-info text-light">
@@ -144,27 +146,34 @@ if (strlen($_SESSION['alogin']) == 0) {
 											</div>
 										</div>
 										<div class="col-md-3">
-											<div class="panel panel-default">
-												<div class="panel-body bk-success text-light">
-													<div class="stat-panel text-center">
-
+											<style>
+												.color {
+													background-color: violet;
+												}
+											</style>
+											<div class="panel panel-default ">
+												<div class="panel-body bk-info text-light color">
+													<div class="stat-panel text-center ">
 														<?php
-														$sql1 = "SELECT id from ingredient";
-														$query1 = $dbh->prepare($sql1);
-														$query1->execute();
-														$results1 = $query1->fetchAll(PDO::FETCH_OBJ);
-														$regbd = $query1->rowCount();?>
+														$sql6 = "SELECT id from ingredient ";
+														$query6 = $dbh->prepare($sql6);
+														;
+														$query6->execute();
+														$results6 = $query6->fetchAll(PDO::FETCH_OBJ);
+														$query = $query6->rowCount();
+														?>
 														<div class="stat-panel-number h1 ">
-															<?php echo htmlentities($regbd); ?>
+															<?php echo htmlentities($query); ?>
 														</div>
 														<div class="stat-panel-title text-uppercase">ingredients</div>
 													</div>
 												</div>
-												<a href="manage_ingredients.php" class="block-anchor panel-footer text-center">Full
+												<a href="manage_ingredients.php"
+													class="block-anchor panel-footer text-center">Full
 													Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 											</div>
 										</div>
-										
+
 
 									</div>
 								</div>

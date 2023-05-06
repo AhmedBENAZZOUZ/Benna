@@ -46,6 +46,7 @@ $error="Your current password is not valid.";
 	<meta name="theme-color" content="#3e454c">
 	
 	<title>BBDMS | Admin Change Password</title>
+	<link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">

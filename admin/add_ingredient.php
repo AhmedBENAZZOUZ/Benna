@@ -1,20 +1,19 @@
 <?php
 session_start();
 error_reporting(0);
-include('C:\wamp64\www\Benna\admin\includes\config.php');
+include('.\includes\config.php');
 
 if (isset($_POST['submit'])) {
 
 	// get the form data
 	$name = $_POST['name'];
-	echo $name;
 	$description = $_POST['description'];
-	echo $description;
+	
 	if (isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
 		$image = $_FILES['image']['name'];
 		$image_tmp_name = $_FILES['image']['tmp_name'];
 		$image_size = $_FILES['image']['size'];
-		$image_folder = '../assets/img/profile/' . $image;
+		$image_folder = '../assets/img/' . $image;
 
 
 
@@ -44,6 +43,8 @@ if (isset($_POST['submit'])) {
 	<meta name="theme-color" content="#3e454c">
 
 	<title>Admin | Benna</title>
+	
+	<link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
