@@ -344,7 +344,7 @@ if (isset($_SESSION['id'])) {
                 </h2>
                 <div style="display: flex; align-items: center;">
                   <img src="assets/img/profile/<?php echo $user_data['image']; ?>" alt="Card image cap"
-                    class="rounded-circle">
+                    class="rounded-circle" width="45px" height="45px">
                   <div style="margin-left: 10px;">
                     <h4 class="card-text">
                       <?php echo $user_data['name']; ?>
@@ -385,7 +385,12 @@ if (isset($_SESSION['id'])) {
     <section id="chefs" class="chefs section-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Chefs</h2>
+        <div class="vote" style=" text-align: left; ::hover:text-decoration: line;">
+            <a class="vote-btn"
+              style=" font-size: 20px; color:#fff; padding: 8px 20px; border-radius: 50px; transition: 0.3s;
+              background-color: var(--color-primary);box-shadow: 0 8px 28px rgba(206, 18, 18, 0.2);display: inline-block;"
+              href="vote.php">vote here</a>
+          </div>
           <p>Our <span>Winners</span> of the best <span>recipe</span>this week</p>
         </div>
         <div class="row gy-4">
@@ -705,15 +710,7 @@ if (isset($_SESSION['id'])) {
             </div>
           </div> --> <!-- End Info Item  -->
       </div>
-      <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
-        <div class="row">
-          <div class="col-xl-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="col-xl-6 form-group">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-        </div>
+      <form action="forms/feedback.php" method="post" role="form" class="php-email-form p-3 p-md-4">
         <div class="form-group">
           <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
         </div>
@@ -725,7 +722,7 @@ if (isset($_SESSION['id'])) {
           <div class="error-message"></div>
           <div class="sent-message">Your message has been sent. Thank you!</div>
         </div>
-        <div class="text-center"><button type="submit">Send Message</button></div>
+        <div class="text-center"><button name="submit" type="submit">Send Message</button></div>
       </form><!--End Contact Form -->
       </div>
     </section><!-- End Contact Section -->
