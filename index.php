@@ -184,24 +184,42 @@ if (isset($_SESSION['id'])) {
           </div><!-- End Stats Item -->
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                class="purecounter"></span>
+              <?php
+              $query_recipe = "select * from recette;";
+              $result_recipe = mysqli_query($con, $query_recipe);
+              $nb_recipe = mysqli_num_rows($result_recipe);
+              ?>
+              <span>
+                <?= $nb_recipe; ?>
+              </span>
               <p>recette</p>
             </div>
           </div>
           <!-- End Stats Item -->
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
-                class="purecounter"></span>
+              <?php
+              $query_ing = "select * from ingredient;";
+              $result_ing = mysqli_query($con, $query_ing);
+              $nb_ing = mysqli_num_rows($result_ing);
+              ?>
+              <span>
+                <?= $nb_ing; ?>
+              </span>
               <p>ingredients</p>
             </div>
           </div><!-- End Stats Item -->
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>admin</p>
+              <?php
+              $query_user = "select * from users;";
+              $result_user = mysqli_query($con, $query_user);
+              $nb_user = mysqli_num_rows($result_user);
+              ?>
+              <span>
+                <?= $nb_user; ?>
+              </span>
+              <p>Users</p>
             </div>
           </div><!-- End Stats Item -->
         </div>
@@ -327,60 +345,98 @@ if (isset($_SESSION['id'])) {
         <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
 
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end"
-              style="background-image: url(assets/img/cake_chocolata.jpg)">
-              <h3>Peanut Butter Cup Cake</h3>
-              <div class="price align-self-start">70Dt</div>
-              <p class="description"></p>
-            </div><!-- End Event item -->
-            <!-- Test -->
-            <div class="card swiper-slide event-item d-flex flex-column justify-content-end rounded"
-              style="width: 18rem; height: 130px;">
-              <!-- background-image: url(assets/img/about-2.jpg) -->
-              <img src="assets/img/about-2.jpg" alt="" class="card-img-top">
-              <div class="card-body ">
-                <h2 class="card-title">
-                  <?php echo $user_data['username']; ?>
-                </h2>
-                <div style="display: flex; align-items: center;">
-                  <img src="assets/img/profile/<?php echo $user_data['image']; ?>" alt="Card image cap"
-                    class="rounded-circle">
-                  <div style="margin-left: 10px;">
-                    <h4 class="card-text">
-                      <?php echo $user_data['name']; ?>
-                    </h4>
-                    <p class="card-text">
-                      <?php echo $user_data['created_at']; ?>
-                    </p>
+            <?php
+            $query = "SELECT * FROM recette_suggestions ORDER BY created DESC LIMIT 4";
+            $result = mysqli_query($con, $query);
+            if ($result && mysqli_num_rows($result) > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                $user_id = $row['user_id'];
+                $sql = "select name,image from users where id = $user_id;";
+                $result_user = mysqli_query($con, $sql);
+                $row_user = mysqli_fetch_assoc($result_user);
+                ?>
+
+                <!-- Event item -->
+                <div class="card swiper-slide event-item d-flex flex-column justify-content-end rounded"
+                  style="width: 18rem; height: 130px;">
+                  <!-- background-image: url(assets/img/about-2.jpg) -->
+                  <img src="assets/img/recette/<?= $row['image']; ?>" alt="" class="card-img-top" height="420px">
+                  <div class="card-body ">
+                    <h2 class="card-title">
+                      <?php echo $row['name']; ?>
+                    </h2>
+                    <div style="display: flex; align-items: center;">
+                      <img src="assets/img/profile/<?php echo $row_user['image']; ?>" alt="Card image cap"
+                        class="rounded-circle" width="50px" height="50 px">
+                      <div style="margin-left: 10px;">
+                        <h4 class="card-text">
+                          <?php echo $row_user['name']; ?>
+                        </h4>
+                        <p class="card-text">
+                          <?php echo $row['created']; ?>
+                        </p>
+                      </div>
+                      <div class="d-flex flex-column align-items-end">
+                        <a href="#" class="btn btn-danger">View Comments</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div><!-- Test -->
-            </div>
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end"
-              style="background-image: url(assets/img/spaghetti.jpg)">
-              <h3>Pasta Carbonara</h3>
-              <div class="price align-self-start">42Dt</div>
-              <p class="description">
+                <!-- End Event item -->
 
-              </p>
-            </div><!-- End Event item -->
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end"
-              style="background-image: url(assets/img/brika.jpg)">
-              <h3>Brike à l'oeuf</h3>
-              <div class="price align-self-start">5Dt</div>
-              <p class="description">
+                <?php
+              }
+            }
+            ?>
 
-              </p>
-            </div><!-- End Event item -->
           </div>
           <div class="swiper-pagination"></div>
         </div>
       </div>
     </section><!-- End Events Section -->
     <!-- <div style="height:600px; width:400px">
-      <iframe src="https://ora.sh/embed/48b31b4b-4efb-4278-b7df-240acc087d14" width="100%" height="60%"
+      <iframe src="https://ora.ai/embed/dc7d66de-9269-4f36-84fb-69057c985b34" width="100%" height="100%"
         style="border:0; border-radius: 4px" />
     </div> -->
+    <?php
+
+    // $curl = curl_init();
+
+    // curl_setopt_array($curl, [
+    //   CURLOPT_URL => "https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=italian%20wedding%20soup",
+    //   CURLOPT_RETURNTRANSFER => true,
+    //   CURLOPT_ENCODING => "",
+    //   CURLOPT_MAXREDIRS => 10,
+    //   CURLOPT_TIMEOUT => 30,
+    //   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    //   CURLOPT_CUSTOMREQUEST => "GET",
+    //   CURLOPT_HTTPHEADER => [
+    //     "X-RapidAPI-Host: recipe-by-api-ninjas.p.rapidapi.com",
+    //     "X-RapidAPI-Key: cab7847265msha6772c17719a66bp160376jsn9c0d5d81edc7"
+    //   ],
+    // ]);
+    // curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+    // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+    // $response = curl_exec($curl);
+    // $err = curl_error($curl);
+
+    // curl_close($curl);
+
+    // if ($err) {
+    //   echo "cURL Error #:" . $err;
+    // } else {
+    //   $data = json_decode($response, true);
+    //   // print_r($data);
+    // }
+    // foreach ($data['result'] as $result) {
+    //   echo 'Name: ' . $result['title'] . '<br>';
+    //   echo 'Serving Size: ' . $result['ingredients'] . '<br>';
+    //   echo 'Calories: ' . $result['servings'] . '<br>';
+    //   echo 'Total Fat: ' . $result['instructions'] . '<br>';
+    //   echo '<hr>';
+    // }
+    ?>
     <!-- ======= Chefs Section ======= -->
     <section id="chefs" class="chefs section-bg">
       <div class="container" data-aos="fade-up">
@@ -454,7 +510,7 @@ if (isset($_SESSION['id'])) {
       <section id="book-a-table" class="book-a-table">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
-            <h2>Add Your recipe </h2>
+            <h2>Suggest Your recipe </h2>
             <!-- <p>Here you can <span>contact the admin to </span> add a recipe </p> -->
           </div>
           <div class="row g-0">
@@ -507,79 +563,45 @@ if (isset($_SESSION['id'])) {
                     <br />
                     <div class="row gy-4">
                       <div class="form-group col-lg-12 col-md-6">
-                        <label>les Ingredients : </label>
-                        <input type="text" class="form-control icon_search" id="ingredient-search"
-                          name="ingredient-search" placeholder="recherche de ..." value="**">
+                        <label for="exampleFormControlTextarea1">Ingredients and quantity : </label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                          name="ingredients"></textarea>
                         <br />
-                        <table id="myTable" style="display:none;">
+                        <!-- <table id="myTable" style="display:none;">
                           <tbody>
                             <?php
-                            $query_ing = "SELECT * FROM `ingredient`;";
-                            $select_ingredients = mysqli_query($con, $query_ing);
-                            $row= mysqli_num_rows($select_ingredients);
-                            $fetch_ingredients = mysqli_fetch_assoc($select_ingredients);
-                            // Convertir le tableau $fetch en HTML
-                            for ($i=0;$i<$row;$i++) {
-                              echo "<tr>";
-                              // echo "<td><img src='" . $row['image'] . "' alt='" . $row['name'] . "'></td>";
-                              echo "<td>" . $fetch_ingredients['name'] . "</td>";
-                              echo "</tr>";
-                            }
+                            // $query_ing = "SELECT * FROM `ingredient`;";
+                            // $select_ingredients = mysqli_query($con, $query_ing);
+                            // $row = mysqli_num_rows($select_ingredients);
+                            // $fetch_ingredients = mysqli_fetch_assoc($select_ingredients);
+                            // // Convertir le tableau $fetch en HTML
+                            // for ($i = 0; $i < $row; $i++) {
+                            //   echo "<tr>";
+                            //   // echo "<td><img src='" . $row['image'] . "' alt='" . $row['name'] . "'></td>";
+                            //   echo "<td>" . $fetch_ingredients['name'] . "</td>";
+                            //   echo "</tr>";
+                            // }
                             ?>
                           </tbody>
-                        </table>
+                        </table> -->
                       </div>
-                      <script>
-                        // Récupération de la barre de recherche et du tableau
-                        var input = document.getElementById("ingredient-search");
-                        var table = document.getElementById("myTable");
-
-                        // Ajout d'un événement d'écoute de saisie pour la barre de recherche
-                        input.addEventListener("change", test());
-                        function test() {
-                          var filter = input.value.toUpperCase(); // Conversion de la valeur de la barre de recherche en majuscules
-                          var rows = table.getElementsByTagName("tr"); // Récupération de toutes les lignes du tableau
-                          alert('onchange');
-                          // Parcours de toutes les lignes et filtrage des résultats
-                          // for (var i = 0; i < rows.length; i++) {
-                          //   var cells = rows[i].getElementsByTagName("td"); // Récupération de toutes les cellules de la ligne
-                          //   var visible = false;
-
-                          //   // Parcours de toutes les cellules de la ligne et comparaison avec la valeur de recherche
-                          //   for (var j = 0; j < cells.length; j++) {
-                          //     var cell = cells[j];
-                          //     if (cell) {
-                          //       if (cell.textContent.toUpperCase().indexOf(filter) > -1) { // Comparaison avec la valeur de recherche
-                          //         visible = true;
-                          //         break;
-                          //       }
-                          //     }
-                          //   }
-
-                            // Affichage ou masquage de la ligne en fonction des résultats de la recherche
-                            // if (visible) {
-                            //   rows[i].style.display = "";
-                            // } else {
-                            //   rows[i].style.display = "none";
-                            // }
-                          }
-                      </script>
                     </div>
                     <div class="row gy-4" id="lk">
-                      <div class="form-group col-lg-8 col-md-6">
-                        <label for="instructions">Les Instructions : </label>
-                        <input type="text" class="form-control" id="in" />
+                      <div class="form-group ">
+                        <label for="exampleFormControlTextarea1">Instructions : </label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                          name="instructions"></textarea>
                       </div>
-                      <div class="form-group col-lg-4 col-md-6">
+                      <!-- <div class="form-group col-lg-4 col-md-6">
                         <br />
                         <input type="button" value="Add" onclick="add()">
-                      </div>
+                      </div> -->
                     </div>
                     <br />
                     <div class="row gy-4">
                       <div class="form-group col-lg-6 col-md-6">
                         <label class="my-auto">Upload a photo of your dish</label>
-                        <input id="file" type="file" class="form-control" name="image" multiple />
+                        <input id="file" type="file" class="form-control" name="image" />
                       </div>
                       <div class="form-group col-lg-6 col-md-6">
                         <label class="my-auto">Upload a video of your dish</label>
@@ -605,7 +627,7 @@ if (isset($_SESSION['id'])) {
                   <div class="sent-message"></div>
                 </div>
                 <div class="text-center">
-                  <button type="submit" name="submit-recette">Add A recipe </button>
+                  <button type="submit" name="submit-recette">Suggest recipe</button>
                 </div>
               </form>
             </div><!-- End Reservation Form -->
@@ -614,7 +636,7 @@ if (isset($_SESSION['id'])) {
       </section><!-- End Book A Table Section -->
     <?php } ?>
     <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery section-bg">
+    <!-- <section id="gallery" class="gallery section-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h2>gallery</h2>
@@ -650,7 +672,7 @@ if (isset($_SESSION['id'])) {
           <div class="swiper-pagination"></div>
         </div>
       </div>
-    </section><!-- End Gallery Section -->
+    </section> --> <!--End Gallery Section -->
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">

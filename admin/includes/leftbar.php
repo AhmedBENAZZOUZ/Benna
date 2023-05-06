@@ -6,6 +6,8 @@
 			
 			<li><a href="userlist.php"><i class="fa fa-users"></i> Userlist</a>
 			</li>
+			<li><a href="recipe_suggestion.php"><i class="fa fa-dashboard"></i> &nbsp;Recipe Suggestion</a>
+			</li>
 			<li><a href="profile.php"><i class="fa fa-user"></i> &nbsp;Profile</a>
 			</li>
 			<li><a href="feedback.php"><i class="fa fa-envelope"></i> &nbsp;Feedback</a>

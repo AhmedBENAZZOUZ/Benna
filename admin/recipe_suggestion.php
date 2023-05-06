@@ -5,12 +5,20 @@ include('includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
 	header('location:index.php');
 } else {
-	if (isset($_GET['del'])) {
+	if (isset($_GET['del']) && isset($_GET['name'])) {
 		$id = $_GET['del'];
+		$name = $_GET['name'];
+
 		$sql = "delete from users WHERE id=:id";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':id', $id, PDO::PARAM_STR);
 		$query->execute();
+
+		$sql2 = "insert into deleteduser (email) values (:name)";
+		$query2 = $dbh->prepare($sql2);
+		$query2->bindParam(':name', $name, PDO::PARAM_STR);
+		$query2->execute();
+
 		$msg = "Data Deleted successfully";
 	}
 
@@ -53,8 +61,9 @@ if (strlen($_SESSION['alogin']) == 0) {
 		<meta name="author" content="">
 		<meta name="theme-color" content="#3e454c">
 
-		<title>Manage Feedback</title>
+		<title>Benna || Admin Manage recipe Suggestion</title>
 
+		<link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<!-- Sandstone Bootstrap CSS -->
@@ -104,11 +113,11 @@ if (strlen($_SESSION['alogin']) == 0) {
 					<div class="row">
 						<div class="col-md-12">
 
-							<h2 class="page-title">Manage Feedback</h2>
+							<h2 class="page-title">Manage recipe Suggestion</h2>
 
 							<!-- Zero Configuration Table -->
 							<div class="panel panel-default">
-								<div class="panel-heading">List Users</div>
+								<div class="panel-heading">List recipe suggested</div>
 								<div class="panel-body">
 									<?php if ($error) { ?>
 										<div class="errorWrap" id="msgshow">
@@ -124,44 +133,78 @@ if (strlen($_SESSION['alogin']) == 0) {
 										<thead>
 											<tr>
 												<th>#</th>
-												<th>User Email</th>
-												<th>Title</th>
-												<th>Feedback</th>
-												<th>Attachment</th>
+												<th>Image</th>
+												<th>Name</th>
+												<th>Preparation time</th>
+												<th>For number of people</th>
+												<th>difficulty</th>
+												<th>type</th>
+												<th>ingredients</th>
+												<th>instructions</th>
+												<th>User</th>
 												<th>Action</th>
 											</tr>
 										</thead>
 
 										<tbody>
 
-											<?php
-											$reciver = 'Admin';
-											$sql = "SELECT * from  feedback where reciver = (:reciver)";
+											<?php $sql = "SELECT * from  recette_suggestions ";
 											$query = $dbh->prepare($sql);
-											$query->bindParam(':reciver', $reciver, PDO::PARAM_STR);
 											$query->execute();
 											$results = $query->fetchAll(PDO::FETCH_OBJ);
-											$cnt = 1;
 											if ($query->rowCount() > 0) {
 												foreach ($results as $result) { ?>
 													<tr>
 														<td>
-															<?php echo htmlentities($cnt); ?>
+															<?php echo htmlentities($result->id); ?>
+														</td>
+														<td><img src="../assets/img/recette/<?php echo htmlentities($result->image); ?>"
+																style="width:30px; height: 30px; border-radius:50%;" /></td>
+														<td>
+															<?php echo htmlentities($result->name); ?>
 														</td>
 														<td>
-															<?php echo htmlentities($result->sender); ?>
+															<?php echo htmlentities($result->prep_time); ?>
 														</td>
 														<td>
-															<?php echo htmlentities($result->title); ?>
+															<?php echo htmlentities($result->nb_people); ?>
 														</td>
 														<td>
-															<?php echo htmlentities($result->feedbackdata); ?>
+															<?php echo htmlentities($result->difficulty); ?>
 														</td>
-														<td><a href="../attachment/<?php echo htmlentities($result->attachment); ?>"><?php echo htmlentities($result->attachment); ?></a></td>
+														<td>
+															<?php echo htmlentities($result->type); ?>
+														<td>
+															<?php echo htmlentities($result->ingredient); ?>
+														<td>
+															<?php echo htmlentities($result->instructions); ?>
+														<td>
+															<?php $sql_user = "SELECT * from  users where id=$result->user_id";
+															$query_user = $dbh->prepare($sql_user);
+															$query_user->execute();
+															$result_user = $query_user->fetchAll(PDO::FETCH_OBJ);
+															if ($query_user->rowCount() > 0) {
+																foreach ($result_user as $result) {
+																	echo htmlentities($result->name);
+																}
+															} ?>
+															<!-- <td>
+											
+											<?php if ($result->status == 1) { ?>
+													<a href="userlist.php?confirm=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to Un-Confirm the Account')">Confirmed <i class="fa fa-check-circle"></i></a> 
+													<?php } else { ?>
+													<a href="userlist.php?unconfirm=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to Confirm the Account')">Un-Confirmed <i class="fa fa-times-circle"></i></a>
+													<?php } ?>
+</td>
+											</td> -->
 
 														<td>
-															<a href="sendreply.php?reply=<?php echo $result->sender; ?>">&nbsp; <i
-																	class="fa fa-mail-reply"></i></a>&nbsp;&nbsp;
+															<a href="edit-user.php?edit=<?php echo $result->id; ?>"
+																onclick="return confirm('Do you want to Edit');">&nbsp; <i
+																	class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+															<a href="userlist.php?del=<?php echo $result->id; ?>&name=<?php echo htmlentities($result->email); ?>"
+																onclick="return confirm('Do you want to Delete');"><i
+																	class="fa fa-trash" style="color:red"></i></a>&nbsp;&nbsp;
 														</td>
 													</tr>
 													<?php $cnt = $cnt + 1;
@@ -196,6 +239,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 				}, 3000);
 			});
 		</script>
+
 	</body>
 
 	</html>

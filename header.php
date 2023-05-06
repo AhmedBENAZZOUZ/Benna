@@ -17,12 +17,17 @@
         <li>
           <!-- <div class="input-container"><i class="bi bi-search icon"></i> <input type="text" class="form-control rr input-field" >
           </div> -->
-          <div class="input-group form-outline">
-            <input type="search" class="form-control" placeholder="Search for recipe" style="border-radius: 50px;" />
-            <button type="button" class="btn">
-              <i class="fas fa-search"></i>
-            </button>
+
+          <div class="input-group form-outline d-flex">
+            <form method="GET" class="d-flex" action="search.php">
+              <input type="search" class="form-control flex-grow-1" placeholder="Search for recipe"
+                style="border-radius: 50px;" name="search" />
+              <button type="submit" class="btn" name="search-submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
           </div>
+
         </li>
         <?php
         if (isset($_SESSION['id'])) {

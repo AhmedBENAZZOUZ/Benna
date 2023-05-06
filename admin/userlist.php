@@ -66,7 +66,7 @@ if(isset($_REQUEST['unconfirm']))
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Manage Users</title>
+	<title>Admin || Users</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -154,7 +154,7 @@ foreach($results as $result)
 {				?>	
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><img src="../images/<?php echo htmlentities($result->image);?>" style="width:50px; border-radius:50%;"/></td>
+											<td><img src="../assets/img/profile/<?php echo htmlentities($result->image);?>" style="width:30px; height: 30px; border-radius:50%;"/></td>
                                             <td><?php echo htmlentities($result->name);?></td>
                                             <td><?php echo htmlentities($result->email);?></td>
                                             <td><?php echo htmlentities($result->gender);?></td>
