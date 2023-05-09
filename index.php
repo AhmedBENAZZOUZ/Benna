@@ -351,7 +351,7 @@ if (isset($_SESSION['id'])) {
                   <img src="assets/img/recette/<?= $row['image']; ?>" alt="" class="card-img-top" height="420px">
                   <div class="card-body ">
                     <h2 class="card-title">
-                      <?php echo $row['name']; ?>
+                    <a href="recette/recette.php?recId=<?php echo $row['id']; ?>" ><?php echo $row['name']; ?></a>
                     </h2>
                     <div style="display: flex; align-items: center;">
                       <img src="assets/img/profile/<?php echo $row_user['image']; ?>" alt="Card image cap"
