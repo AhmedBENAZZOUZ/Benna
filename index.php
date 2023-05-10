@@ -505,7 +505,7 @@ if (isset($_SESSION['id'])) {
             <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);"
               data-aos="zoom-out" data-aos-delay="200"></div>
             <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-              <form action="recette/recette.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
+              <form action="recette/recette_suggestion.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
                 data-aos-delay="100" enctype="multipart/form-data">
                 <div class="row gy-4">
                   <div class="col-lg-6 col-md-6">
