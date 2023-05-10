@@ -1,65 +1,11 @@
 <?php
-
+session_start();
 error_reporting(0);
 include('includes/config.php');
-// if(strlen($_SESSION['alogin'])==0)
-// 	{	
-// header('location:index.php');
-// }
-// include '../Config.php';
-
-session_start();
-
-$user_id = $_SESSION['id'];
-$username = $_SESSION['username'];
-
-
-	if (isset($_GET['del'])) {
-		$id = $_GET['del'];
-		$sql = "delete from users WHERE id=:id";
-		$query = $dbh->prepare($sql);
-		$query->bindParam(':id', $id, PDO::PARAM_STR);
-		$query->execute();
-		$msg = "Data Deleted successfully";
-if (strlen($_SESSION['alogin']) == 0) {
-	header('location:index.php');
-} else {
-	if (isset($_GET['del'])) {
-		$id = $_GET['del'];
-		$sql = "delete from users WHERE id=:id";
-		$query = $dbh->prepare($sql);
-		$query->bindParam(':id', $id, PDO::PARAM_STR);
-		$query->execute();
-		$msg = "Data Deleted successfully";
-	}
-
-	if (isset($_REQUEST['unconfirm'])) {
-		$aeid = intval($_GET['unconfirm']);
-		$memstatus = 1;
-		$sql = "UPDATE users SET status=:status WHERE  id=:aeid";
-		$query = $dbh->prepare($sql);
-		$query->bindParam(':status', $memstatus, PDO::PARAM_STR);
-		$query->bindParam(':aeid', $aeid, PDO::PARAM_STR);
-		$query->execute();
-		$msg = "Changes Sucessfully";
-	}
-
-	if (isset($_REQUEST['confirm'])) {
-		$aeid = intval($_GET['confirm']);
-		$memstatus = 0;
-		$sql = "UPDATE users SET status=:status WHERE  id=:aeid";
-		$query = $dbh->prepare($sql);
-		$query->bindParam(':status', $memstatus, PDO::PARAM_STR);
-		$query->bindParam(':aeid', $aeid, PDO::PARAM_STR);
-		$query->execute();
-		$msg = "Changes Sucessfully";
-	}
-
-
-
-
-
-
+if(strlen($_SESSION['alogin'])==0)
+	{	
+header('location:index.php');
+}
 
 	?>
 
@@ -75,6 +21,8 @@ if (strlen($_SESSION['alogin']) == 0) {
 		<meta name="theme-color" content="#3e454c">
 
 		<title>Manage Feedback</title>
+		
+		<link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
 
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -155,7 +103,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 										<tbody>
 
 											<?php
-											$reciver = 'Admin';
 											$sql = "SELECT * from  feedback";
 											$query = $dbh->prepare($sql);
 											$query->execute();
@@ -214,4 +161,4 @@ if (strlen($_SESSION['alogin']) == 0) {
 	</body>
 
 	</html>
-<?php }} ?>
+<?php  ?>

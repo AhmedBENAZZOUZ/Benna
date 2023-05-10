@@ -13,10 +13,11 @@ $fetch_profile = mysqli_fetch_assoc($select_profile);
 $email_user=$fetch_profile['email'];
 
 if (!isset($user_id)) {
-    header('location:auth/Auth.php');
+    header('location:../auth/Auth.php');
 }
 if (isset($_POST['submit'])) {
     $subject = $_POST['subject'];
+  
     $message = $_POST['message'];
     $query_feed = "insert into feedback values (NULL,'$subject','$message','$email_user');";
     $feedback = mysqli_query($con, $query_feed);

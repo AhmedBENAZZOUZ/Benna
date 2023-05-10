@@ -141,6 +141,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 												<th>type</th>
 												<th>ingredients</th>
 												<th>instructions</th>
+												<th>User ID</th>
 												<th>User</th>
 												<th>Action</th>
 											</tr>
@@ -174,12 +175,20 @@ if (strlen($_SESSION['alogin']) == 0) {
 														</td>
 														<td>
 															<?php echo htmlentities($result->type); ?>
+														</td>
 														<td>
 															<?php echo htmlentities($result->ingredient); ?>
+														</td>
 														<td>
 															<?php echo htmlentities($result->instructions); ?>
+														</td>
 														<td>
-															<?php $sql_user = "SELECT * from  users where id=$result->user_id";
+															<?php echo htmlentities($result->user_id); ?>
+														</td>
+														<td>
+															<?php
+
+															$sql_user = "SELECT * from  users where id=$result->user_id";
 															$query_user = $dbh->prepare($sql_user);
 															$query_user->execute();
 															$result_user = $query_user->fetchAll(PDO::FETCH_OBJ);
@@ -213,6 +222,103 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 										</tbody>
 									</table>
+								</div>
+							</div>
+							<!-- Zero Configuration Table -->
+							<div class="panel panel-default">
+								<div class="panel-heading">Add Recipe</div>
+								<div class="panel-body">
+
+									<form method="post" action="test.php" name="addRecipe" class="form-horizontal"
+										onSubmit="return valid();" enctype="multipart/form-data">
+
+
+										<?php if ($error) { ?>
+											<div class="errorWrap"><strong>ERROR</strong>:
+												<?php echo htmlentities($error); ?>
+											</div>
+										<?php } else if ($msg) { ?>
+												<div class="succWrap"><strong>SUCCESS</strong>:
+												<?php echo htmlentities($msg); ?>
+												</div>
+										<?php } ?>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Name of recipe</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" name="name_recipe" id="name_recipe"
+													required>
+											</div>
+										</div>
+
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Preparation Time</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" name="prep_time" id="prep_time"
+													required>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Number of people</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" name="nb_people" id="nb_people"
+													required>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Difficulty</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" name="difficulty" id="difficulty"
+													required>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Type</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" name="type" id="type" required>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Ingredients</label>
+											<div class="col-sm-8">
+												<textarea name="ingredients" rows="5" cols="30"
+													class="form-control"></textarea>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Instructions</label>
+											<div class="col-sm-8">
+												<textarea rows="5" cols="30" class="form-control" name="instrucions"
+													id="instrucions"></textarea>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Image of recipe</label>
+											<div class="col-sm-8">
+												<input type="file" class="form-control" name="image" id="image">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">User Id</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" name="user_id" id="user_name"
+													required>
+											</div>
+										</div>
+
+
+
+										<div class="form-group">
+											<div class="col-sm-8 col-sm-offset-4">
+
+												<button class="btn btn-primary" name="submit" type="submit">Add
+													Recipe</button>
+											</div>
+										</div>
+
+									</form>
 								</div>
 							</div>
 						</div>
