@@ -13,13 +13,11 @@ if (isset($_SESSION['id'])) {
         $user_data = mysqli_fetch_assoc($result);
     }
 
-    if (isset($_GET['recId'])) {
-        $recipe_id = $_GET['recId'];
-    }
-} else {
-    header('location:../auth/Auth.php');
-}
 
+}
+if (isset($_GET['recId'])) {
+    $recipe_id = $_GET['recId'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +46,9 @@ if (isset($_SESSION['id'])) {
     <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-3xq3s1b2alY/+Fu2zQ2gk9rEz7EkDZ/TGJZb14xM/jHLcUBnNCp0lHxytNvSg9Sd5wk5HxdZ0/P1aQza4dD4w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Template Main CSS File -->
     <link href="../assets/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
@@ -76,7 +77,9 @@ if (isset($_SESSION['id'])) {
         .star:hover:before,
         .star:hover~.star:before,
         .star.checked:before,
-        .star.checked~.star:before {
+        .star.checked~.star:before,
+        .star.clicked:before,
+        .star.clicked~.star:before {
             content: "\2605";
             color: #f5a623;
         }
@@ -95,15 +98,18 @@ if (isset($_SESSION['id'])) {
             content: '\2605';
         }
 
-        .rated:before {
+        .rated:before,
+        .clicked:before {
             color: gold;
         }
 
-        .rated~.star:before {
+        .rated~.star:before,
+        .clicked~.star:before {
             color: gray;
         }
 
-        .rated:hover~.star:before {
+        .rated:hover~.star:before,
+        .clicked:hover~.star:before {
             color: gold;
         }
 
@@ -174,8 +180,8 @@ if (isset($_SESSION['id'])) {
                         <?php
                     } else {
                         ?>
-                        <li><a class="btn-book-a-table" href="auth/Auth.php">Suggest Recipe </a></li>
-                        <li><a href="./auth/Auth.php"><img src="assets/img/login-icon.png" width="40px" height="40px" /></a>
+                        <li><a href="../auth/Auth.php"><img src="../assets/img/login-icon.png" width="40px"
+                                    height="40px" /></a>
                         </li>
                         <?php
                     }
@@ -189,7 +195,7 @@ if (isset($_SESSION['id'])) {
         </div>
     </header>
     <?php
-    $query = "SELECT * FROM `recette_suggestions` WHERE id = '$recipe_id';";
+    $query = "SELECT * FROM `recette` WHERE id = '$recipe_id';";
     $select_profile = mysqli_query($con, $query);
     $fetch_profile = mysqli_fetch_assoc($select_profile);
     $user_id = $fetch_profile['user_id'];
@@ -197,7 +203,7 @@ if (isset($_SESSION['id'])) {
     $select_user = mysqli_query($con, $query_user);
     $fetch_user = mysqli_fetch_assoc($select_user);
     ?>
-    <section id="hero" class="hero d-flex align-items-center section-bg">
+    <section id="events" class="hero d-flex align-items-center section-bg">
         <div class="container">
             <div class="row justify-content-between gy-5">
                 <div
@@ -205,15 +211,6 @@ if (isset($_SESSION['id'])) {
                     <h2 data-aos="fade-up">
                         <?= $fetch_profile['name']; ?>
                     </h2>
-                    <div>
-                        <div class="rating text-left">
-                            <span class="star" data-rating="1" name="1"></span>
-                            <span class="star" data-rating="2" name="2"></span>
-                            <span class="star" data-rating="3" name="3"></span>
-                            <span class="star" data-rating="4" name="4"></span>
-                            <span class="star" data-rating="5" name="5"></span>
-                        </div>
-                    </div>
                     <p data-aos="fade-up" data-aos-delay="100"></p>
                     <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                         <img src="../assets/img/profile/<?= $fetch_user['image']; ?>" alt="" width="40px" height="40px"
@@ -235,7 +232,7 @@ if (isset($_SESSION['id'])) {
 
     <main id="main">
         <!-- ======= About Section ======= -->
-        <section id="about" class="about">
+        <section id="events" class="about">
             <div class="container" data-aos="fade-up">
                 <div class="section-header">
                     <p><span style="font-size:50px;">Ingredients</span></p>
@@ -291,7 +288,7 @@ if (isset($_SESSION['id'])) {
                                     <tr>
                                         <td class="col ">
                                             <div class="col-lg-7 " data-aos="fade-up" data-aos-delay="150">
-                                                <h1> <i class="bi bi-fuel-pump"></i> </h1>
+                                                <h1> <i class="fa fa-bowl-food"></i> </h1>
                                                 <h2>
                                                     Type :
                                                     <?= $fetch_profile['type']; ?>
@@ -319,16 +316,138 @@ if (isset($_SESSION['id'])) {
                         </div>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <input type="text" name="comment" placeholder="Write a comment ..." class="form-control">
+                <?php if (isset($_SESSION['id'])) { ?>
+                    <div>
+                        <b> Rate : </b>
+                        <form action="submit-rating.php?recId=<?= $fetch_profile['id']; ?>&userId=<?= $id ?>" method="post">
+                            <div class="rating text-left mb-3">
+                                <span class="star" data-rating="5" name="5"></span>
+                                <span class="star" data-rating="4" name="4"></span>
+                                <span class="star" data-rating="3" name="3"></span>
+                                <span class="star" data-rating="2" name="2"></span>
+                                <span class="star" data-rating="1" name="1"></span>
+                                <input type="hidden" name="rating" id="rating">
+                            </div>
+                            <script>
+                                let stars = document.querySelectorAll('.star');
+                                let ratingInput = document.querySelector('#rating');
+                                let form = document.querySelector('#ratingForm');
+
+                                stars.forEach(star => {
+                                    star.addEventListener('click', () => {
+                                        let rating = star.getAttribute('name');
+                                        ratingInput.value = rating;
+                                    });
+                                });
+
+                            </script>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <input type="text" name="comment" placeholder="Write a comment ..." class="form-control">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="submit" name="submit-comment" value="Comment" class="btn btn-danger">
+                            </div>
                         </div>
-                        <div class="col-sm-4">
-                            <input type="submit" name="submit-comment" value="Comment" class="btn btn-danger">
+                        </form>
+                    </div>
+                <?php } else { ?>
+                    <div>
+                        <b> Rate : </b>
+                        <form action="" method="post">
+                            <div class="rating text-left mb-3">
+                                <span class="star" data-rating="5" name="5"></span>
+                                <span class="star" data-rating="4" name="4"></span>
+                                <span class="star" data-rating="3" name="3"></span>
+                                <span class="star" data-rating="2" name="2"></span>
+                                <span class="star" data-rating="1" name="1"></span>
+                                <input type="hidden" name="rating" id="rating">
+                            </div>
+                            <script>
+                                let stars = document.querySelectorAll('.star');
+                                let ratingInput = document.querySelector('#rating');
+                                let form = document.querySelector('#ratingForm');
+
+                                stars.forEach(star => {
+                                    star.addEventListener('click', () => {
+                                        let rating = star.getAttribute('name');
+                                        ratingInput.value = rating;
+                                    });
+                                });
+
+                            </script>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <input type="text" name="comment" placeholder="Write a comment ..." class="form-control">
+                            </div>
+                            <div class="col-sm-4">
+                                <a href="../auth/Auth.php" class="btn btn-danger">Comment</a>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                <?php } ?>
+                <?php
+                $sql1 = "SELECT * from comment where recipe_id = $recipe_id ORDER BY created DESC;";
+                $select_comment = mysqli_query($con, $sql1);
+                // $comments = mysqli_fetch_assoc($select_comment);
+                while ($row = mysqli_fetch_assoc($select_comment)) {
+                    $user_id = $row['user_id'];
+                    $sql_user = "SELECT * from users where id = $user_id;";
+                    $select_user = mysqli_query($con, $sql_user);
+                    $user = mysqli_fetch_assoc($select_user);
+
+                    // $comment_date = $row['created'];
+                    // $now = new DateTime("now", new DateTimeZone("UTC"));
+                    // $comment_time = new DateTime($comment_date, new DateTimeZone("UTC"));
+                    // $comment_time->setTimezone(new DateTimeZone("Europe/Paris"));
+                    // $diff = $now->diff($comment_time);
+                
+                    // if ($diff->y > 0) {
+                    //     $comment_time_string = $diff->y . " year" . ($diff->y > 1 ? "s" : "") . " ago";
+                    // } elseif ($diff->m > 0) {
+                    //     $comment_time_string = $diff->m . " month" . ($diff->m > 1 ? "s" : "") . " ago";
+                    // } elseif ($diff->d > 0) {
+                    //     $comment_time_string = $diff->d . " day" . ($diff->d > 1 ? "s" : "") . " ago";
+                    // } elseif ($diff->h > 0) {
+                    //     $comment_time_string = $diff->h . " hour" . ($diff->h > 1 ? "s" : "") . " ago";
+                    // } elseif ($diff->i > 0) {
+                    //     $comment_time_string = $diff->i . " minute" . ($diff->i > 1 ? "s" : "") . " ago";
+                    // } else {
+                    //     $comment_time_string = "just now";
+                    // }
+                
+
+                    ?>
+                    <div id="comment" class="card mb-4 mt-3" style="width:80%;">
+                        <div class="card-body">
+                            <p>
+                                <?= $row['content'] ?>
+                            </p>
+
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex flex-row align-items-center">
+                                    <img src="../assets/img/profile/<?= $user['image'] ?>" alt="avatar" width="30"
+                                        height="30" style="border-radius:50%;" />
+                                    <p class="small mb-0 ms-2">
+                                        <?= $user['name'] ?>
+                                    </p>
+                                </div>
+                                <div class="d-flex flex-row align-items-center">
+                                    <p class="small text-muted mb-0">
+                                        <?= $row['created'] ?>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <?php
+                }
+                ?>
 
 
             </div>
@@ -360,64 +479,6 @@ if (isset($_SESSION['id'])) {
                 $(".Layout").toggle();
             });
         });
-    </script>
-    <script>
-        const stars = document.querySelectorAll(".star");
-
-        function handleRating() {
-            this.classList.add("checked");
-            this.previousElementSibling.classList.add("checked");
-            const rating = this.dataset.rating;
-            console.log(`Rated ${rating} stars`);
-        }
-
-        stars.forEach((star) => star.addEventListener("click", handleRating));
-
-    </script>
-    <script>
-        // Get all star elements
-        const stars = document.querySelectorAll('.star');
-
-        // Add a click event listener to each star element
-        stars.forEach(star => {
-            star.addEventListener('click', () => {
-                // Get the rating value of the clicked star
-                const rating = star.getAttribute('data-rating');
-
-                // Set the rating for all stars up to the clicked star
-                for (let i = 0; i < rating; i++) {
-                    stars[i].classList.add('rated');
-                }
-
-                // Disable all stars after the clicked star
-                for (let i = rating; i < stars.length; i++) {
-                    stars[i].classList.remove('rated');
-                }
-            });
-        });
-
-
-
-        // Select all the star elements
-        const stars = document.querySelectorAll('.star');
-
-        // Attach a click event listener to each star element
-        stars.forEach(star => {
-            star.addEventListener('click', () => {
-                // Get the rating value from the data-rating attribute
-                const rating = star.getAttribute('data-rating');
-
-                // Set the value of the hidden input field
-                document.querySelector('#rating-input').value = rating;
-
-                alert(rating);
-
-                // Display the selected rating in the paragraph element
-                document.querySelector('#selected-rating').textContent = rating;
-            });
-        });
-
-
 
     </script>
 </body>

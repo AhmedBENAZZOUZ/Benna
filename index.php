@@ -140,7 +140,7 @@ if (isset($_SESSION['id'])) {
                     use of spices, such as harissa, cumin, coriander, and mint,which add a depth of flavor to its
                     dishes. Staple ingredients in Tunisian cuisine include grains like couscous and bulgur</p>
                   <div class="why-box">
-                    <a href="#" class="more-btn">discover </a>
+                    <a href="" class="more-btn">discover </a>
                   </div>
                 </div>
               </div><!-- End Icon Box -->
@@ -334,7 +334,7 @@ if (isset($_SESSION['id'])) {
           <div class="swiper-wrapper">
 
             <?php
-            $query = "SELECT * FROM recette_suggestions ORDER BY created DESC LIMIT 4";
+            $query = "SELECT * FROM recette ORDER BY created DESC LIMIT 4";
             $result = mysqli_query($con, $query);
             if ($result && mysqli_num_rows($result) > 0) {
               while ($row = mysqli_fetch_assoc($result)) {
@@ -351,7 +351,7 @@ if (isset($_SESSION['id'])) {
                   <img src="assets/img/recette/<?= $row['image']; ?>" alt="" class="card-img-top" height="420px">
                   <div class="card-body ">
                     <h2 class="card-title">
-                    <a href="recette/recette.php?recId=<?php echo $row['id']; ?>" ><?php echo $row['name']; ?></a>
+                      <a href="recette/recette.php?recId=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a>
                     </h2>
                     <div style="display: flex; align-items: center;">
                       <img src="assets/img/profile/<?php echo $row_user['image']; ?>" alt="Card image cap"
@@ -365,13 +365,13 @@ if (isset($_SESSION['id'])) {
                         </p>
                       </div>
                       <div class="d-flex flex-column align-items-end">
-                        <a href="#" class="btn btn-danger">View Comments</a>
+                        <a href="recette/recette.php#comment?" class="btn btn-danger">View Comments</a>
                       </div>
                     </div>
                   </div>
                 </div>
                 <!-- End Event item -->
-              <?php
+                <?php
               }
             }
             ?>
@@ -390,7 +390,7 @@ if (isset($_SESSION['id'])) {
     <section id="chefs" class="chefs section-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-        <div class="vote" style=" text-align: left; ::hover:text-decoration: line;">
+          <div class="vote" style=" text-align: left; ::hover:text-decoration: line;">
             <a class="vote-btn"
               style=" font-size: 20px; color:#fff; padding: 8px 20px; border-radius: 50px; transition: 0.3s;
               background-color: var(--color-primary);box-shadow: 0 8px 28px rgba(206, 18, 18, 0.2);display: inline-block;"
@@ -543,7 +543,7 @@ if (isset($_SESSION['id'])) {
                     <div class="row gy-4" id="lk">
                       <div class="form-group col-lg-8 col-md-6">
                         <label for="instructions">Les Instructions : </label>
-                        <input type="text" class="form-control" id="in" />
+                        <input type="text" class="form-control" id="in" name="instructions" />
                       </div>
                       <!-- <div class="form-group col-lg-4 col-md-6">
                         <br />
