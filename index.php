@@ -113,6 +113,7 @@ if (isset($_SESSION['id'])) {
     </section><!-- End About Section -->
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
+      <form action="" method="GET">
       <div claxx ss="container" data-aos="fade-up">
         <div class="row gy-4">
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
@@ -140,7 +141,7 @@ if (isset($_SESSION['id'])) {
                     use of spices, such as harissa, cumin, coriander, and mint,which add a depth of flavor to its
                     dishes. Staple ingredients in Tunisian cuisine include grains like couscous and bulgur</p>
                   <div class="why-box">
-                    <a href="#" class="more-btn">discover </a>
+                    <a href="salty.php?type=chaud" class="more-btn">discover </a>
                   </div>
                 </div>
               </div><!-- End Icon Box -->
@@ -154,7 +155,7 @@ if (isset($_SESSION['id'])) {
                     kitchen" may be a term used by chefs or food enthusiasts to describe a style of cooking that focuses
                     on savory flavors and ingredients</p>
                   <div class="why-box">
-                    <a href="#" class="more-btn">discover </a>
+                    <a href="salty.php?type=chaud" class="more-btn">discover </a>
                   </div>
                 </div>
               </div><!-- End Icon Box -->
@@ -168,12 +169,13 @@ if (isset($_SESSION['id'])) {
                     sugar, honey, and fruits to create a sweet taste. Common sweet dishes include cakes, pies, cookies,
                     and sweet breakfast items like waffles and pancakes.</p>
                   <div class="why-box">
-                    <a href="#" class="more-btn">discover </a>
+                    <a href="froid.php?type=froid" class="more-btn">discover </a>
                   </div>
                 </div>
               </div><!-- End Icon Box -->
             </div>
           </div>
+          </form>
         </div>
       </div>
     </section><!-- End Why Us Section -->

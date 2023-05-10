@@ -180,9 +180,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 														</td>
 
 														<td>
-															<a href="edit-user.php?edit=<?php echo $result->id; ?>"
-																onclick="return confirm('Do you want to Edit');">&nbsp; <i
-																	class="fa fa-pencil"></i></a>&nbsp;&nbsp;
 															<a href="userlist.php?del=<?php echo $result->id; ?>&name=<?php echo htmlentities($result->email); ?>"
 																onclick="return confirm('Do you want to Delete');"><i
 																	class="fa fa-trash" style="color:red"></i></a>&nbsp;&nbsp;

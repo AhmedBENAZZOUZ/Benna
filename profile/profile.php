@@ -186,54 +186,69 @@ if (isset($_POST['delete'])) {
                 <div class="card-body">
                   <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">My recipe</i></h6>
                   <div class="d-flex flex-wrap">
-                    <div class="card mb-3" style="width: 24rem; margin-right: 15px;">
-                      <img class="card-img-top" src="../assets/img/recette/default.png" alt="Card image cap">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                          the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                    <div class="card mb-3" style="width: 24rem; margin-right: 15px;">
-                      <img class="card-img-top" src="../assets/img/recette/default.png" alt="Card image cap">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                          the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                    <div class="card mb-3" style="width: 24rem; margin-right: 15px;">
-                      <img class="card-img-top" src="../assets/img/recette/default.png" alt="Card image cap">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                          the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                      <div class="card mb-3" style="width: 24rem; margin-right: 15px;">
-                      <img class="card-img-top" src="../assets/img/recette/default.png" alt="Card image cap">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                          the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                    </div>
+                  <form action="" method="GET">
+  <div class="row">
+    <?php
+    $query = "SELECT * FROM recette WHERE user_id = '$user_id'";
+    $result = mysqli_query($con, $query);
+    $recipes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    foreach ($recipes as $recipe) {
+      ?>
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <img class="card-img-top" src="../assets/img/profile/<?= $recipe['image']; ?>"
+            alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">
+              Name : <?= $recipe['name']; ?>
+            </h5>
+            <h5 class="card-title">
+              Preparation Time : <?= $recipe['prep_time']; ?>
+            </h5>
+            <h5 class="card-title">
+              Number of People : <?= $recipe['nb_people']; ?>
+            </h5>
+            <h5 class="card-title">
+             Difficulty : <?= $recipe['difficulty']; ?>
+            </h5>
+            <h5 class="card-title">
+              Type : <?= $recipe['type']; ?>
+            </h5>
+            <h5 class="card-title">
+              Ingredients : <?= $recipe['ingredient']; ?>
+            </h5>
+            <h5 class="card-title">
+              Instruction : <?= $recipe['instructions']; ?>
+            </h5>
+
+           
+            <a href="#" class="btn btn-danger">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <?php
+    }
+    ?>
+  </div>
+</form>
+
+
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-
-
         </div>
       </div>
 
+
+
+
     </div>
+  </div>
+
+  </div>
   </div>
 </body>
 
