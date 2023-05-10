@@ -275,7 +275,7 @@ if (isset($_POST['save_changes'])) {
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card">
-                                <div class="card-body">
+                                <!-- <div class="card-body">
                                     <h5 class="d-flex align-items-center mb-3">Project Status</h5>
                                     <p>Web Design</p>
                                     <div class="progress mb-3" style="height: 5px">
@@ -302,7 +302,7 @@ if (isset($_POST['save_changes'])) {
                                         <div class="progress-bar bg-info" role="progressbar" style="width: 66%"
                                             aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
