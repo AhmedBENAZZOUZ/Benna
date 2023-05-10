@@ -96,26 +96,6 @@ if (isset($_POST['delete'])) {
                   </div>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-twitter mr-2 icon-inline text-info">
-                    <path
-                      d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
-                    </path>
-                  </svg>Twitter</h6>
-                <span class="text-secondary">@bootdey</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-instagram mr-2 icon-inline text-danger">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>Instagram</h6>
-                <span class="text-secondary">bootdey</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <div class="row">
                   <div class="col-sm-12">
                     <i class="bi bi-trash3"></i>
@@ -186,51 +166,59 @@ if (isset($_POST['delete'])) {
                 <div class="card-body">
                   <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">My recipe</i></h6>
                   <div class="d-flex flex-wrap">
-                  <form action="" method="GET">
-  <div class="row">
-    <?php
-    $query = "SELECT * FROM recette WHERE user_id = '$user_id'";
-    $result = mysqli_query($con, $query);
-    $recipes = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    foreach ($recipes as $recipe) {
-      ?>
-      <div class="col-md-6">
-        <div class="card mb-3">
-          <img class="card-img-top" src="../assets/img/profile/<?= $recipe['image']; ?>"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">
-              Name : <?= $recipe['name']; ?>
-            </h5>
-            <h5 class="card-title">
-              Preparation Time : <?= $recipe['prep_time']; ?>
-            </h5>
-            <h5 class="card-title">
-              Number of People : <?= $recipe['nb_people']; ?>
-            </h5>
-            <h5 class="card-title">
-             Difficulty : <?= $recipe['difficulty']; ?>
-            </h5>
-            <h5 class="card-title">
-              Type : <?= $recipe['type']; ?>
-            </h5>
-            <h5 class="card-title">
-              Ingredients : <?= $recipe['ingredient']; ?>
-            </h5>
-            <h5 class="card-title">
-              Instruction : <?= $recipe['instructions']; ?>
-            </h5>
+                    <form action="" method="GET">
+                      <div class="row">
+                        <?php
+                        $query = "SELECT * FROM recette WHERE user_id = '$user_id'";
+                        $result = mysqli_query($con, $query);
+                        $recipes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                        foreach ($recipes as $recipe) {
+                          ?>
+                          <div class="col-md-6">
+                            <div class="card mb-3">
+                              <img class="card-img-top" src="../assets/img/recette/<?= $recipe['image']; ?>"
+                                alt="Card image cap">
+                              <div class="card-body">
+                                <h5 class="card-title">
+                                  Name :
+                                  <a href="../recette/recette.php?recId=<?php echo $recipe['id']; ?>" style="text-decoration:none;" class="text-danger"><?= $recipe['name']; ?></a>
+                                </h5>
+                                <h5 class="card-title">
+                                  Preparation Time :
+                                  <?= $recipe['prep_time']; ?>
+                                </h5>
+                                <h5 class="card-title">
+                                  Number of People :
+                                  <?= $recipe['nb_people']; ?>
+                                </h5>
+                                <h5 class="card-title">
+                                  Difficulty :
+                                  <?= $recipe['difficulty']; ?>
+                                </h5>
+                                <h5 class="card-title">
+                                  Type :
+                                  <?= $recipe['type']; ?>
+                                </h5>
+                                <h5 class="card-title">
+                                  Ingredients :
+                                  <?= $recipe['ingredient']; ?>
+                                </h5>
+                                <h5 class="card-title">
+                                  Instruction :
+                                  <?= $recipe['instructions']; ?>
+                                </h5>
 
-           
-            <a href="#" class="btn btn-danger">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <?php
-    }
-    ?>
-  </div>
-</form>
+
+                                <a href="../recette/recette.php?recId=<?= $recipe['id'] ?>#comment" class="btn btn-danger">View
+                                  Comments</a>
+                              </div>
+                            </div>
+                          </div>
+                          <?php
+                        }
+                        ?>
+                      </div>
+                    </form>
 
 
 

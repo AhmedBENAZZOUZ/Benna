@@ -114,69 +114,76 @@ if (isset($_SESSION['id'])) {
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
       <form action="" method="GET">
-      <div claxx ss="container" data-aos="fade-up">
-        <div class="row gy-4">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="why-box">
-              <h3>Why Choose Benna?</h3>
-              <p>
-                At Benna, we offer high-quality, easy-to-follow recipes that are both delicious and nutritious. Our
-                recipes are crafted to be approachable and use fresh, whole ingredients to ensure you're putting the
-                best into your body. Whether you're an experienced cook or just starting out, we have something for you.
-                Choose Benna for delicious, healthy meals that you'll actually want to make and enjoy!
-              </p>
-              <div class="text-center">
+        <div claxx ss="container" data-aos="fade-up">
+          <div class="row gy-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="why-box">
+                <h3>Why Choose Benna?</h3>
+                <p>
+                  At Benna, we offer high-quality, easy-to-follow recipes that are both delicious and nutritious. Our
+                  recipes are crafted to be approachable and use fresh, whole ingredients to ensure you're putting the
+                  best into your body. Whether you're an experienced cook or just starting out, we have something for
+                  you.
+                  Choose Benna for delicious, healthy meals that you'll actually want to make and enjoy!
+                </p>
+                <div class="text-center">
+                </div>
+              </div>
+            </div><!-- End Why Box -->
+            <div class="col-lg-8 d-flex align-items-center">
+              <div class="row gy-4">
+                <div class="col-xl-4" data-aos="fade-up" data-aos-delay="100">
+                  <div class="icon-box d-flex flex-column justify-content-center align-items-center"
+                    style="background-color: #ce1212;">
+                    <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
+                    <h4>Traditional Dishes</h4>
+                    <p>The Tunisian traditional kitchen is a vibrant fusion of flavors and influences from the
+                      Mediterranean, Middle Eastern, and North African regions. Tunisian cuisine is characterized by its
+                      use of spices, such as harissa, cumin, coriander, and mint,which add a depth of flavor to its
+                      dishes. Staple ingredients in Tunisian cuisine include grains like couscous and bulgur</p>
+                    <div class="why-box">
+                      <a href="salty.php?type=chaud" class="more-btn">discover </a>
+                    </div>
+                  </div>
+                </div><!-- End Icon Box -->
+                <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                  <div class="icon-box d-flex flex-column justify-content-center align-items-center"
+                    style="background-color: #ce1212;">
+                    <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
+                    <h4>Salty Dishes </h4>
+                    <p>This could include the use of salt, pepper, and herbs to enhance the flavors of dishes, as well
+                      as
+                      ingredients like cheese, cured meats, and olives to add a salty or savory element to meals. A
+                      "salty
+                      kitchen" may be a term used by chefs or food enthusiasts to describe a style of cooking that
+                      focuses
+                      on savory flavors and ingredients</p>
+                    <div class="why-box">
+                      <a href="salty.php?type=chaud" class="more-btn">discover </a>
+                    </div>
+                  </div>
+                </div><!-- End Icon Box -->
+                <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                  <div class="icon-box d-flex flex-column justify-content-center align-items-center"
+                    style="background-color: #ce1212;">
+                    <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
+                    <h4>Sweet Dishes</h4>
+                    <p>Sweet dishes are a type of cuisine that is characterized by its sugary or dessert-like
+                      ingredients
+                      and flavors. These dishes can be enjoyed as a dessert or a treat, and typically use ingredients
+                      like
+                      sugar, honey, and fruits to create a sweet taste. Common sweet dishes include cakes, pies,
+                      cookies,
+                      and sweet breakfast items like waffles and pancakes.</p>
+                    <div class="why-box">
+                      <a href="froid.php?type=froid" class="more-btn">discover </a>
+                    </div>
+                  </div>
+                </div><!-- End Icon Box -->
               </div>
             </div>
-          </div><!-- End Why Box -->
-          <div class="col-lg-8 d-flex align-items-center">
-            <div class="row gy-4">
-              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon-box d-flex flex-column justify-content-center align-items-center"
-                  style="background-color: #ce1212;">
-                  <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
-                  <h4>Traditional Dishes</h4>
-                  <p>The Tunisian traditional kitchen is a vibrant fusion of flavors and influences from the
-                    Mediterranean, Middle Eastern, and North African regions. Tunisian cuisine is characterized by its
-                    use of spices, such as harissa, cumin, coriander, and mint,which add a depth of flavor to its
-                    dishes. Staple ingredients in Tunisian cuisine include grains like couscous and bulgur</p>
-                  <div class="why-box">
-                    <a href="salty.php?type=chaud" class="more-btn">discover </a>
-                  </div>
-                </div>
-              </div><!-- End Icon Box -->
-              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon-box d-flex flex-column justify-content-center align-items-center"
-                  style="background-color: #ce1212;">
-                  <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
-                  <h4>Salty Dishes </h4>
-                  <p>This could include the use of salt, pepper, and herbs to enhance the flavors of dishes, as well as
-                    ingredients like cheese, cured meats, and olives to add a salty or savory element to meals. A "salty
-                    kitchen" may be a term used by chefs or food enthusiasts to describe a style of cooking that focuses
-                    on savory flavors and ingredients</p>
-                  <div class="why-box">
-                    <a href="salty.php?type=chaud" class="more-btn">discover </a>
-                  </div>
-                </div>
-              </div><!-- End Icon Box -->
-              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon-box d-flex flex-column justify-content-center align-items-center"
-                  style="background-color: #ce1212;">
-                  <i class="fa-solid fa-bowl-food" style="color: #000000;"></i>
-                  <h4>Sweet Dishes</h4>
-                  <p>Sweet dishes are a type of cuisine that is characterized by its sugary or dessert-like ingredients
-                    and flavors. These dishes can be enjoyed as a dessert or a treat, and typically use ingredients like
-                    sugar, honey, and fruits to create a sweet taste. Common sweet dishes include cakes, pies, cookies,
-                    and sweet breakfast items like waffles and pancakes.</p>
-                  <div class="why-box">
-                    <a href="froid.php?type=froid" class="more-btn">discover </a>
-                  </div>
-                </div>
-              </div><!-- End Icon Box -->
-            </div>
-          </div>
-          </form>
-        </div>
+      </form>
+      </div>
       </div>
     </section><!-- End Why Us Section -->
     <!-- ======= Stats Counter Section ======= -->
@@ -185,31 +192,55 @@ if (isset($_SESSION['id'])) {
         <div class="row gy-4">
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Comments</p>
+              <?php
+              $query_comment = "select * from comment;";
+              $result_comment = mysqli_query($con, $query_comment);
+              $nb_comment = mysqli_num_rows($result_comment);
+              ?>
+              <span>
+                <?= $nb_comment; ?>
+              </span>
+              <p>Comment</p>
             </div>
           </div><!-- End Stats Item -->
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>recette</p>
+              <?php
+              $query_recipe = "select * from recette;";
+              $result_recipe = mysqli_query($con, $query_recipe);
+              $nb_recipe = mysqli_num_rows($result_recipe);
+              ?>
+              <span>
+                <?= $nb_recipe; ?>
+              </span>
+              <p>Recipe</p>
             </div>
           </div>
           <!-- End Stats Item -->
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>ingredients</p>
+              <?php
+              $query_user = "select * from users;";
+              $result_user = mysqli_query($con, $query_user);
+              $nb_user = mysqli_num_rows($result_user);
+              ?>
+              <span>
+                <?= $nb_user; ?>
+              </span>
+              <p>Users</p>
             </div>
           </div><!-- End Stats Item -->
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>admin</p>
+              <?php
+              $query_admin = "select * from admin;";
+              $result_admin = mysqli_query($con, $query_admin);
+              $nb_admin = mysqli_num_rows($result_admin);
+              ?>
+              <span>
+                <?= $nb_admin; ?>
+              </span>
+              <p>Admin</p>
             </div>
           </div><!-- End Stats Item -->
         </div>
@@ -367,7 +398,8 @@ if (isset($_SESSION['id'])) {
                         </p>
                       </div>
                       <div class="d-flex flex-column align-items-end">
-                        <a href="recette/recette.php#comment?" class="btn btn-danger">View Comments</a>
+                        <a href="recette/recette.php?recId=<?= $row['id'] ?>#comment" class="btn btn-danger">View
+                          Comments</a>
                       </div>
                     </div>
                   </div>
